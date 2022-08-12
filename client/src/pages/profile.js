@@ -26,8 +26,7 @@ const Profile = () => {
               <option value="Art">Art </option>
             </select>
             <br></br>
-            <button className="main-btn" type="submit">
-              <br></br>
+            <button className="profile-btn" type="submit">
               Submit
             </button>
           </form>
