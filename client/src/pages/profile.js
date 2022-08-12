@@ -6,34 +6,6 @@ import Card from "./card";
 const Profile = (props) => {
   let navigate = useNavigate();
 
-  // const [subject, setSubject] = useState("");
-  // const initialState = {
-  //   value: "",
-  // };
-
-  // useEffect(() => {
-  //   const getCardbyType = async () => {
-  //     let res = await axios.get(`http://localhost:3001/card/card/${subject}`);
-  //     console.log(res.data);
-  //     setSubject(res.data);
-  //   };
-  //   getCardbyType();
-  // }, []);
-
-  // const handleChange = (event) => {
-  //   event.preventDefault();
-  //   setSubject({ ...subject, [event.target.type]: event.target.value });
-  //   console.log(event.target.value);
-  // };
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   setSubject(e.target.value);
-  //   console.log(e.target.value);
-  //   // getCardbyType();
-  //   navigate("/Card", { state: { subject: subject } });
-  // };
-
   const initialState = { value: "" };
   const [subject, setSubject] = useState(initialState);
 
@@ -60,7 +32,7 @@ const Profile = (props) => {
     e.preventDefault();
     // let res = await axios.post("http://localhost:3001/card/card", subject);
     setSubject(e.target.value);
-    console.log(subject);
+    console.log(subject); // subject is logging as dropdown value
     // navigate("/Card", subject);
   };
 
@@ -102,6 +74,7 @@ const Profile = (props) => {
         </div>
       </div>
       <Card subject={subject} />
+      {/* Card on same page? or continue to try to pass state? */}
     </div>
   );
 };
