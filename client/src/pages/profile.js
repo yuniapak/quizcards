@@ -1,8 +1,9 @@
-import { useNavigate, Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useNavigate, Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 
 const Profile = () => {
-  let navigate = useNavigate();
+  let navigate = useNavigate()
+
 
   const [subject, setSubject] = useState([]);
   const initialState = {
@@ -20,6 +21,7 @@ const Profile = () => {
     navigate("/Card");
     setSubject(initialState);
   };
+
 
   return (
     <div>
@@ -59,7 +61,7 @@ const Profile = () => {
         </body>
       </main>
     </div>
-  );
-};
+  )
+}
 
-export default Profile;
+export default Profile

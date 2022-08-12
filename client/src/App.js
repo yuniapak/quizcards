@@ -11,6 +11,7 @@ import Login from './pages/login'
 import Profile from './pages/profile'
 import Quiz from './pages/quiz'
 import Register from './pages/register'
+import axios from 'axios'
 
 // const linkStyle = {
 //   margin: "1rem",
@@ -22,11 +23,34 @@ function App() {
   const [authenticated, toggleAuthenticated] = useState(false)
   const [user, setUser] = useState(null)
 
+  const checkSession = async () => {
+    try {
+      const result = await axios.get(`http://localhost:3001/api/auth/session`)
+      console.log(result.data)
+      return result.data
+    } catch (error) {
+      throw error
+    }
+  }
+
   const handleLogOut = () => {
     setUser(null)
     toggleAuthenticated(false)
     localStorage.clear()
   }
+
+  const checkToken = async () => {
+    const user = await checkSession()
+    setUser(user)
+    toggleAuthenticated(true)
+  }
+
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (token) {
+      checkToken()
+    }
+  }, [])
 
   return (
     <div className="App">
