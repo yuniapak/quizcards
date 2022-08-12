@@ -1,7 +1,23 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 const Profile = () => {
   let navigate = useNavigate();
+
+  const [subject, setSubject] = useState("");
+  const initialState = {
+    type: " ",
+  };
+
+  // const handleChange = (event) => {
+  //   setIssues({ ...issues, [event.target.id]: event.target.value });
+  // };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setSubject(event);
+    console.log(subject);
+  };
 
   return (
     <div>
@@ -26,9 +42,9 @@ const Profile = () => {
               <option value="Art">Art </option>
             </select>
             <br></br>
-            <button className="profile-btn" type="submit">
+            <Link className="profile-btn" type="submit" to="/Cards">
               Submit
-            </button>
+            </Link>
           </form>
         </body>
       </main>
