@@ -1,14 +1,56 @@
-import { useNavigate, Link } from 'react-router-dom'
-import { useState, useEffect } from 'react'
 
-const Profile = () => {
-  let navigate = useNavigate()
+import { useNavigate, Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import Card from "./card";
+
+const Profile = (props) => {
+  let navigate = useNavigate();
 
 
-  const [subject, setSubject] = useState([]);
-  const initialState = {
-    value: "Select",
-  };
+  // const [subject, setSubject] = useState("");
+  // const initialState = {
+  //   value: "",
+  // };
+
+  // useEffect(() => {
+  //   const getCardbyType = async () => {
+  //     let res = await axios.get(`http://localhost:3001/card/card/${subject}`);
+  //     console.log(res.data);
+  //     setSubject(res.data);
+  //   };
+  //   getCardbyType();
+  // }, []);
+
+  // const handleChange = (event) => {
+  //   event.preventDefault();
+  //   setSubject({ ...subject, [event.target.type]: event.target.value });
+  //   console.log(event.target.value);
+  // };
+
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   setSubject(e.target.value);
+  //   console.log(e.target.value);
+  //   // getCardbyType();
+  //   navigate("/Card", { state: { subject: subject } });
+  // };
+
+  const initialState = { value: "" };
+  const [subject, setSubject] = useState(initialState);
+
+  useEffect(() => {
+    const getCardbyType = async () => {
+      try {
+        let res = await axios.get(`http://localhost:3001/card/card`);
+        console.log(res.data);
+        setSubject(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getCardbyType();
+  }, []);
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -18,27 +60,29 @@ const Profile = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    navigate("/Card");
-    setSubject(initialState);
+    // let res = await axios.post("http://localhost:3001/card/card", subject);
+    setSubject(e.target.value);
+    console.log(subject);
+    // navigate("/Card", subject);
   };
 
 
   return (
     <div>
-      <main className="profile-card">
+      <div className="profile-card">
         <div className="profile-card-header">
           Welcome <br></br>
           <br></br> userNAME!
         </div>
 
-        <body>
+        <div>
           <form className="profile-form" onSubmit={handleSubmit}>
             <label id="form-select" htmlFor="SubjectType">
               Select Subject
               <br></br>
             </label>
             <br></br>
-            <select id="SubjectType" onChange={handleChange} value={subject}>
+            <select id="value" onChange={handleChange} value={subject.value}>
               <option value="" disabled hidden>
                 Selection
               </option>
@@ -49,17 +93,18 @@ const Profile = () => {
               <option value="Art">Art </option>
             </select>
             <br></br>
-            <Link
+            <button
               className="profile-btn"
               type="submit"
               to="/Card"
               subject={subject}
             >
               Submit
-            </Link>
+            </button>
           </form>
-        </body>
-      </main>
+        </div>
+      </div>
+      <Card subject={subject} />
     </div>
   )
 }
