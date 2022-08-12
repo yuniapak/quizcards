@@ -16,21 +16,21 @@ const Register = () => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
   };
 
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   await RegisterUser({
-  //     name: formValues.name,
-  //     email: formValues.email,
-  //     password: formValues.password,
-  //   });
-  //   setFormValues({
-  //     name: "",
-  //     email: "",
-  //     password: "",
-  //     confirmPassword: "",
-  //   });
-  //   navigate("/Login");
-  // };
+  const handleSubmit = async (e) => {
+    // e.preventDefault();
+    // await RegisterUser({
+    //   name: formValues.name,
+    //   email: formValues.email,
+    //   password: formValues.password,
+    // });
+    // setFormValues({
+    //   name: "",
+    //   email: "",
+    //   password: "",
+    //   confirmPassword: "",
+    // });
+    navigate("/Login");
+  };
 
   return (
     <div className="signin col">
