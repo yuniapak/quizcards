@@ -1,3 +1,4 @@
+
 import { useNavigate, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -5,6 +6,7 @@ import Card from "./card";
 
 const Profile = (props) => {
   let navigate = useNavigate();
+
 
   // const [subject, setSubject] = useState("");
   // const initialState = {
@@ -64,6 +66,7 @@ const Profile = (props) => {
     // navigate("/Card", subject);
   };
 
+
   return (
     <div>
       <div className="profile-card">
@@ -103,7 +106,7 @@ const Profile = (props) => {
       </div>
       <Card subject={subject} />
     </div>
-  );
-};
+  )
+}
 
-export default Profile;
+export default Profile
