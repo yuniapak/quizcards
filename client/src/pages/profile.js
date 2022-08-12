@@ -1,4 +1,8 @@
+import { useNavigate } from "react-router-dom";
+
 const Profile = () => {
+  let navigate = useNavigate();
+
   return (
     <div>
       <main className="profile-card">
@@ -21,6 +25,11 @@ const Profile = () => {
               <option value="Literature">Literature </option>
               <option value="Art">Art </option>
             </select>
+            <br></br>
+            <button className="main-btn" type="submit">
+              <br></br>
+              Submit
+            </button>
           </form>
         </body>
       </main>

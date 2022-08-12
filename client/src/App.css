@@ -150,9 +150,8 @@ input{
   border-radius:10%;
   opacity: 80%;
   border:solid rgb(39, 100, 68);
-  border-width: 10px;
-
-  
+  border-width: 3px;
+  box-shadow: 2px 0px 40px rgba(0, 0, 0, 0.3);
 }
 
 .profile-card-header{
@@ -178,6 +177,7 @@ input{
   width: 60%;
   min-height: 8vh;
   border: solid rgb(39, 100, 68);
+  border-width: 3px;;
   color:rgb(39, 100, 68);
 }
 
