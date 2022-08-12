@@ -1,15 +1,37 @@
-import { useState } from "react";
+import { useState } from 'react'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
-const Login = () => {
-  const [formValues, setFormValues] = useState({ email: "", password: "" });
+const Login = ({ setUser, toggleAuthenticated }) => {
+  let navigate = useNavigate()
+  const [formValues, setFormValues] = useState({ email: '', password: '' })
 
+  const signIn = async (data) => {
+    try {
+      const result = await axios.post(
+        `http://localhost:3001/api/auth/login`,
+        data
+      )
+      localStorage.setItem('token', result.data.token)
+      console.log(result.data.user)
+      return result.data.user
+    } catch (error) {
+      throw error
+    }
+  }
   const handleChange = (e) => {
-    setFormValues({ ...formValues, [e.target.name]: e.target.value });
-  };
+    setFormValues({ ...formValues, [e.target.name]: e.target.value })
+  }
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-  };
+    e.preventDefault()
+    const payload = await signIn(formValues)
+    console.log(payload)
+    setFormValues({ email: '', password: '' })
+    setUser(payload)
+    toggleAuthenticated(true)
+    navigate('/Profile')
+  }
   return (
     <div className="signin col">
       <div className="card-overlay centered">
@@ -49,7 +71,7 @@ const Login = () => {
         </form>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login
