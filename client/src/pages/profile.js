@@ -7,6 +7,8 @@ import Card from "./card";
 const Profile = (props) => {
   let navigate = useNavigate();
 
+<<<<<<< HEAD
+=======
 
   // const [subject, setSubject] = useState("");
   // const initialState = {
@@ -36,6 +38,7 @@ const Profile = (props) => {
   //   navigate("/Card", { state: { subject: subject } });
   // };
 
+>>>>>>> edcb69b5b4ceed71a0dd351a8ae13216b137ec01
   const initialState = { value: "" };
   const [subject, setSubject] = useState(initialState);
 
@@ -62,7 +65,7 @@ const Profile = (props) => {
     e.preventDefault();
     // let res = await axios.post("http://localhost:3001/card/card", subject);
     setSubject(e.target.value);
-    console.log(subject);
+    console.log(subject); // subject is logging as dropdown value
     // navigate("/Card", subject);
   };
 
@@ -105,6 +108,7 @@ const Profile = (props) => {
         </div>
       </div>
       <Card subject={subject} />
+      {/* Card on same page? or continue to try to pass state? */}
     </div>
   )
 }
