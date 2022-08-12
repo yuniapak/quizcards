@@ -2,13 +2,19 @@ const Profile = () => {
   return (
     <div>
       <main className="profile-card">
-        <div className="profile-card-header">Welcome userNAME!</div>
+        <div className="profile-card-header">
+          Welcome <br></br>
+          <br></br> userNAME!
+        </div>
 
         <body>
-          <form>
-            <label htmlFor="issueType">Select Subject</label>
+          <form className="profile-form">
+            <label id="form-select" htmlFor="SubjectType">
+              Select Subject
+              <br></br>
+            </label>
             <br></br>
-            <select id="issueType">
+            <select id="SubjectType">
               <option value="Math">Math</option>
               <option value="History">History</option>
               <option value="Science">Science </option>

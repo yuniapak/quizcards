@@ -141,7 +141,7 @@ input{
 /* -----------Profile Card-----------------*/
 
 .profile-card{
-  background-color: gray;
+  background-color: rgb(139, 171, 147);
   width: 80vh;
   min-height: 80vh;
   margin:auto;
@@ -149,10 +149,36 @@ input{
   margin-bottom: 8%;
   border-radius:10%;
   opacity: 80%;
+  border:solid rgb(39, 100, 68);
+  border-width: 10px;
+
   
 }
 
 .profile-card-header{
   position: relative;
-
+  font-size: 3rem;
+  padding: 5rem;
+  padding-bottom: 10rem; 
+  font-family: 'Rubik Dirt';
+  color: rgb(39, 100, 68);
 }
+
+
+#form-select{
+  font-size: 40px;
+  font-family: 'Rubik Dirt';
+  color: rgb(39, 100, 68);
+}
+
+#SubjectType{
+  font-size: 30px;
+  font-family: 'Rubik Dirt';
+  text-align: center;
+  width: 60%;
+  min-height: 8vh;
+  border: solid rgb(39, 100, 68);
+  color:rgb(39, 100, 68);
+}
+
+
