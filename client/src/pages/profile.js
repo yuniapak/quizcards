@@ -1,4 +1,3 @@
-
 import { useNavigate, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -7,38 +6,6 @@ import Card from "./card";
 const Profile = (props) => {
   let navigate = useNavigate();
 
-<<<<<<< HEAD
-=======
-
-  // const [subject, setSubject] = useState("");
-  // const initialState = {
-  //   value: "",
-  // };
-
-  // useEffect(() => {
-  //   const getCardbyType = async () => {
-  //     let res = await axios.get(`http://localhost:3001/card/card/${subject}`);
-  //     console.log(res.data);
-  //     setSubject(res.data);
-  //   };
-  //   getCardbyType();
-  // }, []);
-
-  // const handleChange = (event) => {
-  //   event.preventDefault();
-  //   setSubject({ ...subject, [event.target.type]: event.target.value });
-  //   console.log(event.target.value);
-  // };
-
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   setSubject(e.target.value);
-  //   console.log(e.target.value);
-  //   // getCardbyType();
-  //   navigate("/Card", { state: { subject: subject } });
-  // };
-
->>>>>>> edcb69b5b4ceed71a0dd351a8ae13216b137ec01
   const initialState = { value: "" };
   const [subject, setSubject] = useState(initialState);
 
@@ -68,7 +35,6 @@ const Profile = (props) => {
     console.log(subject); // subject is logging as dropdown value
     // navigate("/Card", subject);
   };
-
 
   return (
     <div>
@@ -110,7 +76,7 @@ const Profile = (props) => {
       <Card subject={subject} />
       {/* Card on same page? or continue to try to pass state? */}
     </div>
-  )
-}
+  );
+};
 
-export default Profile
+export default Profile;
