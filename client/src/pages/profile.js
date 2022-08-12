@@ -1,23 +1,23 @@
-import { useNavigate, Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useNavigate, Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
 
 const Profile = () => {
-  let navigate = useNavigate();
+  let navigate = useNavigate()
 
-  const [subject, setSubject] = useState("");
+  const [subject, setSubject] = useState('')
   const initialState = {
-    type: " ",
-  };
+    type: ' '
+  }
 
-  // const handleChange = (event) => {
-  //   setIssues({ ...issues, [event.target.id]: event.target.value });
-  // };
+  const handleChange = (event) => {
+    setIssues({ ...issues, [event.target.id]: event.target.value })
+  }
 
   const handleSubmit = (event) => {
-    event.preventDefault();
-    setSubject(event);
-    console.log(subject);
-  };
+    event.preventDefault()
+    setSubject(event)
+    console.log(subject)
+  }
 
   return (
     <div>
@@ -49,7 +49,7 @@ const Profile = () => {
         </body>
       </main>
     </div>
-  );
-};
+  )
+}
 
-export default Profile;
+export default Profile
