@@ -6,8 +6,8 @@ function Nav({authenticated, user, handleLogOut}) {
       <nav className="nav-bar">
       <h1 className="nav-title">Quizards!</h1>
       <div className="nav-link">
-        <NavLink className="nav-link1" to="/">
-          Home |
+        <NavLink className="nav-link1" to="/Profile">
+          Profile |
         </NavLink>
         <NavLink className="nav-link1" to="/" onClick={handleLogOut}>
           {" "}
