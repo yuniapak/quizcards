@@ -3,10 +3,11 @@ const Card = ({ cardsObj }) => {
 
   return (
     <div>
-      <p>Card</p>
+      <p>Cards</p>
       {cardsObj.map((card) => (
         <div key={card.id}>
-          <h1>{card.question}</h1>
+          <h1>Question: {card.question}</h1>
+          <h1>Answer: {card.answer}</h1>
         </div>
       ))}
     </div>
