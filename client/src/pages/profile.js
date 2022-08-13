@@ -3,41 +3,44 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import Card from './card'
 
-const Profile = (props) => {
+const Profile = () => {
   let navigate = useNavigate()
 
   const initialState = { value: '' }
   const [subject, setSubject] = useState(initialState)
+  const [cardsObj, setCardsObj] = useState([])
 
   const getCardbyType = async (value) => {
     try {
       let res = await axios.get(`http://localhost:3001/api/card/card/${value}`)
       console.log(res.data)
-      setSubject(res.data)
+      //setting result to useState to pass through
+      setCardsObj(res.data)
     } catch (err) {
       console.log(err)
     }
   }
-  // useEffect(() => {
-  //   getCardbyType();
-  // }, []);
 
   const handleChange = (event) => {
     event.preventDefault()
     setSubject(event.target.value)
     console.log(event.target.value)
   }
+  //mapping through axios res.data and passing as a state through navigate to Card
+  const showCardsByType = (cards) => {
+    cards.map((card) => navigate(`/Card`, { state: { cards: card } }))
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    navigate('/Card', subject)
-    //let res = await axios.get("http://localhost:3001/card/card");
     setSubject(e.target.value)
+    console.log(e.target.value)
+    //calling axios on submit
     getCardbyType(subject)
-    // console.log(res.data) // subject is logging as dropdown value
+    //calling navigate with use state assigned to res.data from axios
+    showCardsByType(cardsObj)
   }
 
-  console.log(subject)
   return (
     <div>
       <div className="profile-card">
@@ -69,7 +72,6 @@ const Profile = (props) => {
               className="profile-btn"
               type="submit"
               to="/Card"
-              subject={subject}
             >
               Submit
             </button>
