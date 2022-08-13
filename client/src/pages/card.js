@@ -1,17 +1,14 @@
-import { useLocation } from 'react-router-dom'
+const Card = ({ cardsObj }) => {
+  cardsObj.map((card) => console.log(card))
 
-const Card = () => {
-  let location = useLocation()
-  console.log(location.state.cards)
-  const initialState = {
-    question: `${location.state.cards.question}`
-  }
-  // cardsObj.map((card) => console.log(card))
-  // console.log(cardsObj)
   return (
     <div>
       <p>Card</p>
-      <h1>{initialState.question}</h1>
+      {cardsObj.map((card) => (
+        <div key={card.id}>
+          <h1>{card.question}</h1>
+        </div>
+      ))}
     </div>
   )
 }
