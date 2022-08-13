@@ -1,24 +1,10 @@
 import { useState } from 'react'
-import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
-const Login = ({ setUser, toggleAuthenticated }) => {
+const Login = ({ setUser, toggleAuthenticated, signIn }) => {
   let navigate = useNavigate()
   const [formValues, setFormValues] = useState({ email: '', password: '' })
 
-  const signIn = async (data) => {
-    try {
-      const result = await axios.post(
-        `http://localhost:3001/api/auth/login`,
-        data
-      )
-      localStorage.setItem('token', result.data.token)
-      console.log(result.data.user)
-      return result.data.user
-    } catch (error) {
-      throw error
-    }
-  }
   const handleChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value })
   }
