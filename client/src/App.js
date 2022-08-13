@@ -12,7 +12,7 @@ import Profile from './pages/profile'
 import Quiz from './pages/quiz'
 import Register from './pages/register'
 import axios from 'axios'
-
+import Client from './services/api'
 // const linkStyle = {
 //   margin: "1rem",
 //   textDecoration: "none",
@@ -26,23 +26,20 @@ function App() {
 
   const signIn = async (data) => {
     try {
-      const result = await axios.post(
-        `http://localhost:3001/api/auth/login`,
-        data
-      )
+      const result = await Client.post(`/auth/login`, data)
       localStorage.setItem('token', result.data.token)
       console.log(result.data.user)
       return result.data.user
     } catch (error) {
+      console.log('checkout session')
       throw error
     }
   }
 
   const checkSession = async () => {
     try {
-      const result = await axios.get(`http://localhost:3001/api/auth/session`)
-      console.log(result.data)
-      return result.data
+      const res = await Client.get('/auth/session')
+      return res.data
     } catch (error) {
       throw error
     }
