@@ -9,16 +9,16 @@ const Profile = (props) => {
   const initialState = { value: "" };
   const [subject, setSubject] = useState(initialState);
 
+  const getCardbyType = async () => {
+    try {
+      let res = await axios.get(`http://localhost:3001/card/card`);
+      console.log(res.data);
+      setSubject(res.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
   useEffect(() => {
-    const getCardbyType = async () => {
-      try {
-        let res = await axios.get(`http://localhost:3001/card/card`);
-        console.log(res.data);
-        setSubject(res.data);
-      } catch (err) {
-        console.log(err);
-      }
-    };
     getCardbyType();
   }, []);
 
@@ -30,12 +30,13 @@ const Profile = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // let res = await axios.post("http://localhost:3001/card/card", subject);
+    navigate("/Card", subject);
+    let res = await axios.get("http://localhost:3001/card/card");
     setSubject(e.target.value);
-    console.log(subject); // subject is logging as dropdown value
-    // navigate("/Card", subject);
+    console.log(res.data); // subject is logging as dropdown value
   };
 
+  console.log(subject);
   return (
     <div>
       <div className="profile-card">
@@ -63,6 +64,7 @@ const Profile = (props) => {
             </select>
             <br></br>
             <button
+              onClick={handleSubmit()}
               className="profile-btn"
               type="submit"
               to="/Card"
@@ -73,8 +75,6 @@ const Profile = (props) => {
           </form>
         </div>
       </div>
-      <Card subject={subject} />
-      {/* Card on same page? or continue to try to pass state? */}
     </div>
   );
 };
