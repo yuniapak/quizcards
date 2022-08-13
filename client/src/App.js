@@ -23,6 +23,20 @@ function App() {
   const [authenticated, toggleAuthenticated] = useState(false)
   const [user, setUser] = useState(null)
 
+  const signIn = async (data) => {
+    try {
+      const result = await axios.post(
+        `http://localhost:3001/api/auth/login`,
+        data
+      )
+      localStorage.setItem('token', result.data.token)
+      console.log(result.data.user)
+      return result.data.user
+    } catch (error) {
+      throw error
+    }
+  }
+
   const checkSession = async () => {
     try {
       const result = await axios.get(`http://localhost:3001/api/auth/session`)
@@ -55,7 +69,11 @@ function App() {
   return (
     <div className="App">
       <nav>
-        <Nav />
+        <Nav
+          authenticated={authenticated}
+          user={user}
+          handleLogOut={handleLogOut}
+        />
       </nav>
 
       <div>
@@ -70,6 +88,7 @@ function App() {
               <Login
                 setUser={setUser}
                 toggleAuthenticated={toggleAuthenticated}
+                signIn={signIn}
               />
             }
           />
