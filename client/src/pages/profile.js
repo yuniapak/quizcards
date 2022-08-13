@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import Card from './card'
 
-const Profile = ({ setCardsObj }) => {
+const Profile = ({ setCardsObj, userName }) => {
   let navigate = useNavigate()
 
   const initialState = { value: '' }
@@ -40,7 +40,7 @@ const Profile = ({ setCardsObj }) => {
       <div className="profile-card">
         <div className="profile-card-header">
           Welcome <br></br>
-          <br></br> userNAME!
+          <br></br> {userName}
         </div>
 
         <div>
