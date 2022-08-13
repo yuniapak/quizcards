@@ -3,12 +3,11 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import Card from './card'
 
-const Profile = () => {
+const Profile = ({ setCardsObj }) => {
   let navigate = useNavigate()
 
   const initialState = { value: '' }
   const [subject, setSubject] = useState(initialState)
-  const [cardsObj, setCardsObj] = useState([])
 
   const getCardbyType = async (value) => {
     try {
@@ -26,19 +25,14 @@ const Profile = () => {
     setSubject(event.target.value)
     console.log(event.target.value)
   }
-  //mapping through axios res.data and passing as a state through navigate to Card
-  const showCardsByType = (cards) => {
-    cards.map((card) => navigate(`/Card`, { state: { cards: card } }))
-  }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    setSubject(e.target.value)
-    console.log(e.target.value)
+    // setSubject(e.target.value)
+    // console.log(e.target.value)
     //calling axios on submit
     getCardbyType(subject)
-    //calling navigate with use state assigned to res.data from axios
-    showCardsByType(cardsObj)
+    navigate(`/Card`)
   }
 
   return (

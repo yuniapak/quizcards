@@ -22,6 +22,7 @@ import axios from 'axios'
 function App() {
   const [authenticated, toggleAuthenticated] = useState(false)
   const [user, setUser] = useState(null)
+  const [cardsObj, setCardsObj] = useState([])
 
   const signIn = async (data) => {
     try {
@@ -80,7 +81,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/AddCard" element={<AddCard />} />
-          <Route path="/Card" element={<Card />} />
+          <Route path="/Card" element={<Card cardsObj={cardsObj} />} />
           <Route path="/Card/:id" element={<EditCard />} />
           <Route
             path="/Login"
@@ -92,7 +93,10 @@ function App() {
               />
             }
           />
-          <Route path="/Profile" element={<Profile />} />
+          <Route
+            path="/Profile"
+            element={<Profile setCardsObj={setCardsObj} />}
+          />
           <Route path="/Card/Quiz" element={<Quiz />} />
           <Route path="/Register" element={<Register />} />
         </Routes>
