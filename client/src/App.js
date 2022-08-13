@@ -23,12 +23,14 @@ function App() {
   const [authenticated, toggleAuthenticated] = useState(false)
   const [user, setUser] = useState(null)
   const [cardsObj, setCardsObj] = useState([])
+  const [userName, setUserName] = useState('')
 
   const signIn = async (data) => {
     try {
       const result = await Client.post(`/auth/login`, data)
       localStorage.setItem('token', result.data.token)
       console.log(result.data.user)
+      getUserName(result.data.user.id)
       return result.data.user
     } catch (error) {
       console.log('checkout session')
@@ -63,7 +65,10 @@ function App() {
       checkToken()
     }
   }, [])
-
+  const getUserName = async (userId) => {
+    const result = await axios.get(`http://localhost:3001/api/user/${userId}`)
+    setUserName(result.data.name)
+  }
   return (
     <div className="App">
       <nav>
@@ -92,7 +97,7 @@ function App() {
           />
           <Route
             path="/Profile"
-            element={<Profile setCardsObj={setCardsObj} />}
+            element={<Profile setCardsObj={setCardsObj} userName={userName} />}
           />
           <Route path="/Card/Quiz" element={<Quiz />} />
           <Route path="/Register" element={<Register />} />
