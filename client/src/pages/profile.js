@@ -3,11 +3,12 @@ import { useState, useEffect } from 'react'
 import axios from 'axios'
 import Card from './card'
 
-const Profile = ({ setCardsObj, userName }) => {
+const Profile = ({ setCardsObj, user }) => {
   let navigate = useNavigate()
 
   const initialState = { value: '' }
   const [subject, setSubject] = useState(initialState)
+  const [userName, setUserName] = useState('')
 
   const getCardbyType = async (value) => {
     try {
@@ -21,19 +22,23 @@ const Profile = ({ setCardsObj, userName }) => {
   }
 
   const handleChange = (event) => {
-    event.preventDefault()
+    //event.preventDefault()
     setSubject(event.target.value)
     console.log(event.target.value)
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    // setSubject(e.target.value)
-    // console.log(e.target.value)
     //calling axios on submit
     getCardbyType(subject)
     navigate(`/Card`)
   }
+  const getUserName = async () => {
+    console.log(user)
+    const result = await axios.get(`http://localhost:3001/api/user/${user.id}`)
+    setUserName(result.data.name)
+  }
+  getUserName()
 
   return (
     <div>
