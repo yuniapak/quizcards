@@ -29,7 +29,6 @@ function App() {
       const result = await Client.post(`/auth/login`, data)
       localStorage.setItem('token', result.data.token)
       console.log(result.data.user)
-
       return result.data.user
     } catch (error) {
       console.log('checkout session')

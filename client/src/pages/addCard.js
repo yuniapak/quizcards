@@ -27,18 +27,15 @@ const AddCard = ({ user }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    await addNewCard({
-      type: newCard.type,
-      question: newCard.question,
-      answer: newCard.answer
-    })
+    await addNewCard(newCard)
+    console.log(newCard)
     setNewCard({
       type: '',
       question: '',
       answer: ''
     })
-    //props.onSubmit(e)
-    navigate('/Card')
+    //navigate for now, maybe change to different page later
+    navigate('/Profile')
   }
 
   return (
@@ -49,7 +46,12 @@ const AddCard = ({ user }) => {
           <br></br>
         </label>
         <br></br>
-        <select id="value" onChange={handleChange} value={newCard.type}>
+        <select
+          id="value"
+          name="type"
+          onChange={handleChange}
+          value={newCard.type}
+        >
           <option value="" disabled hidden>
             Selection
           </option>
@@ -64,7 +66,7 @@ const AddCard = ({ user }) => {
           onChange={handleChange}
           name="question"
           type="text"
-          placeholder="How many turtlest in ocean?"
+          placeholder="Your question?"
           value={newCard.question}
           required
         />
