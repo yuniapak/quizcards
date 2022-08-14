@@ -1,5 +1,12 @@
+import { useNavigate } from "react-router-dom";
+
 const Card = ({ cardsObj }) => {
-  cardsObj.map((card) => console.log(card))
+  cardsObj.map((card) => console.log(card));
+
+  let navigate = useNavigate();
+  const editCard = (card) => {
+    navigate(`${card.Id}`, { state: { card: card } });
+  };
 
   return (
     <div>
@@ -8,10 +15,11 @@ const Card = ({ cardsObj }) => {
         <div key={card.id}>
           <h1>Question: {card.question}</h1>
           <h1>Answer: {card.answer}</h1>
+          <button onClick={() => editCard(card)}> Edit</button>
         </div>
       ))}
     </div>
-  )
-}
+  );
+};
 
-export default Card
+export default Card;
