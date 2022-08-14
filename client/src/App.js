@@ -21,12 +21,10 @@ function App() {
 
   const signIn = async (data) => {
     try {
-
-      const result = await Client.post(`/auth/login`, data)
-      localStorage.setItem('token', result.data.token)
-      console.log(result.data.user)
-      return result.data.user
-
+      const result = await Client.post(`/auth/login`, data);
+      localStorage.setItem("token", result.data.token);
+      console.log(result.data.user);
+      return result.data.user;
     } catch (error) {
       console.log("checkout session");
       throw error;
@@ -76,7 +74,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/AddCard" element={<AddCard user={user} />} />
           <Route path="/Card" element={<Card cardsObj={cardsObj} />} />
-          <Route path="/Card/:id" element={<EditCard />} />
+          <Route path="/Card/*" element={<EditCard />} />
           <Route
             path="/Login"
             element={
