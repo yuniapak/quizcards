@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+
 const EditCard = (props) => {
   let location = useLocation();
   let navigate = useNavigate();
@@ -38,12 +39,14 @@ const EditCard = (props) => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    await makeEdits(cardEdit);
-    setCardEdit(cardEdit);
-    console.log(cardEdit);
-    navigate(`/card`);
-  };
+
+    e.preventDefault()
+    await makeEdits(cardEdit)
+    //setCardEdit(cardEdit);
+    console.log(cardEdit)
+    navigate(`/card`)
+  }
+
 
   return (
     <div>
