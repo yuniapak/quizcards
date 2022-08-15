@@ -3,10 +3,9 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Card from "./card";
 
-const Profile = ({ setCardsObj, user }) => {
+const Profile = ({ setCardsObj, user, getCardbyType, setSubject, subject }) => {
   let navigate = useNavigate();
   const initialState = { value: "" };
-  const [subject, setSubject] = useState("");
   const [userName, setUserName] = useState("");
   const [loading, setLoading] = useState(true);
   const [types, setTypes] = useState([]);
@@ -22,20 +21,6 @@ const Profile = ({ setCardsObj, user }) => {
       setLoading(false);
     } catch (error) {
       return error;
-    }
-  };
-
-  const getCardbyType = async (subject) => {
-    try {
-      let res = await axios.get(
-        `http://localhost:3001/api/card/cards/${subject}`
-      );
-      console.log(res.data);
-      //setting result to useState to pass through
-      setCardsObj(res.data);
-      setSubject(initialState);
-    } catch (err) {
-      console.log(err);
     }
   };
 
