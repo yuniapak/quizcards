@@ -19,7 +19,7 @@ const Login = ({ setUser, toggleAuthenticated, signIn }) => {
     navigate("/Profile");
   };
   return (
-    <div className="signin col">
+    <div className="signin col , main-div">
       <div className="card-overlay centered">
         <form className="col" onSubmit={handleSubmit}>
           <div className="input-wrapper">

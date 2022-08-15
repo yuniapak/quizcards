@@ -1,20 +1,18 @@
-
-import { useNavigate } from 'react-router-dom'
-import axios from 'axios'
-import { useEffect } from 'react'
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useEffect } from "react";
 
 const Card = ({ cardsObj, getCardbyType, subject }) => {
-  cardsObj.map((card) => console.log(card))
-  let navigate = useNavigate()
+  cardsObj.map((card) => console.log(card));
+  let navigate = useNavigate();
 
   const editCard = (card) => {
-    navigate(`${card.Id}`, { state: { card: card } })
-    console.log(cardsObj)
-  }
+    navigate(`${card.Id}`, { state: { card: card } });
+    console.log(cardsObj);
+  };
   useEffect(() => {
-    getCardbyType(subject)
-  }, [])
-
+    getCardbyType(subject);
+  }, []);
 
   useEffect(() => {
     getCardbyType(subject);
@@ -29,7 +27,7 @@ const Card = ({ cardsObj, getCardbyType, subject }) => {
   };
 
   return (
-    <div>
+    <div className="main-div">
       <p>Cards</p>
       {cardsObj.map((card) => (
         <div key={card.id}>
