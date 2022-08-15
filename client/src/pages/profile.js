@@ -7,41 +7,65 @@ import Card from "./card";
 
 // o_0 //
 const Profile = ({ setCardsObj, user }) => {
-  let navigate = useNavigate();
 
-  const initialState = { value: "" };
-  const [subject, setSubject] = useState(initialState);
-  const [userName, setUserName] = useState("");
+  let navigate = useNavigate()
+  const initialState = { value: '' }
+  const [subject, setSubject] = useState(initialState)
+  const [userName, setUserName] = useState('')
+  const [types, setTypes] = useState([])
+
+  const getTypes = async () => {
+    try {
+      let result = await axios.get(
+        `http://localhost:3001/api/card/card/${user.id}`
+      )
+      setTypes(result.data.map(({ type }) => ({ label: type, value: type })))
+    } catch (error) {
+      return error
+    }
+  }
+
+  useEffect(() => {
+    getTypes()
+  }, [])
+
 
   const getCardbyType = async (value) => {
     try {
       let res = await axios.get(`http://localhost:3001/api/card/card/${value}`);
       console.log(res.data);
       //setting result to useState to pass through
-      setCardsObj(res.data);
+      setCardsObj(res.data)
+      console.log(res.data)
+
     } catch (err) {
       console.log(err);
     }
   };
 
   const handleChange = (event) => {
-    //event.preventDefault()
-    setSubject(event.target.value);
-    console.log(event.target.value);
-  };
+
+    event.preventDefault()
+    setSubject(event.target.value)
+    console.log(event.target.value)
+  }
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     //calling axios on submit
-    getCardbyType(subject);
-    navigate(`/Card`);
-  };
+
+    getCardbyType(subject)
+    setSubject(initialState)
+    //navigate(`/Card`)
+  }
   const getUserName = async () => {
-    console.log(user);
-    const result = await axios.get(`http://localhost:3001/api/user/${user.id}`);
-    setUserName(result.data.name);
-  };
-  getUserName();
+    console.log(user)
+    const result = await axios.get(`http://localhost:3001/api/user/${user.id}`)
+    setUserName(result.data.name)
+  }
+  // getUserName()
+
 
   return (
     <div>
@@ -62,11 +86,16 @@ const Profile = ({ setCardsObj, user }) => {
               <option value="" disabled hidden>
                 Selection
               </option>
-              <option value="Math">Math</option>
+              {types.map(({ value, label }) => (
+                <option key={value} value={value}>
+                  {label}
+                </option>
+              ))}
+              {/* <option value="Math">Math</option>
               <option value="History">History</option>
               <option value="Science">Science </option>
               <option value="Literature">Literature </option>
-              <option value="Art">Art </option>
+              <option value="Art">Art </option> */}
             </select>
             <br></br>
             <button
