@@ -62,7 +62,7 @@ const EditCard = (props) => {
             name="question"
             type="text"
             placeholder={initialState.question}
-            dafaultValue={initialState.question}
+            defaultValue={initialState.question}
             onChange={handleChange}
           ></input>
           <br></br>
@@ -72,7 +72,7 @@ const EditCard = (props) => {
             name="answer"
             type="text"
             placeholder={initialState.answer}
-            defautltValue={initialState.answer}
+            defaultValue={initialState.answer}
             onChange={handleChange}
           ></input>
           <br></br>
