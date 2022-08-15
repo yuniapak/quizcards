@@ -25,12 +25,14 @@ const Profile = ({ setCardsObj, user }) => {
     }
   };
 
-  const getCardbyType = async (value) => {
+  const getCardbyType = async (subject) => {
     try {
       let res = await axios.get(
-        `http://localhost:3001/api/card/cards/${value}`
-      );
-      console.log(res.data);
+
+        `http://localhost:3001/api/card/cards/${subject}`
+      )
+      console.log(res.data)
+
       //setting result to useState to pass through
       setCardsObj(res.data);
       setSubject(initialState);
@@ -48,10 +50,10 @@ const Profile = ({ setCardsObj, user }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     //calling axios on submit
-    getCardbyType(subject);
-    console.log(subject);
-    navigate(`/Card`);
-  };
+
+    getCardbyType(subject)
+    navigate(`/Card`)
+  }
 
   const getUserName = async () => {
     console.log(user);
@@ -88,9 +90,7 @@ const Profile = ({ setCardsObj, user }) => {
                 Selection
               </option>
               {types.map(({ value, label }) => (
-                <option key={value} value={value}>
-                  {label}
-                </option>
+                <option value={value}>{label}</option>
               ))}
               {/* <option value="Math">Math</option>
               <option value="History">History</option>
