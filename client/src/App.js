@@ -21,7 +21,7 @@ function App() {
   const [subject, setSubject] = useState('')
   const [loading, setLoading] = useState(true)
   const [types, setTypes] = useState([])
-
+  let currentTypes = []
   const signIn = async (data) => {
     try {
       const result = await Client.post(`/auth/login`, data)
@@ -67,8 +67,21 @@ function App() {
       let result = await axios.get(
         `http://localhost:3001/api/card/card/${user.id}`
       )
+      result.data.map(({ type }) => {
+        currentTypes.push(type)
+      })
+      for (let i = 0; i < currentTypes.length; i++) {
+        for (let j = 0; j < currentTypes.length; j++) {
+          if (i !== j) {
+            if (currentTypes[i] === currentTypes[j]) {
+              currentTypes.splice(1, [i])
+            }
+          }
+          console.log(currentTypes)
+        }
+        setTypes(currentTypes.map((type) => ({ label: type, value: type })))
+      }
 
-      setTypes(result.data.map(({ type }) => ({ label: type, value: type })))
       console.log(result.data)
       setLoading(false)
     } catch (error) {
