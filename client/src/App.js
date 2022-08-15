@@ -92,7 +92,7 @@ function App() {
   const getCardbyType = async (subject) => {
     try {
       let res = await axios.get(
-        `http://localhost:3001/api/card/cards/${subject}`
+        `http://localhost:3001/api/card/find/${user.id}/${subject}`
       )
       console.log(res.data)
       //setting result to useState to pass through
