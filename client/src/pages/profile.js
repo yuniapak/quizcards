@@ -1,9 +1,13 @@
-import { useNavigate, Link } from 'react-router-dom'
-import { useState, useEffect } from 'react'
-import axios from 'axios'
-import Card from './card'
+import { useNavigate, Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import Card from "./card";
 
+//-------------------------Yun is the best! thank you!----------------------------//
+
+// o_0 //
 const Profile = ({ setCardsObj, user }) => {
+
   let navigate = useNavigate()
   const initialState = { value: '' }
   const [subject, setSubject] = useState(initialState)
@@ -25,27 +29,32 @@ const Profile = ({ setCardsObj, user }) => {
     getTypes()
   }, [])
 
+
   const getCardbyType = async (value) => {
     try {
-      let res = await axios.get(`http://localhost:3001/api/card/card/${value}`)
-      console.log(res.data)
+      let res = await axios.get(`http://localhost:3001/api/card/card/${value}`);
+      console.log(res.data);
       //setting result to useState to pass through
       setCardsObj(res.data)
       console.log(res.data)
+
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
-  }
+  };
 
   const handleChange = (event) => {
+
     event.preventDefault()
     setSubject(event.target.value)
     console.log(event.target.value)
   }
 
+
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     //calling axios on submit
+
     getCardbyType(subject)
     setSubject(initialState)
     //navigate(`/Card`)
@@ -56,6 +65,7 @@ const Profile = ({ setCardsObj, user }) => {
     setUserName(result.data.name)
   }
   // getUserName()
+
 
   return (
     <div>
@@ -100,7 +110,7 @@ const Profile = ({ setCardsObj, user }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Profile
+export default Profile;
