@@ -1,23 +1,23 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Login = ({ setUser, toggleAuthenticated, signIn }) => {
-  let navigate = useNavigate()
-  const [formValues, setFormValues] = useState({ email: '', password: '' })
+  let navigate = useNavigate();
+  const [formValues, setFormValues] = useState({ email: "", password: "" });
 
   const handleChange = (e) => {
-    setFormValues({ ...formValues, [e.target.name]: e.target.value })
-  }
+    setFormValues({ ...formValues, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    const payload = await signIn(formValues)
-    console.log(payload)
-    setFormValues({ email: '', password: '' })
-    setUser(payload)
-    toggleAuthenticated(true)
-    navigate('/Profile')
-  }
+    e.preventDefault();
+    const payload = await signIn(formValues);
+    console.log(payload);
+    setFormValues({ email: "", password: "" });
+    setUser(payload);
+    toggleAuthenticated(true);
+    navigate("/Profile");
+  };
   return (
     <div className="signin col">
       <div className="card-overlay centered">
@@ -57,7 +57,7 @@ const Login = ({ setUser, toggleAuthenticated, signIn }) => {
         </form>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;
