@@ -11,6 +11,10 @@ const Card = ({ cardsObj, getCardbyType, subject }) => {
     console.log(cardsObj);
   };
 
+  useEffect(() => {
+    getCardbyType(subject);
+  }, []);
+
   const deleteCard = async (id) => {
     let res = await axios
       .delete(`http://localhost:3001/api/card/${id}`)
