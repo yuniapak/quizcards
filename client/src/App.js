@@ -77,8 +77,8 @@ function App() {
               currentTypes.splice(1, [i])
             }
           }
-          console.log(currentTypes)
         }
+        console.log(currentTypes)
         setTypes(currentTypes.map((type) => ({ label: type, value: type })))
       }
 
