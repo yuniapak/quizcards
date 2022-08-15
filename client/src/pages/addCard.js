@@ -2,7 +2,7 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const AddCard = ({ user }) => {
+const AddCard = ({ user, loading, types }) => {
   console.log(user)
   const [newCard, setNewCard] = useState({
     type: '',
@@ -51,15 +51,14 @@ const AddCard = ({ user }) => {
           name="type"
           onChange={handleChange}
           value={newCard.type}
+          disabled={loading}
         >
-          <option value="None" disabled hidden>
+          <option value="" disabled hidden>
             Selection
           </option>
-          <option value="Math">Math</option>
-          <option value="History">History</option>
-          <option value="Science">Science </option>
-          <option value="Literature">Literature </option>
-          <option value="Art">Art </option>
+          {types.map(({ value, label }) => (
+            <option value={value}>{label}</option>
+          ))}
           <option value={newCard.type}>NewSubject</option>
         </select>
         <br></br>
