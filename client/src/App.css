@@ -17,15 +17,17 @@ html{
 .nav-bar{
   background: rgb(139, 171, 147);
   padding-top: 4rem;
-  padding-bottom: 1rem;
+  padding-bottom: 5rem;
   width:100%;
+
 }
 
 .nav-link{
   position: absolute;
-   top:10px; 
+   top:110px; 
    right: 10px;
-   display: inline-block
+   display: inline-block;
+   font-size: 20px;
 }
 
 .nav-link1{
@@ -48,17 +50,20 @@ html{
 } 
 .main-image{
   position:relative;
-  width: 25%;
+  width: 18%;
   margin-bottom: 5%;
   right: 2%;
 }
 
 .nav-title{
   font-family: 'Rubik Dirt';
-  font-size:7rem;
+  font-size:4rem;
   color: white;
   padding:0;
   margin: 2rem;
+  position: absolute;
+  top: 2rem;
+
 }
 .main-h2{
   position: relative;
