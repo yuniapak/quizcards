@@ -32,8 +32,9 @@ const Profile = ({ setCardsObj, user, getCardbyType, setSubject, subject }) => {
       console.log(res.data);
 
       //setting result to useState to pass through
-      setCardsObj(res.data);
-      setSubject(initialState);
+
+      setCardsObj(res.data)
+      //setSubject(initialState)
     } catch (err) {
       console.log(err);
     }
@@ -49,15 +50,18 @@ const Profile = ({ setCardsObj, user, getCardbyType, setSubject, subject }) => {
     e.preventDefault();
     //calling axios on submit
 
-    getCardbyType(subject);
-    navigate(`/Card`);
-  };
-
+    getCardbyType(subject)
+    navigate(`/Card`)
+  }
   const getUserName = async () => {
-    console.log(user);
-    const result = await axios.get(`http://localhost:3001/api/user/${user.id}`);
-    setUserName(result.data.name);
-  };
+    console.log(user)
+    const result = await axios.get(`http://localhost:3001/api/user/${user.id}`)
+    setUserName(result.data.name)
+  }
+  const navigateToAddType = () => {
+    navigate(`/AddCard`)
+  }
+
   useEffect(() => {
     getTypes();
     getUserName();
@@ -70,7 +74,9 @@ const Profile = ({ setCardsObj, user, getCardbyType, setSubject, subject }) => {
           Welcome <br></br>
           <br></br> {userName}
         </div>
-
+        <div>
+          <button onClick={navigateToAddType}>Add New Subject</button>
+        </div>
         <div>
           <form className="profile-form" onSubmit={handleSubmit}>
             <label id="form-select" htmlFor="SubjectType">
@@ -90,11 +96,6 @@ const Profile = ({ setCardsObj, user, getCardbyType, setSubject, subject }) => {
               {types.map(({ value, label }) => (
                 <option value={value}>{label}</option>
               ))}
-              {/* <option value="Math">Math</option>
-              <option value="History">History</option>
-              <option value="Science">Science </option>
-              <option value="Literature">Literature </option>
-              <option value="Art">Art </option> */}
             </select>
             <br></br>
             <button className="profile-btn" type="submit" to="/Card">
