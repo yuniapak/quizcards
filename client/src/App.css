@@ -9,7 +9,10 @@ html body{
   background-image: url(./images/bg.jpeg);
   background-repeat: no-repeat;
   background-size:cover;
+}
 
+.main-div{
+  min-height: 80vh;
 }
 html{
   margin-top: 0;
@@ -41,7 +44,7 @@ html{
   padding: 1.5rem;
   position: relative;
   bottom: 0;
-  width: 100%;
+  width: 97%;
   height: 2rem;  
   padding-bottom: 5rem;
   color:white;
@@ -50,7 +53,7 @@ html{
 } 
 .main-image{
   position:relative;
-  width: 18%;
+  width: 25%;
   margin-bottom: 5%;
   right: 2%;
 }
@@ -72,14 +75,14 @@ padding:3rem;
 }
 
 .main-h1{
-font-family: 'Arial';
+  font-family: 'Anton', sans-serif;
 font-size:5rem;
 color: rgb(39, 100, 68);
 }
 
 
 h2{
-font-family: 'Arial';
+  font-family: 'Anton', sans-serif;
 font-size: 2rem;
 color:rgb(39, 100, 68);
 }
@@ -90,7 +93,7 @@ color:rgb(39, 100, 68);
   padding: 1em;
   border-radius: 8px;
   box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.3);
-  background-color: rgb(217, 245, 235);
+  background-color: rgb(139, 171, 147);
   margin:auto;
   margin-top: 10%;
   margin-bottom: 10%;
@@ -124,7 +127,8 @@ input{
   align-self: center;
   width: 50%;
   height: 2rem;
-  background-color:rgb(209, 238, 227)
+  background-color:rgb(39, 100, 68);
+  color:white;
 }
 
 /* --------Landing page login button --------*/
@@ -151,15 +155,15 @@ input{
 
 .profile-card{
   background-color: rgb(139, 171, 147);
-  width: 80vh;
+  width: 55vh;
   min-height: 80vh;
   margin:auto;
   margin-top: 8%;
   margin-bottom: 8%;
-  border-radius:10%;
-  opacity: 80%;
+  /* border-radius:10%; */
+  opacity: 70%;
   border:solid rgb(39, 100, 68);
-  border-width: 3px;
+  border-width: 5px;
   box-shadow: 2px 0px 40px rgba(0, 0, 0, 0.3);
 }
 
@@ -167,20 +171,22 @@ input{
   position: relative;
   font-size: 3rem;
   padding: 5rem;
-  padding-bottom: 10rem; 
+  padding-bottom: 2rem; 
   font-family: 'Rubik Dirt';
-  color: rgb(39, 100, 68);
+  color: white;
+  /* color: rgb(39, 100, 68); */
 }
 
 
 #form-select{
   font-size: 40px;
   font-family: 'Rubik Dirt';
-  color: rgb(39, 100, 68);
+  color:white;
+  /* color: rgb(39, 100, 68); */
 }
 
 #value{
-  font-size: 30px;
+  font-size: 23px;
   font-family: 'Rubik Dirt';
   text-align: center;
   width: 60%;
@@ -225,5 +231,5 @@ input{
   text-decoration: none;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 900;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }

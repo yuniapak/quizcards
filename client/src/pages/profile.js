@@ -61,7 +61,7 @@ const Profile = ({
         </div>
         <div>
           <button className="add-sub-btn" onClick={navigateToAddType}>
-            Add New Subject
+            New Subject
           </button>
         </div>
         <div>

@@ -1,45 +1,45 @@
-import axios from 'axios'
-import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const AddCard = ({ user, loading, types }) => {
-  console.log(user)
+  console.log(user);
   const [newCard, setNewCard] = useState({
-    type: '',
-    question: '',
-    answer: ''
-  })
+    type: "",
+    question: "",
+    answer: "",
+  });
 
   const handleChange = (event) => {
-    setNewCard({ ...newCard, [event.target.name]: event.target.value })
-    console.log(newCard)
-  }
+    setNewCard({ ...newCard, [event.target.name]: event.target.value });
+    console.log(newCard);
+  };
 
   const addNewCard = async (cardData) => {
     const res = await axios.post(
       `http://localhost:3001/api/card/${user.id}`,
       cardData
-    )
-    console.log(res.cardData)
-  }
+    );
+    console.log(res.cardData);
+  };
 
-  let navigate = useNavigate()
+  let navigate = useNavigate();
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    await addNewCard(newCard)
-    console.log(newCard)
+    e.preventDefault();
+    await addNewCard(newCard);
+    console.log(newCard);
     setNewCard({
-      type: '',
-      question: '',
-      answer: ''
-    })
+      type: "",
+      question: "",
+      answer: "",
+    });
     //navigate for now, maybe change to different page later
-    navigate('/Profile')
-  }
+    navigate("/Profile");
+  };
 
   return (
-    <div>
+    <div className="main-div">
       <form onSubmit={handleSubmit}>
         <label id="form-select" htmlFor="SubjectType">
           Add Card
@@ -95,7 +95,7 @@ const AddCard = ({ user, loading, types }) => {
         </button>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default AddCard
+export default AddCard;
