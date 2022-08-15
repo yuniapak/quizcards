@@ -13,18 +13,21 @@ const EditCard = (props) => {
   };
 
   const [cardEdit, setCardEdit] = useState({
-    type: `${location.state.card.type}`,
-    question: `${location.state.card.question}`,
-    answer: `${location.state.card.answer}`,
+    type: "",
+    question: "",
+    answer: "",
   });
-  const [newEdit, setNewEdit] = useState("");
 
   const makeEdits = async (editInfo) => {
-    const res = await axios.put(
-      `http://localhost3001/api/card/${initialState.id}`,
-      editInfo
-    );
-    console.log(res.editInfo);
+    try {
+      const res = await axios.put(
+        `http://localhost:3001/api/card/${initialState.id}`,
+        editInfo
+      );
+      console.log(res.data);
+    } catch (err) {
+      return err;
+    }
   };
 
   const handleChange = (event) => {
@@ -34,6 +37,7 @@ const EditCard = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await makeEdits(cardEdit);
+
     console.log(cardEdit);
   };
 
@@ -57,7 +61,7 @@ const EditCard = (props) => {
             type="text"
             placeholder={initialState.question}
             onChange={handleChange}
-            defaultValue={initialState.question}
+            dafaultValue="test"
           ></input>
           <br></br>
           <br></br>
@@ -67,7 +71,7 @@ const EditCard = (props) => {
             type="text"
             placeholder={initialState.answer}
             onChange={handleChange}
-            defaultValue={initialState.answer}
+            defautltValue={initialState.answer}
           ></input>
           <br></br>
           <br></br>
