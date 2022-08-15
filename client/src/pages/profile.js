@@ -5,28 +5,25 @@ import Card from './card'
 
 const Profile = ({ setCardsObj, user }) => {
   let navigate = useNavigate()
-  let loaded = false
   const initialState = { value: '' }
-  const [subject, setSubject] = useState(initialState)
+  const [subject, setSubject] = useState('')
   const [userName, setUserName] = useState('')
-  const [types, setTypes] = useState([{ label: 'Loading...', value: '' }])
+  const [loading, setLoading] = useState(true)
+  const [types, setTypes] = useState([])
 
   const getTypes = async () => {
     try {
       let result = await axios.get(
         `http://localhost:3001/api/card/card/${user.id}`
       )
-      if (!loaded) {
-        setTypes(result.data.map(({ type }) => ({ label: type, value: type })))
-      }
+
+      setTypes(result.data.map(({ type }) => ({ label: type, value: type })))
+      console.log(result.data)
+      setLoading(false)
     } catch (error) {
       return error
     }
   }
-
-  useEffect(() => {
-    getTypes()
-  }, [])
 
   const getCardbyType = async (value) => {
     try {
@@ -34,7 +31,7 @@ const Profile = ({ setCardsObj, user }) => {
       console.log(res.data)
       //setting result to useState to pass through
       setCardsObj(res.data)
-      console.log(res.data)
+      setSubject(initialState)
     } catch (err) {
       console.log(err)
     }
@@ -50,15 +47,19 @@ const Profile = ({ setCardsObj, user }) => {
     e.preventDefault()
     //calling axios on submit
     getCardbyType(subject)
-    setSubject(initialState)
-    //navigate(`/Card`)
+
+    // navigate(`/Card`)
   }
   const getUserName = async () => {
     console.log(user)
     const result = await axios.get(`http://localhost:3001/api/user/${user.id}`)
     setUserName(result.data.name)
   }
-  // getUserName()
+
+  useEffect(() => {
+    getTypes()
+    getUserName()
+  }, [])
 
   return (
     <div>
@@ -75,7 +76,12 @@ const Profile = ({ setCardsObj, user }) => {
               <br></br>
             </label>
             <br></br>
-            <select id="value" onChange={handleChange} value={subject.value}>
+            <select
+              id="value"
+              onChange={handleChange}
+              value={subject}
+              disabled={loading}
+            >
               <option value="" disabled hidden>
                 Selection
               </option>
@@ -91,12 +97,7 @@ const Profile = ({ setCardsObj, user }) => {
               <option value="Art">Art </option> */}
             </select>
             <br></br>
-            <button
-              onClick={handleSubmit()}
-              className="profile-btn"
-              type="submit"
-              to="/Card"
-            >
+            <button className="profile-btn" type="submit" to="/Card">
               Submit
             </button>
           </form>
