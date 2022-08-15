@@ -28,6 +28,7 @@ const Card = ({ cardsObj, getCardbyType, subject }) => {
           <h1>Answer: {card.answer}</h1>
           <button onClick={() => editCard(card)}> Edit</button>
           <button onClick={() => deleteCard(card.id)}> Delete </button>
+          <button onClick={() => navigate("/addCard")}>Add</button>
         </div>
       ))}
     </div>

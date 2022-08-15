@@ -24,21 +24,6 @@ const Profile = ({ setCardsObj, user, getCardbyType, setSubject, subject }) => {
     }
   };
 
-  const getCardbyType = async (subject) => {
-    try {
-      let res = await axios.get(
-        `http://localhost:3001/api/card/cards/${subject}`
-      );
-      console.log(res.data);
-
-      //setting result to useState to pass through
-      setCardsObj(res.data);
-      setSubject(initialState);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
   const handleChange = (event) => {
     event.preventDefault();
     setSubject(event.target.value);
