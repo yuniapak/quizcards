@@ -5,10 +5,25 @@ import Card from './card'
 
 const Profile = ({ setCardsObj, user }) => {
   let navigate = useNavigate()
-
   const initialState = { value: '' }
   const [subject, setSubject] = useState(initialState)
   const [userName, setUserName] = useState('')
+  const [types, setTypes] = useState([])
+
+  const getTypes = async () => {
+    try {
+      let result = await axios.get(
+        `http://localhost:3001/api/card/card/${user.id}`
+      )
+      setTypes(result.data.map(({ type }) => ({ label: type, value: type })))
+    } catch (error) {
+      return error
+    }
+  }
+
+  useEffect(() => {
+    getTypes()
+  }, [])
 
   const getCardbyType = async (value) => {
     try {
@@ -16,13 +31,14 @@ const Profile = ({ setCardsObj, user }) => {
       console.log(res.data)
       //setting result to useState to pass through
       setCardsObj(res.data)
+      console.log(res.data)
     } catch (err) {
       console.log(err)
     }
   }
 
   const handleChange = (event) => {
-    //event.preventDefault()
+    event.preventDefault()
     setSubject(event.target.value)
     console.log(event.target.value)
   }
@@ -31,14 +47,15 @@ const Profile = ({ setCardsObj, user }) => {
     e.preventDefault()
     //calling axios on submit
     getCardbyType(subject)
-    navigate(`/Card`)
+    setSubject(initialState)
+    //navigate(`/Card`)
   }
   const getUserName = async () => {
     console.log(user)
     const result = await axios.get(`http://localhost:3001/api/user/${user.id}`)
     setUserName(result.data.name)
   }
-  getUserName()
+  // getUserName()
 
   return (
     <div>
@@ -59,11 +76,16 @@ const Profile = ({ setCardsObj, user }) => {
               <option value="" disabled hidden>
                 Selection
               </option>
-              <option value="Math">Math</option>
+              {types.map(({ value, label }) => (
+                <option key={value} value={value}>
+                  {label}
+                </option>
+              ))}
+              {/* <option value="Math">Math</option>
               <option value="History">History</option>
               <option value="Science">Science </option>
               <option value="Literature">Literature </option>
-              <option value="Art">Art </option>
+              <option value="Art">Art </option> */}
             </select>
             <br></br>
             <button
