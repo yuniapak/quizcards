@@ -1,7 +1,7 @@
-import { useNavigate, Link } from 'react-router-dom'
-import { useState, useEffect } from 'react'
-import axios from 'axios'
-import Card from './card'
+import { useNavigate, Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import Card from "./card";
 
 const Profile = ({
   setCardsObj,
@@ -11,38 +11,38 @@ const Profile = ({
   subject,
   getTypes,
   loading,
-  types
+  types,
 }) => {
-  let navigate = useNavigate()
-  const initialState = { value: '' }
-  const [userName, setUserName] = useState('')
+  let navigate = useNavigate();
+  const initialState = { value: "" };
+  const [userName, setUserName] = useState("");
 
   const handleChange = (event) => {
-    event.preventDefault()
-    setSubject(event.target.value)
-    console.log(event.target.value)
-  }
+    event.preventDefault();
+    setSubject(event.target.value);
+    console.log(event.target.value);
+  };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     //calling axios on submit
 
-    getCardbyType(subject)
-    navigate(`/Card`)
-  }
+    getCardbyType(subject);
+    navigate(`/Card`);
+  };
   const getUserName = async () => {
-    console.log(user)
-    const result = await axios.get(`http://localhost:3001/api/user/${user.id}`)
-    setUserName(result.data.name)
-  }
+    console.log(user);
+    const result = await axios.get(`http://localhost:3001/api/user/${user.id}`);
+    setUserName(result.data.name);
+  };
   const navigateToAddType = () => {
-    navigate(`/AddCard`)
-  }
+    navigate(`/AddCard`);
+  };
 
   useEffect(() => {
-    getTypes()
-    getUserName()
-  }, [])
+    getTypes();
+    getUserName();
+  }, []);
 
   return (
     <div>
@@ -52,7 +52,9 @@ const Profile = ({
           <br></br> {userName}
         </div>
         <div>
-          <button onClick={navigateToAddType}>Add New Subject</button>
+          <button className="add-sub-btn" onClick={navigateToAddType}>
+            Add New Subject
+          </button>
         </div>
         <div>
           <form className="profile-form" onSubmit={handleSubmit}>
@@ -82,7 +84,7 @@ const Profile = ({
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Profile
+export default Profile;
