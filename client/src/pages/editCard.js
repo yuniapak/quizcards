@@ -1,9 +1,11 @@
 import axios from "axios";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const EditCard = (props) => {
   let location = useLocation();
+  let navigate = useNavigate();
 
   const initialState = {
     id: `${location.state.card.id}`,
@@ -37,8 +39,8 @@ const EditCard = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await makeEdits(cardEdit);
-
     console.log(cardEdit);
+    navigate("/card");
   };
 
   return (
@@ -60,8 +62,8 @@ const EditCard = (props) => {
             name="question"
             type="text"
             placeholder={initialState.question}
+            dafaultValue={initialState.question}
             onChange={handleChange}
-            dafaultValue="test"
           ></input>
           <br></br>
           <br></br>
@@ -70,8 +72,8 @@ const EditCard = (props) => {
             name="answer"
             type="text"
             placeholder={initialState.answer}
-            onChange={handleChange}
             defautltValue={initialState.answer}
+            onChange={handleChange}
           ></input>
           <br></br>
           <br></br>

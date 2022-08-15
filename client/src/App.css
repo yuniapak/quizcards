@@ -5,8 +5,12 @@ html body{
   height: 100%;
 }
 
+.main-container{
+  background-image: url(./images/bg.jpeg);
+  background-repeat: no-repeat;
+  background-size:cover;
 
-
+}
 html{
   margin-top: 0;
 }
