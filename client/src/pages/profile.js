@@ -1,53 +1,55 @@
-import { useNavigate, Link } from 'react-router-dom'
-import { useState, useEffect } from 'react'
-import axios from 'axios'
-import Card from './card'
+import { useNavigate, Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import Card from "./card";
 
-const Profile = ({ setCardsObj, user }) => {
-  let navigate = useNavigate()
-  const initialState = { value: '' }
-  const [subject, setSubject] = useState('')
-  const [userName, setUserName] = useState('')
-  const [loading, setLoading] = useState(true)
-  const [types, setTypes] = useState([])
+const Profile = ({ setCardsObj, user, getCardbyType, setSubject, subject }) => {
+  let navigate = useNavigate();
+  const initialState = { value: "" };
+  const [userName, setUserName] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [types, setTypes] = useState([]);
 
   const getTypes = async () => {
     try {
       let result = await axios.get(
         `http://localhost:3001/api/card/card/${user.id}`
-      )
+      );
 
-      setTypes(result.data.map(({ type }) => ({ label: type, value: type })))
-      console.log(result.data)
-      setLoading(false)
+      setTypes(result.data.map(({ type }) => ({ label: type, value: type })));
+      console.log(result.data);
+      setLoading(false);
     } catch (error) {
-      return error
+      return error;
     }
-  }
+  };
 
   const getCardbyType = async (subject) => {
     try {
       let res = await axios.get(
         `http://localhost:3001/api/card/cards/${subject}`
-      )
-      console.log(res.data)
+      );
+      console.log(res.data);
+
       //setting result to useState to pass through
+
       setCardsObj(res.data)
       //setSubject(initialState)
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
-  }
+  };
 
   const handleChange = (event) => {
-    event.preventDefault()
-    setSubject(event.target.value)
-    console.log(event.target.value)
-  }
+    event.preventDefault();
+    setSubject(event.target.value);
+    console.log(event.target.value);
+  };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     //calling axios on submit
+
     getCardbyType(subject)
     navigate(`/Card`)
   }
@@ -59,10 +61,11 @@ const Profile = ({ setCardsObj, user }) => {
   const navigateToAddType = () => {
     navigate(`/AddCard`)
   }
+
   useEffect(() => {
-    getTypes()
-    getUserName()
-  }, [])
+    getTypes();
+    getUserName();
+  }, []);
 
   return (
     <div>
@@ -102,7 +105,7 @@ const Profile = ({ setCardsObj, user }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Profile
+export default Profile;

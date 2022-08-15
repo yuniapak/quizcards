@@ -18,6 +18,7 @@ function App() {
   const [authenticated, toggleAuthenticated] = useState(false);
   const [user, setUser] = useState(null);
   const [cardsObj, setCardsObj] = useState([]);
+  const [subject, setSubject] = useState("");
 
   const signIn = async (data) => {
     try {
@@ -59,6 +60,19 @@ function App() {
     }
   }, []);
 
+  const getCardbyType = async (subject) => {
+    try {
+      let res = await axios.get(
+        `http://localhost:3001/api/card/cards/${subject}`
+      );
+      console.log(res.data);
+      //setting result to useState to pass through
+      setCardsObj(res.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div className="main-container">
       <nav>
@@ -73,7 +87,16 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/AddCard" element={<AddCard user={user} />} />
-          <Route path="/Card" element={<Card cardsObj={cardsObj} />} />
+          <Route
+            path="/Card"
+            element={
+              <Card
+                cardsObj={cardsObj}
+                getCardbyType={getCardbyType}
+                subject={subject}
+              />
+            }
+          />
           <Route path="/Card/*" element={<EditCard />} />
           <Route
             path="/Login"
@@ -87,7 +110,15 @@ function App() {
           />
           <Route
             path="/Profile"
-            element={<Profile setCardsObj={setCardsObj} user={user} />}
+            element={
+              <Profile
+                setCardsObj={setCardsObj}
+                user={user}
+                setSubject={setSubject}
+                getCardbyType={getCardbyType}
+                subject={subject}
+              />
+            }
           />
           <Route path="/Card/Quiz" element={<Quiz />} />
           <Route path="/Register" element={<Register />} />
