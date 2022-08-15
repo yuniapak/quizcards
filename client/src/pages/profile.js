@@ -33,7 +33,15 @@ const Profile = ({
   const getUserName = async () => {
     console.log(user);
     const result = await axios.get(`http://localhost:3001/api/user/${user.id}`);
-    setUserName(result.data.name);
+    // ---Capitalizing Name-----//
+    const firstletter = result.data.name[0].toUpperCase();
+    console.log(firstletter);
+    const restOfName = result.data.name.slice(1, result.data.name.length);
+    console.log(restOfName);
+    console.log(restOfName);
+    //----------------------------
+    // setUserName(result.data.name);
+    setUserName(firstletter + restOfName);
   };
   const navigateToAddType = () => {
     navigate(`/AddCard`);
@@ -49,7 +57,7 @@ const Profile = ({
       <div className="profile-card">
         <div className="profile-card-header">
           Welcome <br></br>
-          <br></br> {userName}
+          <br></br> {userName} !
         </div>
         <div>
           <button className="add-sub-btn" onClick={navigateToAddType}>
