@@ -113,5 +113,5 @@ const AddCard = ({ user, loading, types }) => {
     </div>
   );
 };
-
+//test
 export default AddCard;
