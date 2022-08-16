@@ -31,10 +31,11 @@ const Card = ({ cardsObj, getCardbyType, subject }) => {
       <button className="add-btn" onClick={() => navigate("/addCard")}>
         Add New Card
       </button>
-      <div>
+      <div className="card-grid">
         {cardsObj.map((card) => (
           <div className="quiz-card" key={card.id}>
-            <h1 className="quiz-question">{card.question}</h1>
+            <h1>{card.type.toUpperCase()}</h1>
+            <h1 className="quiz-question">{card.question.toUpperCase()}</h1>
             <h1 className="quiz-answer">Answer: {card.answer}</h1>
             <button className="quiz-edit-btn" onClick={() => editCard(card)}>
               Edit

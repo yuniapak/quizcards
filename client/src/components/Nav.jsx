@@ -4,7 +4,9 @@ function Nav({ authenticated, user, handleLogOut }) {
   if (user) {
     authenticatedOption = (
       <nav className="nav-bar">
-        <h1 className="nav-title">Quizards!</h1>
+        <h1 className="nav-title">
+          Quiz<span className="c">c</span>ards!
+        </h1>
         <div className="nav-link">
           <NavLink className="nav-link1" to="/Profile">
             Profile |
