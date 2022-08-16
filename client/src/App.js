@@ -12,7 +12,7 @@ import Profile from './pages/profile'
 import Quiz from './pages/quiz'
 import Register from './pages/register'
 import axios from 'axios'
-import Client from './services/api'
+import { CheckSession } from './services/Auth'
 
 function App() {
   const [authenticated, toggleAuthenticated] = useState(false)
@@ -22,27 +22,6 @@ function App() {
   const [loading, setLoading] = useState(true)
   const [types, setTypes] = useState([])
   let currentTypes = []
-  const signIn = async (data) => {
-    try {
-      const result = await Client.post(`/auth/login`, data)
-      localStorage.setItem('token', result.data.token)
-      console.log(result.data.user)
-      toggleAuthenticated(true)
-      return result.data.user
-    } catch (error) {
-      console.log('checkout session')
-      throw error
-    }
-  }
-
-  const checkSession = async () => {
-    try {
-      const res = await Client.get('/auth/session')
-      return res.data
-    } catch (error) {
-      throw error
-    }
-  }
 
   const handleLogOut = () => {
     setUser(null)
@@ -51,13 +30,15 @@ function App() {
   }
 
   const checkToken = async () => {
-    const user = await checkSession()
+    const user = await CheckSession()
+    console.log('user token exist', user)
     setUser(user)
     toggleAuthenticated(true)
   }
 
   useEffect(() => {
     const token = localStorage.getItem('token')
+    console.log(token)
     if (token) {
       checkToken()
     }
@@ -128,7 +109,7 @@ function App() {
               <Login
                 setUser={setUser}
                 toggleAuthenticated={toggleAuthenticated}
-                signIn={signIn}
+                // signIn={signIn}
               />
             }
           />
