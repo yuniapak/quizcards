@@ -28,15 +28,27 @@ const Card = ({ cardsObj, getCardbyType, subject }) => {
 
   return (
     <div className="main-div">
-      <button onClick={() => navigate("/addCard")}>Add</button>
-      {cardsObj.map((card) => (
-        <div key={card.id}>
-          <h1>Question: {card.question}</h1>
-          <h1>Answer: {card.answer}</h1>
-          <button onClick={() => editCard(card)}> Edit</button>
-          <button onClick={() => deleteCard(card.id)}> Delete </button>
-        </div>
-      ))}
+      <button className="add-btn" onClick={() => navigate("/addCard")}>
+        Add New Card
+      </button>
+      <div>
+        {cardsObj.map((card) => (
+          <div className="quiz-card" key={card.id}>
+            <h1 className="quiz-question">{card.question}</h1>
+            <h1 className="quiz-answer">Answer: {card.answer}</h1>
+            <button className="quiz-edit-btn" onClick={() => editCard(card)}>
+              Edit
+            </button>
+            <button
+              className="quiz-delete-btn"
+              onClick={() => deleteCard(card.id)}
+            >
+              {" "}
+              Delete{" "}
+            </button>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
