@@ -68,22 +68,15 @@ function App() {
         `http://localhost:3001/api/card/card/${user.id}`
       );
       result.data.map(({ type }) => {
-        currentTypes.push(type);
-      });
-      for (let i = 0; i < currentTypes.length; i++) {
-        for (let j = 0; j < currentTypes.length; j++) {
-          if (i !== j) {
-            if (currentTypes[i] === currentTypes[j]) {
-              currentTypes.splice(1, [i]);
-            }
-          }
-        }
-        console.log(currentTypes);
-        setTypes(currentTypes.map((type) => ({ label: type, value: type })));
-      }
 
-      console.log(result.data);
-      setLoading(false);
+        currentTypes.push(type)
+      })
+      console.log([...new Set(currentTypes)])
+      setTypes(
+        [...new Set(currentTypes)].map((type) => ({ label: type, value: type }))
+      )
+      setLoading(false)
+
     } catch (error) {
       return error;
     }
