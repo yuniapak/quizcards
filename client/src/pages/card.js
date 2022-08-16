@@ -28,14 +28,13 @@ const Card = ({ cardsObj, getCardbyType, subject }) => {
 
   return (
     <div className="main-div">
-      <p>Cards</p>
+      <button onClick={() => navigate("/addCard")}>Add</button>
       {cardsObj.map((card) => (
         <div key={card.id}>
           <h1>Question: {card.question}</h1>
           <h1>Answer: {card.answer}</h1>
           <button onClick={() => editCard(card)}> Edit</button>
           <button onClick={() => deleteCard(card.id)}> Delete </button>
-          <button onClick={() => navigate("/addCard")}>Add</button>
         </div>
       ))}
     </div>
