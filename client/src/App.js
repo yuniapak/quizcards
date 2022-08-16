@@ -24,10 +24,13 @@ function App() {
   let currentTypes = [];
   const signIn = async (data) => {
     try {
-      const result = await Client.post(`/auth/login`, data);
-      localStorage.setItem("token", result.data.token);
-      console.log(result.data.user);
-      return result.data.user;
+
+      const result = await Client.post(`/auth/login`, data)
+      localStorage.setItem('token', result.data.token)
+      console.log(result.data.user)
+      toggleAuthenticated(true)
+      return result.data.user
+
     } catch (error) {
       console.log("checkout session");
       throw error;
