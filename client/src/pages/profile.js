@@ -1,11 +1,13 @@
 import { useNavigate, Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import LogImg from '../images/notlogin.png'
 import axios from 'axios'
 import Card from './card'
 
 const Profile = ({
   setCardsObj,
   user,
+  authenticated,
   getCardbyType,
   setSubject,
   subject,
@@ -52,46 +54,62 @@ const Profile = ({
     getUserName()
   }, [])
 
-  return (
-    <div>
-      <div className="profile-card">
-        <div className="profile-card-header">
-          Welcome <br></br>
-          <br></br> {userName} !
-        </div>
-        <div>
-          <button className="add-sub-btn" onClick={navigateToAddType}>
-            New Subject
-          </button>
-        </div>
-        <div>
-          <form className="profile-form" onSubmit={handleSubmit}>
-            <label id="form-select" htmlFor="SubjectType">
-              Select Subject
-              <br></br>
-            </label>
-            <br></br>
-            <select
-              id="value"
-              onChange={handleChange}
-              value={subject}
-              disabled={loading}
-            >
-              <option value="" disabled hidden>
-                Selection
-              </option>
-              {types.map(({ value, label }) => (
-                <option value={value}>{label}</option>
-              ))}
-            </select>
-            <br></br>
-            <button className="profile-btn" type="submit" to="/Card">
-              Submit
+  let authenticatedOptions
+  if (user) {
+    authenticatedOptions = (
+      <div>
+        <div className="profile-card">
+          <div className="profile-card-header">
+            Welcome <br></br>
+            <br></br> {userName} !
+          </div>
+          <div>
+            <button className="add-sub-btn" onClick={navigateToAddType}>
+              New Subject
             </button>
-          </form>
+          </div>
+          <div>
+            <form className="profile-form" onSubmit={handleSubmit}>
+              <label id="form-select" htmlFor="SubjectType">
+                Select Subject
+                <br></br>
+              </label>
+              <br></br>
+              <select
+                id="value"
+                onChange={handleChange}
+                value={subject}
+                disabled={loading}
+              >
+                <option value="" disabled hidden>
+                  Selection
+                </option>
+                {types.map(({ value, label }) => (
+                  <option value={value}>{label}</option>
+                ))}
+              </select>
+              <br></br>
+              <button className="profile-btn" type="submit" to="/Card">
+                Submit
+              </button>
+            </form>
+          </div>
         </div>
       </div>
+    )
+  }
+  const publicOptions = (
+    <div>
+      <h1>Please log in to use Qizards</h1>
+      <img className="main-image" src={LogImg} alt="image1" />
+      <Link className="main-btn" to="/login">
+        Login
+      </Link>
     </div>
+  )
+
+  return (
+    <div>{authenticated && user ? authenticatedOptions : publicOptions}</div>
   )
 }
 

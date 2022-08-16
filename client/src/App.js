@@ -137,6 +137,7 @@ function App() {
               <Profile
                 setCardsObj={setCardsObj}
                 user={user}
+                authenticated={authenticated}
                 setSubject={setSubject}
                 getCardbyType={getCardbyType}
                 subject={subject}
