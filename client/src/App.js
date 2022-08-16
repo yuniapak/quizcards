@@ -149,7 +149,7 @@ function App() {
               />
             }
           />
-          <Route path="/Card/Quiz" element={<Quiz />} />
+          <Route path="/Quiz" element={<Quiz />} />
           <Route path="/Register" element={<Register />} />
         </Routes>
       </div>
