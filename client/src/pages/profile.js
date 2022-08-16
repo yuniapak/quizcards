@@ -109,9 +109,9 @@ const Profile = ({
     </div>
   );
 
-  return (
-    <div>{authenticated && user ? authenticatedOptions : publicOptions}</div>
-  );
-};
+
+  return <div>{authenticated ? authenticatedOptions : publicOptions}</div>
+}
+
 
 export default Profile;
