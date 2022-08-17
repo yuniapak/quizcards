@@ -20,39 +20,46 @@ const Quiz = ({ cardsObj, subject }) => {
 
   useEffect(() => {}, []);
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  useEffect(() => {}, []);
 
   return (
-
-    <div>
+    <div className="main-div">
       <h2>Quizards Quizly Quiz Game!</h2>
       <p>Do you know the answers to these questions?</p>
-      <h3>{subject}</h3>
+      <h2>{subject}</h2>
       <div>
         {cardsObj.map((card) => (
           <div key={card.id}>
             <h3>{card.question}</h3>
 
-
             <input type="text" placeholder="Answer..." />
             <div>
-
               <button id={card.id} onClick={showAnswer}>
                 Check Answer
               </button>
               {popup && idOfCard == card.id ? (
                 <div className="answer-container">
-                  Answer:
-                  {card.answer}
 
-                  <button
-                    onClick={() => setPopup(false)}
-                    className="answer-close-btn"
-                  >
-                    No
-                  </button>
-                  <button onClick={addScore} className="yes-btn">
-                    Yes
-                  </button>
+                  <div className="answer-content">
+                    Answer:
+                    <div className="answer-text">{card.answer}</div>
+                    Did you get it correct?
+                    <br></br>
+                    <button onClick={() => setPopup(false)} className="no-btn">
+                      No
+                    </button>
+                    <button onClick={addScore} className="yes-btn">
+                      Yes
+                    </button>
+                  </div>
+
                 </div>
               ) : null}
             </div>
@@ -65,6 +72,9 @@ const Quiz = ({ cardsObj, subject }) => {
         Correct
       </div>
 
+      <button className="enter-quiz-btn" onClick={scrollToTop}>
+        Back to top
+      </button>
     </div>
   );
 };

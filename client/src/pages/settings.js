@@ -1,7 +1,10 @@
 import axios from 'axios'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import LogImg from '../images/notlogin.png'
+import UpdatePassword from '../components/updatePassword'
 
-const Settings = ({ user, userName }) => {
+const Settings = ({ user, userName, authenticated }) => {
   const [newName, setNewName] = useState({ name: '' })
 
   const updateName = async (name) => {
@@ -25,23 +28,54 @@ const Settings = ({ user, userName }) => {
     updateName(newName)
     console.log(newName)
   }
+  let authenticatedOptions
+  if (user) {
+    authenticatedOptions = (
+      <div className="main-div">
+        <div className="Addcard">
+          <h2>Settings</h2>
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="password">Update Name </label>
+            <input
+              className="addCard-input"
+              name="name"
+              type="text"
+              placeholder={userName}
+              value={newName.name}
+              contentEditable="true"
+              onChange={handleChange}
+            ></input>{' '}
+            <button
+              className="setting-btn"
+              type="submit"
+              disabled={!newName.name}
+            >
+              update
+            </button>
+          </form>
+          <UpdatePassword user={user} />
+        </div>{' '}
+      </div>
+    )
+  }
 
-  return (
+  const publicOptions = (
     <div>
-      <h2>Settings</h2>
-      <form onSubmit={handleSubmit}>
-        Name:
-        <input
-          name="name"
-          type="text"
-          placeholder={userName}
-          value={newName.name}
-          contentEditable="true"
-          onChange={handleChange}
-        ></input>
-        <button type="submit">update</button>
-      </form>
+      <div>
+        <h2>Do you want to create an accout?</h2>
+        <Link className="main-btn" to="/register">
+          Register
+        </Link>
+        <h2>Have an accout? Welcome back!</h2>
+        <Link className="main-btn" to="/login">
+          Login
+        </Link>
+      </div>
+      <img className="logoff-image" src={LogImg} alt="image1" />
     </div>
   )
+
+  return <div>{authenticated ? authenticatedOptions : publicOptions}</div>
 }
+
 export default Settings
