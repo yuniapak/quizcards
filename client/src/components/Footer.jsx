@@ -3,7 +3,9 @@ function Footer() {
   return (
     <div className="footer">
       <br></br>
-      <p> Phoenix Khan | Yun Pakhomova | Jay Leung</p>
+      <p className="winner"><a href="https://www.linkedin.com/in/phoenixkhan" >Phoenix Khan</a></p>
+      <p className="winner"><a href="https://github.com/yuniapak"> Yun Pakhomova</a></p>
+      <p className="winner"><a href="https://www.linkedin.com/in/jay-leung1">Jay Leung</a></p>
       <div></div>
     </div>
   );
