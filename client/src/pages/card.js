@@ -3,12 +3,10 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 
 const Card = ({ cardsObj, getCardbyType, subject }) => {
-
   const [showCard, setShowCard] = useState(false)
   const [idOfCard, setIdOfCard] = useState('')
   cardsObj.map((card) => console.log(card))
   let navigate = useNavigate()
-
 
   const editCard = (card) => {
     navigate(`${card.Id}`, { state: { card: card } })
@@ -31,13 +29,12 @@ const Card = ({ cardsObj, getCardbyType, subject }) => {
     setIdOfCard(e.target.id)
   }
 
-  const [showCard, setShowCard] = useState(false);
-
   return (
     <div className="main-div">
       <button className="add-btn" onClick={() => navigate('/addCard')}>
         Add New Card
       </button>
+      <button onClick={() => navigate('/quiz')}>Quiz Time</button>
       <div className="card-grid">
         {cardsObj.map((card) => (
           <div className="quiz-card" key={card.id}>
@@ -61,7 +58,6 @@ const Card = ({ cardsObj, getCardbyType, subject }) => {
             <button id={card.id} onClick={cardShow}>
               Show Card
             </button>
-
           </div>
         ))}
       </div>
