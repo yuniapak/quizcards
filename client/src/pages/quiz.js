@@ -5,7 +5,7 @@ const Quiz = ({ cardsObj, subject }) => {
   const [currentQuestion, setQuestion] = useState(0);
   const [currentScore, setScore] = useState(0);
   const [popup, setPopup] = useState(false);
-  const [idOfCard, setIdOfCard] = useState(null);
+  const [idOfCard, setIdOfCard] = useState("");
 
   const showAnswer = (e) => {
     setPopup(true);
@@ -20,19 +20,6 @@ const Quiz = ({ cardsObj, subject }) => {
 
   useEffect(() => {}, []);
 
-  // const nextQuestion = currentQuestion + 1;
-  // if(nextQuestion < question.length){
-  //   setQuestion(nextQuestion)
-  // }else{
-  //   setScore(true)
-  // }
-
-  // const buttonClicked = () =>{
-  // if (isCorrect === true){
-  //   setScore(currentScore + 1)
-  // }
-  // }
-
   return (
     <div>
       <h2>Quizards Quizly Quiz Game!</h2>
@@ -44,34 +31,33 @@ const Quiz = ({ cardsObj, subject }) => {
             <h3>{card.question}</h3>
             <input type="text" value="Answer..." />
             <div>
-              <button id={card.Id} onClick={showAnswer}>
+              <button id={card.id} onClick={showAnswer}>
                 Check Answer
               </button>
-              {popup && (
+              {popup && idOfCard == card.id ? (
                 <div className="answer-container">
                   Answer:
                   {card.answer}
+                  Did you get it correct?
                   <button
                     onClick={() => setPopup(false)}
                     className="answer-close-btn"
                   >
-                    Close
+                    No
                   </button>
                   <button onClick={addScore} className="yes-btn">
                     Yes
                   </button>
-                  <button className="no-btn">No</button>
                 </div>
-              )}
+              ) : null}
             </div>
           </div>
         ))}
       </div>
-      <div className="score">You scored {currentScore} out of </div>
-      {/* <div>
-        <button onClick={() => setPopup(!popup)}>'hello'</button>
-        {popup && <div>content</div>}
-      </div> */}
+      <div className="score">
+        You Answered <span className="currentScore">{currentScore}</span>{" "}
+        Correct
+      </div>
     </div>
   );
 };

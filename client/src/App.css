@@ -531,3 +531,14 @@ input{
   font-family: 'Anton';
   color:rgb(39, 100, 68);
 }
+
+.currentScore{
+  font-size: 3rem;
+  font-weight:900;
+  color: rgb(39, 100, 68);
+}
+
+.score{
+  font-size: 1.5rem;
+  font-family: 'anton'
+}
