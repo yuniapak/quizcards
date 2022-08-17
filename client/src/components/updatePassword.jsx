@@ -36,7 +36,7 @@ const handleChange = (event) => {
          className="addCard-input"
           name="password"
           type="password"
-          placeholder='Current password'
+          placeholder='Current Password'
           value={passwordForm.password}
           contentEditable="true"
           onChange={handleChange}
@@ -49,7 +49,7 @@ const handleChange = (event) => {
          className="addCard-input"
           name="newPassword"
           type="password"
-          placeholder='New password'
+          placeholder='New Password'
           value={passwordForm.newPassword}
           contentEditable="true"
           onChange={handleChange}
@@ -66,7 +66,7 @@ const handleChange = (event) => {
           onChange={handleChange}
           required
         ></input>
-        <button type="submit" disabled= { !passwordForm.password ||
+        <button className='setting-btn' type="submit" disabled= { !passwordForm.password ||
               (!passwordForm.newPassword &&
                 passwordForm.confirmPassword === passwordForm.newPassword)}>Change Password</button>
       </form>

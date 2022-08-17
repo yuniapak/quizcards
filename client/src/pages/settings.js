@@ -1,7 +1,10 @@
-import axios from "axios";
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import UpdatePassword from "../components/updatePassword";
+
+import axios from 'axios'
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import LogImg from '../images/notlogin.png'
+import UpdatePassword from '../components/updatePassword'
+
 
 const Settings = ({ user, userName, authenticated }) => {
   const [newName, setNewName] = useState({ name: "" });
@@ -23,44 +26,60 @@ const Settings = ({ user, userName, authenticated }) => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    updateName(newName);
-    console.log(newName);
-  };
 
-  return !authenticated ? (
-    <div className="main-div">
-      <div className="Addcard">
-        <h2>Settings</h2>
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="password">ConfirmPassword</label>
-          <input
-            className="addCard-input"
-            name="name"
-            type="text"
-            placeholder={userName}
-            value={newName.name}
-            contentEditable="true"
-            onChange={handleChange}
-          ></input>{" "}
-          <button type="submit" disabled={!newName.name}>
-            update
-          </button>
-        </form>
-        <UpdatePassword user={user} />
-      </div>{" "}
+    e.preventDefault()
+    updateName(newName)
+    console.log(newName)
+  }
+  let authenticatedOptions
+  if (user) {
+    authenticatedOptions = (
+      <div className="main-div">
+        <div className="Addcard">
+          <h2>Settings</h2>
+          <form onSubmit={handleSubmit}>
+            <label htmlFor="password">Update Name </label>
+            <input
+              className="addCard-input"
+              name="name"
+              type="text"
+              placeholder={userName}
+              value={newName.name}
+              contentEditable="true"
+              onChange={handleChange}
+            ></input>{' '}
+            <button
+              className="setting-btn"
+              type="submit"
+              disabled={!newName.name}
+            >
+              update
+            </button>
+          </form>
+          <UpdatePassword user={user} />
+        </div>{' '}
+      </div>
+    )
+  }
+
+  const publicOptions = (
+    <div>
+      <div>
+        <h2>Do you want to create an accout?</h2>
+        <Link className="main-btn" to="/register">
+          Register
+        </Link>
+        <h2>Have an accout? Welcome back!</h2>
+        <Link className="main-btn" to="/login">
+          Login
+        </Link>
+      </div>
+      <img className="logoff-image" src={LogImg} alt="image1" />
     </div>
-  ) : (
-    <div className="main-div">
-      <h2>Do you want to create an account?</h2>
-      <Link className="main-btn" to="/register">
-        Register
-      </Link>
-      <h2>Have an account? Welcome back!</h2>
-      <Link className="main-btn" to="/login">
-        Login
-      </Link>
-    </div>
-  );
-};
-export default Settings;
+  )
+
+  return <div>{authenticated ? authenticatedOptions : publicOptions}</div>
+}
+
+export default Settings
+
