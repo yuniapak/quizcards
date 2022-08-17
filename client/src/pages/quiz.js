@@ -32,16 +32,19 @@ const Quiz = ({ cardsObj, subject }) => {
   return (
     <div className="main-div">
       <h2>Quizards Quizly Quiz Game!</h2>
-      <p>Do you know the answers to these questions?</p>
+      <p>Do you know the answers?</p>
       <h2>{subject}</h2>
       <div>
         {cardsObj.map((card) => (
-          <div key={card.id}>
+          <div className="questions-container" key={card.id}>
             <h3>{card.question}</h3>
-
-            <input type="text" placeholder="Answer..." />
+            <input type="text" placeholder="Answer" />
             <div>
-              <button id={card.id} onClick={showAnswer}>
+              <button
+                className="check-answer-btn"
+                id={card.id}
+                onClick={showAnswer}
+              >
                 Check Answer
               </button>
               {popup && idOfCard == card.id ? (
