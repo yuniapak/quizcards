@@ -483,6 +483,91 @@ input{
   margin-bottom: 2rem;
 }
 
+/*-----------------QUIZ PAGE----------------------*/
+
+.answer-container{
+  position:absolute;
+  left: 0;
+  right: 0;
+  margin:auto;
+  min-height: 30%;
+  width: 60vh;
+  background-color:rgb(139, 171, 147);
+  border:solid rgb(39, 100, 68);
+  border-width: .5rem;;
+  transition: all 0.5s;
+  margin: auto;
+  margin-top: 2rem;
+  border-radius:2%;
+  font-size: 2.5rem;
+  font-family: 'Anton';
+  color:rgb(39, 100, 68);
+}
+
+.answer-content{
+  padding:5%
+}
+
+.currentScore{
+  font-size: 3rem;
+  font-weight:900;
+  color: rgb(39, 100, 68);
+}
+
+.score{
+  font-size: 1.5rem;
+  font-family: 'anton'
+}
+
+.answer-text{
+  font-size: 20px;
+  word-wrap: break-word;
+  padding: 20px;
+  color:white;
+  margin: 5px;
+  margin-top: 10px
+}
+
+.yes-btn{
+  display:inline-block;
+  border-radius: 4px;
+  background-color: rgb(39, 100, 68);
+  border: solid rgb(181, 230, 203);
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 15px;
+  padding: 15px;
+  width: 130px;
+  cursor: pointer;
+  margin: 5px;
+  margin-top: 2%;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
+}
+
+.no-btn{
+  display:inline-block;
+  border-radius: 4px;
+  background-color: rgb(39, 100, 68);
+  border: solid rgb(181, 230, 203);
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 15px;
+  padding: 15px;
+  width: 130px;
+  cursor: pointer;
+  margin: 5px;
+  margin-top: 2%;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
+}
+
+
+
+
+
 
 @media only screen and (max-width: 850px) {
   .card-grid{
@@ -529,36 +614,4 @@ input{
       top: -10px;
     }
 
-}
-
-
-/*-----------------QUIZ PAGE----------------------*/
-
-.answer-container{
-  position:absolute;
-  left: 40%;
-  top:25%;
-  min-height: 30%;
-  min-width: 20%;
-  background-color: rgb(181, 230, 203);
-  border:solid rgb(39, 100, 68);
-  border-width: .5rem;;
-  transition: all 0.5s;
-  margin: auto;
-  margin-top: 2rem;
-  border-radius:2%;
-  font-size: 3rem;
-  font-family: 'Anton';
-  color:rgb(39, 100, 68);
-}
-
-.currentScore{
-  font-size: 3rem;
-  font-weight:900;
-  color: rgb(39, 100, 68);
-}
-
-.score{
-  font-size: 1.5rem;
-  font-family: 'anton'
 }
