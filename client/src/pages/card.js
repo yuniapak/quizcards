@@ -1,8 +1,9 @@
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const Card = ({ cardsObj, getCardbyType, subject }) => {
+  const [showCard, setShowCard] = useState(false);
   cardsObj.map((card) => console.log(card));
   let navigate = useNavigate();
 
@@ -35,8 +36,11 @@ const Card = ({ cardsObj, getCardbyType, subject }) => {
         {cardsObj.map((card) => (
           <div className="quiz-card" key={card.id}>
             <h1>{card.type.toUpperCase()}</h1>
-            <h1 className="quiz-question">{card.question.toUpperCase()}</h1>
-            <h1 className="quiz-answer">Answer: {card.answer}</h1>
+            <h1 className="quiz-question">{card.question.toUpperCase()}?</h1>
+
+            {showCard ? (
+              <h1 className="quiz-answer">Answer: {card.answer}</h1>
+            ) : null}
             <button className="quiz-edit-btn" onClick={() => editCard(card)}>
               Edit
             </button>
@@ -44,9 +48,9 @@ const Card = ({ cardsObj, getCardbyType, subject }) => {
               className="quiz-delete-btn"
               onClick={() => deleteCard(card.id)}
             >
-              {" "}
-              Delete{" "}
+              Delete
             </button>
+            <button onClick={() => setShowCard(!showCard)}>Show Card</button>
           </div>
         ))}
       </div>
