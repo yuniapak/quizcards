@@ -1,8 +1,9 @@
 import axios from 'axios'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import UpdatePassword from '../components/updatePassword'
 
-const Settings = ({ user, userName }) => {
+const Settings = ({ user, userName, authenticated }) => {
   const [newName, setNewName] = useState({ name: '' })
 
   const updateName = async (name) => {
@@ -27,7 +28,7 @@ const Settings = ({ user, userName }) => {
     console.log(newName)
   }
 
-  return (
+  return !authenticated ? (
     <div>
       <h2>Settings</h2>
       <form onSubmit={handleSubmit}>
@@ -45,6 +46,17 @@ const Settings = ({ user, userName }) => {
         </button>
       </form>
       <UpdatePassword user={user} />
+    </div>
+  ) : (
+    <div>
+      <h2>Do you want to create an accout?</h2>
+      <Link className="main-btn" to="/register">
+        Register
+      </Link>
+      <h2>Have an accout? Welcome back!</h2>
+      <Link className="main-btn" to="/login">
+        Login
+      </Link>
     </div>
   )
 }
