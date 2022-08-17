@@ -29,6 +29,7 @@ const Quiz = ({ cardsObj, subject }) => {
         {cardsObj.map((card) => (
           <div key={card.id}>
             <h3>{card.question}</h3>
+
             <input type="text" value="Answer..." />
             <div>
               <button id={card.id} onClick={showAnswer}>
