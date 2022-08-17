@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { useState } from 'react'
 const UpdatePassword = ({user}) => {
-const [passwordForm, setPasswordForm] = useState({password:'', newPassword: ''})
+const [passwordForm, setPasswordForm] = useState({password:'', newPassword: '', confirmPassword: ''})
 
 const updatePassword = async(form) =>{
    try{ 
@@ -19,7 +19,11 @@ const handleChange = (event) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    updatePassword(passwordForm)
+    updatePassword({password: passwordForm.password,
+    newPassword: passwordForm.newPassword})
+    setPasswordForm({password:'', newPassword: '', confirmPassword: ''
+
+    })
     //console.log(newName)
   }
 
@@ -47,7 +51,19 @@ const handleChange = (event) => {
           onChange={handleChange}
           required
         ></input>
-        <button type="submit">Change Password</button>
+        <label htmlFor="password">ConfirmPassword</label>
+        <input
+          name="confirmPassword"
+          type="password"
+          placeholder='Confirm Password'
+          value={passwordForm.confirmPassword}
+          contentEditable="true"
+          onChange={handleChange}
+          required
+        ></input>
+        <button type="submit" disabled= { !passwordForm.password ||
+              (!passwordForm.newPassword &&
+                passwordForm.confirmPassword === passwordForm.newPassword)}>Change Password</button>
       </form>
     </div>
 }
