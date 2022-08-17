@@ -1,5 +1,7 @@
-import { useState, useEffect } from 'react'
-import axios from 'axios'
+
+import { useState, useEffect } from "react";
+import axios from "axios";
+
 
 const Quiz = ({ cardsObj, subject }) => {
   const [currentQuestion, setQuestion] = useState(0)
@@ -20,7 +22,9 @@ const Quiz = ({ cardsObj, subject }) => {
 
   useEffect(() => {}, [])
 
+
   return (
+
     <div>
       <h2>Quizards Quizly Quiz Game!</h2>
       <p>Do you know the answers to these questions?</p>
@@ -32,6 +36,7 @@ const Quiz = ({ cardsObj, subject }) => {
 
             <input type="text" placeholder="Answer..." />
             <div>
+
               <button id={card.id} onClick={showAnswer}>
                 Check Answer
               </button>
@@ -40,6 +45,7 @@ const Quiz = ({ cardsObj, subject }) => {
                   Answer:
                   {card.answer}
                   Did you get it correct?
+
                   <button
                     onClick={() => setPopup(false)}
                     className="answer-close-btn"
@@ -55,10 +61,12 @@ const Quiz = ({ cardsObj, subject }) => {
           </div>
         ))}
       </div>
+
       <div className="score">
         You Answered <span className="currentScore">{currentScore}</span>{' '}
         Correct
       </div>
+
     </div>
   )
 }
