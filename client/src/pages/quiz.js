@@ -1,5 +1,3 @@
-
-
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -7,7 +5,7 @@ const Quiz = ({ cardsObj, subject }) => {
   const [currentQuestion, setQuestion] = useState(0);
   const [currentScore, setScore] = useState(0);
   const [popup, setPopup] = useState(false);
-  const [idOfCard, setIdOfCard] = useState('');
+  const [idOfCard, setIdOfCard] = useState("");
 
   const showAnswer = (e) => {
     setPopup(true);
@@ -37,36 +35,37 @@ const Quiz = ({ cardsObj, subject }) => {
 
             <input type="text" placeholder="Answer..." />
             <div>
-              <button id={card.Id} onClick={showAnswer}>
+
+              <button id={card.id} onClick={showAnswer}>
                 Check Answer
               </button>
-              {popup && (
+              {popup && idOfCard == card.id ? (
                 <div className="answer-container">
                   Answer:
-                  {card.id}
+                  {card.answer}
+
                   <button
                     onClick={() => setPopup(false)}
                     className="answer-close-btn"
                   >
-                    Close
+                    No
                   </button>
                   <button onClick={addScore} className="yes-btn">
                     Yes
                   </button>
-                  <button className="no-btn">No</button>
                 </div>
-              )}
+              ) : null}
             </div>
           </div>
         ))}
       </div>
-      <div className="score">You scored {currentScore} </div>
-      {/* <div>
-        <button onClick={() => setPopup(!popup)}>'hello'</button>
-        {popup && <div>content</div>}
-      </div> */}
+
+      <div className="score">
+        You Answered <span className="currentScore">{currentScore}</span>{" "}
+        Correct
+      </div>
+
     </div>
   );
 };
 export default Quiz;
-
