@@ -3,10 +3,12 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 
 const Card = ({ cardsObj, getCardbyType, subject }) => {
+
   const [showCard, setShowCard] = useState(false)
   const [idOfCard, setIdOfCard] = useState('')
   cardsObj.map((card) => console.log(card))
   let navigate = useNavigate()
+
 
   const editCard = (card) => {
     navigate(`${card.Id}`, { state: { card: card } })
@@ -29,6 +31,8 @@ const Card = ({ cardsObj, getCardbyType, subject }) => {
     setIdOfCard(e.target.id)
   }
 
+  const [showCard, setShowCard] = useState(false);
+
   return (
     <div className="main-div">
       <button className="add-btn" onClick={() => navigate('/addCard')}>
@@ -39,9 +43,11 @@ const Card = ({ cardsObj, getCardbyType, subject }) => {
           <div className="quiz-card" key={card.id}>
             <h1>{card.type.toUpperCase()}</h1>
             <h1 className="quiz-question">{card.question.toUpperCase()}?</h1>
+
             {showCard && idOfCard == card.id ? (
               <h1 className="quiz-answer">Answer: {card.answer}</h1>
             ) : null}
+
             <button className="quiz-edit-btn" onClick={() => editCard(card)}>
               Edit
             </button>
@@ -51,9 +57,11 @@ const Card = ({ cardsObj, getCardbyType, subject }) => {
             >
               Delete
             </button>
+
             <button id={card.id} onClick={cardShow}>
               Show Card
             </button>
+
           </div>
         ))}
       </div>
