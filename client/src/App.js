@@ -1,3 +1,4 @@
+
 import './App.css'
 import Nav from './components/Nav'
 import Footer from './components/Footer'
@@ -24,59 +25,61 @@ function App() {
   const [types, setTypes] = useState([])
   const [userName, setUserName] = useState('')
   let currentTypes = []
-
+  
   const handleLogOut = () => {
-    setUser(null)
-    toggleAuthenticated(false)
-    localStorage.clear()
-  }
+    setUser(null);
+    toggleAuthenticated(false);
+    localStorage.clear();
+  };
 
   const checkToken = async () => {
-    const user = await CheckSession()
-    console.log('user token exist', user)
-    setUser(user)
-    toggleAuthenticated(true)
-  }
+    const user = await CheckSession();
+    console.log("user token exist", user);
+    setUser(user);
+    toggleAuthenticated(true);
+  };
 
   useEffect(() => {
-    const token = localStorage.getItem('token')
-    console.log(token)
+    const token = localStorage.getItem("token");
+    console.log(token);
     if (token) {
+
       console.log(token)
       checkToken()
+
     }
-  }, [])
+  }, []);
 
   const getTypes = async () => {
     try {
       let result = await axios.get(
         `http://localhost:3001/api/card/card/${user.id}`
-      )
+      );
       result.data.map(({ type }) => {
-        currentTypes.push(type)
-      })
-      console.log([...new Set(currentTypes)])
+        currentTypes.push(type);
+      });
+      console.log([...new Set(currentTypes)]);
       setTypes(
         [...new Set(currentTypes)].map((type) => ({ label: type, value: type }))
-      )
-      setLoading(false)
+      );
+      setLoading(false);
     } catch (error) {
-      return error
+      return error;
     }
-  }
+  };
 
   const getCardbyType = async (subject) => {
     try {
       let res = await axios.get(
         `http://localhost:3001/api/card/find/${user.id}/${subject}`
-      )
-      console.log(res.data)
+      );
+      console.log(res.data);
       //setting result to useState to pass through
-      setCardsObj(res.data)
+      setCardsObj(res.data);
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
-  }
+  };
 
   return (
     <div className="main-container">
@@ -150,7 +153,7 @@ function App() {
         <Footer />
       </footer>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
