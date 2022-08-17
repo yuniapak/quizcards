@@ -1,44 +1,44 @@
-import axios from 'axios'
-import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const AddCard = ({ user, loading, types }) => {
-  console.log(user)
+  console.log(user);
   const [newCard, setNewCard] = useState({
-    type: '',
-    question: '',
-    answer: ''
-  })
+    type: "",
+    question: "",
+    answer: "",
+  });
 
   const handleChange = (event) => {
-    setNewCard({ ...newCard, [event.target.name]: event.target.value })
-    console.log(newCard)
-  }
+    setNewCard({ ...newCard, [event.target.name]: event.target.value });
+    console.log(newCard);
+  };
 
   const addNewCard = async (cardData) => {
-    console.log(cardData)
+    console.log(cardData);
 
     const res = await axios.post(
       `http://localhost:3001/api/card/${user.id}`,
       cardData
-    )
-    console.log(res)
-  }
+    );
+    console.log(res);
+  };
 
-  let navigate = useNavigate()
+  let navigate = useNavigate();
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    await addNewCard(newCard)
-    console.log(newCard)
+    e.preventDefault();
+    await addNewCard(newCard);
+    console.log(newCard);
     setNewCard({
-      type: '',
-      question: '',
-      answer: ''
-    })
+      type: "",
+      question: "",
+      answer: "",
+    });
     //navigate for now, maybe change to different page later
-    navigate('/Profile')
-  }
+    navigate("/Profile");
+  };
 
   return (
     <div className="main-div">
@@ -81,6 +81,7 @@ const AddCard = ({ user, loading, types }) => {
           <br></br>
           <input
             className="addCard-input"
+            maxLength="50"
             onChange={handleChange}
             name="question"
             type="text"
@@ -94,6 +95,7 @@ const AddCard = ({ user, loading, types }) => {
           <textarea
             rows="6"
             cols="20"
+            maxLength="50"
             className="addCard-input"
             onChange={handleChange}
             name="answer"
@@ -113,7 +115,7 @@ const AddCard = ({ user, loading, types }) => {
         </form>
       </div>
     </div>
-  )
-}
+  );
+};
 //test
-export default AddCard
+export default AddCard;

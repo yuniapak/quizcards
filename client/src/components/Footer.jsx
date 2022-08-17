@@ -3,10 +3,19 @@ function Footer() {
   return (
     <div className="footer">
       <br></br>
-      <p className="winner"><a href="https://www.linkedin.com/in/phoenixkhan" >Phoenix Khan</a></p>
-      <p className="winner"><a href="https://github.com/yuniapak"> Yun Pakhomova</a></p>
-      <p className="winner"><a href="https://www.linkedin.com/in/jay-leung1">Jay Leung</a></p>
-      <div></div>
+      <a
+        className="footer-links"
+        href="https://www.linkedin.com/in/phoenixkhan"
+      >
+        Phoenix Khan |
+      </a>
+      <a className="footer-links" href="https://github.com/yuniapak">
+        {" "}
+        Yun Pakhomova{" "}
+      </a>
+      <a className="footer-links" href="https://www.linkedin.com/in/jay-leung1">
+        | Jay Leung
+      </a>
     </div>
   );
 }
