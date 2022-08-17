@@ -2,24 +2,25 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+
 const Quiz = ({ cardsObj, subject }) => {
-  const [currentQuestion, setQuestion] = useState(0);
-  const [currentScore, setScore] = useState(0);
-  const [popup, setPopup] = useState(false);
-  const [idOfCard, setIdOfCard] = useState("");
+  const [currentQuestion, setQuestion] = useState(0)
+  const [currentScore, setScore] = useState(0)
+  const [popup, setPopup] = useState(false)
+  const [idOfCard, setIdOfCard] = useState('')
 
   const showAnswer = (e) => {
-    setPopup(true);
-    setIdOfCard(e.target.id);
-    console.log(idOfCard);
-  };
+    setPopup(true)
+    setIdOfCard(e.target.id)
+    console.log(idOfCard)
+  }
 
   const addScore = () => {
-    setScore(currentScore + 1);
-    setPopup(false);
-  };
+    setScore(currentScore + 1)
+    setPopup(false)
+  }
 
-  useEffect(() => {}, []);
+  useEffect(() => {}, [])
 
 
   return (
@@ -32,7 +33,6 @@ const Quiz = ({ cardsObj, subject }) => {
         {cardsObj.map((card) => (
           <div key={card.id}>
             <h3>{card.question}</h3>
-
 
             <input type="text" placeholder="Answer..." />
             <div>
@@ -63,11 +63,11 @@ const Quiz = ({ cardsObj, subject }) => {
       </div>
 
       <div className="score">
-        You Answered <span className="currentScore">{currentScore}</span>{" "}
+        You Answered <span className="currentScore">{currentScore}</span>{' '}
         Correct
       </div>
 
     </div>
-  );
-};
-export default Quiz;
+  )
+}
+export default Quiz

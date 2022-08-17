@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { useState } from 'react'
+import UpdatePassword from '../components/updatePassword'
 
 const Settings = ({ user, userName }) => {
   const [newName, setNewName] = useState({ name: '' })
@@ -30,7 +31,7 @@ const Settings = ({ user, userName }) => {
     <div>
       <h2>Settings</h2>
       <form onSubmit={handleSubmit}>
-        Name:
+        <label htmlFor="password">ConfirmPassword</label>
         <input
           name="name"
           type="text"
@@ -39,8 +40,11 @@ const Settings = ({ user, userName }) => {
           contentEditable="true"
           onChange={handleChange}
         ></input>
-        <button type="submit">update</button>
+        <button type="submit" disabled={!newName.name}>
+          update
+        </button>
       </form>
+      <UpdatePassword user={user} />
     </div>
   )
 }
