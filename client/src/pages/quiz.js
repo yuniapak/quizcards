@@ -23,16 +23,6 @@ const Quiz = ({ cardsObj, subject }) => {
   useEffect(() => {}, []);
 
 
-
-
-  const buttonClicked = () =>{
-setScore(currentScore + 1)
-setDisable(true)
-  }
-
-
-
-
   return (
 
     <div>
@@ -45,15 +35,17 @@ setDisable(true)
             <h3>{card.question}</h3>
 
 
-            <input type="text" value="Answer..." />
+            <input type="text" placeholder="Answer..." />
             <div>
-              <button id={card.Id} onClick={showAnswer}>
+              <button  onClick={showAnswer}>
                 Check Answer
               </button>
+
               {popup && (
-                <div className="answer-container">
+                <div id={card.id} className="answer-container" >
                   Answer:
-                  {card.answer}
+                  {card.id}
+
                   <button
                     onClick={() => setPopup(false)}
                     className="answer-close-btn"
@@ -70,7 +62,7 @@ setDisable(true)
           </div>
         ))}
       </div>
-      <div className="score">You scored {currentScore} out of </div>
+      <div className="score">You scored {currentScore} </div>
       {/* <div>
         <button onClick={() => setPopup(!popup)}>'hello'</button>
         {popup && <div>content</div>}
