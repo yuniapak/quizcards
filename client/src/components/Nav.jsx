@@ -9,14 +9,15 @@ function Nav({ authenticated, user, handleLogOut }) {
         </h1>
         <div className="nav-link">
           <NavLink className="nav-link1" to="/Profile">
-            Profile |
+            <span className='nav-link2'>Profile </span> | 
           </NavLink>
+      
           <NavLink className="nav-link1" to="/Settings">
-            Settings |
+          <span className='nav-link2'> Settings </span>  |
           </NavLink>
           <NavLink className="nav-link1" to="/" onClick={handleLogOut}>
             {" "}
-            LogOut
+            <span className='nav-link2'> LogOut </span> 
           </NavLink>
         </div>
       </nav>
