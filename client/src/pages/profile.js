@@ -35,12 +35,10 @@ const Profile = ({
   const getUserName = async () => {
     console.log(user);
     const result = await axios.get(`http://localhost:3001/api/user/${user.id}`);
+    console.log(result.data);
     // ---Capitalizing Name-----//
     const firstletter = result.data.name[0].toUpperCase();
-    console.log(firstletter);
     const restOfName = result.data.name.slice(1, result.data.name.length);
-    console.log(restOfName);
-    console.log(restOfName);
     //----------------------------
     // setUserName(result.data.name);
     setUserName(firstletter + restOfName);
@@ -109,9 +107,7 @@ const Profile = ({
     </div>
   );
 
-
-  return <div>{authenticated ? authenticatedOptions : publicOptions}</div>
-}
-
+  return <div>{authenticated ? authenticatedOptions : publicOptions}</div>;
+};
 
 export default Profile;
