@@ -46,6 +46,7 @@ const Quiz = ({ cardsObj, subject }) => {
               </button>
               {popup && idOfCard == card.id ? (
                 <div className="answer-container">
+
                   <div className="answer-content">
                     Answer:
                     <div className="answer-text">{card.answer}</div>
@@ -58,6 +59,7 @@ const Quiz = ({ cardsObj, subject }) => {
                       Yes
                     </button>
                   </div>
+
                 </div>
               ) : null}
             </div>

@@ -58,6 +58,14 @@ html{
   font-size: 1rem;
   font-family: Arial, Helvetica, sans-serif;
 } 
+
+.winner{
+  width:150px;
+  display:inline-block;
+  position:relative;
+
+}
+
 .main-image{
   position:relative;
   width: 25%;
