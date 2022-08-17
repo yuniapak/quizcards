@@ -18,10 +18,17 @@ const Quiz = ({ cardsObj, subject }) => {
     setPopup(false);
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
   useEffect(() => {}, []);
 
   return (
-    <div>
+    <div className="main-div">
       <h2>Quizards Quizly Quiz Game!</h2>
       <p>Do you know the answers to these questions?</p>
       <h3>{subject}</h3>
@@ -59,6 +66,10 @@ const Quiz = ({ cardsObj, subject }) => {
         You Answered <span className="currentScore">{currentScore}</span>{" "}
         Correct
       </div>
+
+      <button className="enter-quiz-btn" onClick={scrollToTop}>
+        Back to top
+      </button>
     </div>
   );
 };

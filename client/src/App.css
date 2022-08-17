@@ -384,6 +384,26 @@ input{
   font-weight: 500;
 }
 
+.quiz-btn{
+  display:inline-block;
+  border-radius: 4px;
+  background-color: rgb(39, 100, 68);
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 20px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+} 
+
 .quiz-show-btn{
   display:inline-block;
   border-radius: 4px;
