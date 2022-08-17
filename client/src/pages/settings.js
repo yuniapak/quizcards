@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { useState } from 'react'
+import UpdatePassword from '../components/updatePassword'
 
 const Settings = ({ user, userName }) => {
   const [newName, setNewName] = useState({ name: '' })
@@ -41,6 +42,7 @@ const Settings = ({ user, userName }) => {
         ></input>
         <button type="submit">update</button>
       </form>
+      <UpdatePassword user={user} />
     </div>
   )
 }
