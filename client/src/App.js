@@ -129,7 +129,10 @@ function App() {
               />
             }
           />
-          <Route path="/Quiz" element={<Quiz cardsObj={cardsObj}/>} />
+          <Route
+            path="/Quiz"
+            element={<Quiz cardsObj={cardsObj} subject={subject} />}
+          />
           <Route path="/Register" element={<Register />} />
         </Routes>
       </div>
