@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -19,6 +20,7 @@ const Quiz = ({ cardsObj, subject }) => {
   };
 
   useEffect(() => {}, []);
+
 
   // const nextQuestion = currentQuestion + 1;
   // if(nextQuestion < question.length){
@@ -42,6 +44,7 @@ const Quiz = ({ cardsObj, subject }) => {
         {cardsObj.map((card) => (
           <div key={card.id}>
             <h3>{card.question}</h3>
+
             <input type="text" value="Answer..." />
             <div>
               <button id={card.Id} onClick={showAnswer}>
@@ -76,3 +79,4 @@ const Quiz = ({ cardsObj, subject }) => {
   );
 };
 export default Quiz;
+
