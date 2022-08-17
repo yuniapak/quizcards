@@ -31,8 +31,9 @@ const handleChange = (event) => {
         <h2>Update Password</h2>
          <form onSubmit={handleSubmit}>
         
-        <label htmlFor="password">Password</label>
+        <label htmlFor="password">Password</label>{' '}
         <input
+         className="addCard-input"
           name="password"
           type="password"
           placeholder='Current password'
@@ -41,8 +42,11 @@ const handleChange = (event) => {
           onChange={handleChange}
           required
         ></input>
-        <label htmlFor="password">New Password</label>
+        
+        <label htmlFor="password"> NewPassword</label>
+        {' '}
         <input
+         className="addCard-input"
           name="newPassword"
           type="password"
           placeholder='New password'
@@ -53,6 +57,7 @@ const handleChange = (event) => {
         ></input>
         <label htmlFor="password">ConfirmPassword</label>
         <input
+         className="addCard-input"
           name="confirmPassword"
           type="password"
           placeholder='Confirm Password'

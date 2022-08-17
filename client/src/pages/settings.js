@@ -29,23 +29,26 @@ const Settings = ({ user, userName, authenticated }) => {
   }
 
   return !authenticated ? (
-    <div>
-      <h2>Settings</h2>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="password">ConfirmPassword</label>
-        <input
-          name="name"
-          type="text"
-          placeholder={userName}
-          value={newName.name}
-          contentEditable="true"
-          onChange={handleChange}
-        ></input>
-        <button type="submit" disabled={!newName.name}>
-          update
-        </button>
-      </form>
-      <UpdatePassword user={user} />
+    <div className="main-div">
+      <div className="Addcard">
+        <h2>Settings</h2>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="password">ConfirmPassword</label>
+          <input
+            className="addCard-input"
+            name="name"
+            type="text"
+            placeholder={userName}
+            value={newName.name}
+            contentEditable="true"
+            onChange={handleChange}
+          ></input>{' '}
+          <button type="submit" disabled={!newName.name}>
+            update
+          </button>
+        </form>
+        <UpdatePassword user={user} />
+      </div>{' '}
     </div>
   ) : (
     <div>
