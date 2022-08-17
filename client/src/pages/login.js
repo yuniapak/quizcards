@@ -13,9 +13,9 @@ const Login = ({ setUser, toggleAuthenticated }) => {
     e.preventDefault()
     const payload = await signIn(formValues)
     console.log(payload)
-    setFormValues({ email: '', password: '' })
     setUser(payload)
     toggleAuthenticated(true)
+    setFormValues({ email: '', password: '' })
     navigate('/Profile')
   }
   return (

@@ -1,28 +1,31 @@
-import "./App.css";
-import Nav from "./components/Nav";
-import Footer from "./components/Footer";
-import { Routes, Route } from "react-router-dom";
-import { useState, useEffect } from "react";
-import Home from "./pages/home";
-import AddCard from "./pages/addCard";
-import Card from "./pages/card";
-import EditCard from "./pages/editCard";
-import Login from "./pages/login";
-import Profile from "./pages/profile";
-import Quiz from "./pages/quiz";
-import Register from "./pages/register";
-import axios from "axios";
-import { CheckSession } from "./services/Auth";
+
+import './App.css'
+import Nav from './components/Nav'
+import Footer from './components/Footer'
+import { Routes, Route } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import Home from './pages/home'
+import AddCard from './pages/addCard'
+import Card from './pages/card'
+import EditCard from './pages/editCard'
+import Login from './pages/login'
+import Profile from './pages/profile'
+import Quiz from './pages/quiz'
+import Register from './pages/register'
+import Settings from './pages/settings'
+import axios from 'axios'
+import { CheckSession } from './services/Auth'
 
 function App() {
-  const [authenticated, toggleAuthenticated] = useState(false);
-  const [user, setUser] = useState(null);
-  const [cardsObj, setCardsObj] = useState([]);
-  const [subject, setSubject] = useState("");
-  const [loading, setLoading] = useState(true);
-  const [types, setTypes] = useState([]);
-  let currentTypes = [];
-
+  const [authenticated, toggleAuthenticated] = useState(false)
+  const [user, setUser] = useState(null)
+  const [cardsObj, setCardsObj] = useState([])
+  const [subject, setSubject] = useState('')
+  const [loading, setLoading] = useState(true)
+  const [types, setTypes] = useState([])
+  const [userName, setUserName] = useState('')
+  let currentTypes = []
+  
   const handleLogOut = () => {
     setUser(null);
     toggleAuthenticated(false);
@@ -40,7 +43,10 @@ function App() {
     const token = localStorage.getItem("token");
     console.log(token);
     if (token) {
-      checkToken();
+
+      console.log(token)
+      checkToken()
+
     }
   }, []);
 
@@ -126,6 +132,8 @@ function App() {
                 getTypes={getTypes}
                 types={types}
                 loading={loading}
+                setUserName={setUserName}
+                userName={userName}
               />
             }
           />
@@ -134,6 +142,10 @@ function App() {
             element={<Quiz cardsObj={cardsObj} subject={subject} />}
           />
           <Route path="/Register" element={<Register />} />
+          <Route
+            path="/Settings"
+            element={<Settings user={user} userName={userName} />}
+          />
         </Routes>
       </div>
 

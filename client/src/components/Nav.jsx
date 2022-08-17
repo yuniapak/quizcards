@@ -11,6 +11,9 @@ function Nav({ authenticated, user, handleLogOut }) {
           <NavLink className="nav-link1" to="/Profile">
             Profile |
           </NavLink>
+          <NavLink className="nav-link1" to="/Settings">
+            Settings |
+          </NavLink>
           <NavLink className="nav-link1" to="/" onClick={handleLogOut}>
             {" "}
             LogOut

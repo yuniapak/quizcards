@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 0552816420b53eb8b9684fce5b617c089be2d986
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -7,7 +10,7 @@ const Quiz = ({ cardsObj, subject }) => {
   const [currentQuestion, setQuestion] = useState(0);
   const [currentScore, setScore] = useState(0);
   const [popup, setPopup] = useState(false);
-  const [idOfCard, setIdOfCard] = useState(null);
+  const [idOfCard, setIdOfCard] = useState("");
 
   const showAnswer = (e) => {
     setPopup(true);
@@ -22,7 +25,10 @@ const Quiz = ({ cardsObj, subject }) => {
 
   useEffect(() => {}, []);
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0552816420b53eb8b9684fce5b617c089be2d986
   return (
 
     <div>
@@ -37,6 +43,7 @@ const Quiz = ({ cardsObj, subject }) => {
 
             <input type="text" placeholder="Answer..." />
             <div>
+<<<<<<< HEAD
               <button  onClick={showAnswer}>
                 Check Answer
               </button>
@@ -46,29 +53,44 @@ const Quiz = ({ cardsObj, subject }) => {
                   Answer:
                   {card.id}
 
+=======
+              <button id={card.id} onClick={showAnswer}>
+                Check Answer
+              </button>
+              {popup && idOfCard == card.id ? (
+                <div className="answer-container">
+                  Answer:
+                  {card.answer}
+                  Did you get it correct?
+>>>>>>> 0552816420b53eb8b9684fce5b617c089be2d986
                   <button
                     onClick={() => setPopup(false)}
                     className="answer-close-btn"
                   >
-                    Close
+                    No
                   </button>
                   <button onClick={addScore} className="yes-btn">
                     Yes
                   </button>
-                  <button className="no-btn">No</button>
                 </div>
-              )}
+              ) : null}
             </div>
           </div>
         ))}
       </div>
+<<<<<<< HEAD
       <div className="score">You scored {currentScore} </div>
       {/* <div>
         <button onClick={() => setPopup(!popup)}>'hello'</button>
         {popup && <div>content</div>}
       </div> */}
+=======
+      <div className="score">
+        You Answered <span className="currentScore">{currentScore}</span>{" "}
+        Correct
+      </div>
+>>>>>>> 0552816420b53eb8b9684fce5b617c089be2d986
     </div>
   );
 };
 export default Quiz;
-
