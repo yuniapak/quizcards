@@ -1,8 +1,8 @@
-import { useNavigate, Link } from "react-router-dom";
-import { useState, useEffect } from "react";
-import LogImg from "../images/notlogin.png";
-import axios from "axios";
-import Card from "./card";
+import { useNavigate, Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import LogImg from '../images/notlogin.png'
+import axios from 'axios'
+import Card from './card'
 
 const Profile = ({
   setCardsObj,
@@ -14,45 +14,49 @@ const Profile = ({
   getTypes,
   loading,
   types,
+  setUserName,
+  userName
 }) => {
-  let navigate = useNavigate();
-  const initialState = { value: "" };
-  const [userName, setUserName] = useState("");
+  let navigate = useNavigate()
+  const initialState = { value: '' }
 
   const handleChange = (event) => {
-    event.preventDefault();
-    setSubject(event.target.value);
-    console.log(event.target.value);
-  };
+    event.preventDefault()
+    setSubject(event.target.value)
+    console.log(event.target.value)
+  }
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
     //calling axios on submit
 
-    getCardbyType(subject);
-    navigate(`/Card`);
-  };
+    getCardbyType(subject)
+    navigate(`/Card`)
+  }
   const getUserName = async () => {
-    console.log(user);
-    const result = await axios.get(`http://localhost:3001/api/user/${user.id}`);
-    console.log(result.data);
+
+    console.log(user)
+    const result = await axios.get(`http://localhost:3001/api/user/${user.id}`)
     // ---Capitalizing Name-----//
-    const firstletter = result.data.name[0].toUpperCase();
-    const restOfName = result.data.name.slice(1, result.data.name.length);
-    //----------------------------
+    const firstletter = result.data.name[0].toUpperCase()
+    console.log(firstletter)
+    const restOfName = result.data.name.slice(1, result.data.name.length)
+    console.log(restOfName)
+    console.log(restOfName)
+   //----------------------------
     // setUserName(result.data.name);
-    setUserName(firstletter + restOfName);
-  };
+    setUserName(firstletter + restOfName)
+  }
   const navigateToAddType = () => {
-    navigate(`/AddCard`);
-  };
+    navigate(`/AddCard`)
+  }
 
   useEffect(() => {
-    getTypes();
-    getUserName();
-  }, []);
+    getTypes()
+    getUserName()
+  }, [])
 
-  let authenticatedOptions;
+  let authenticatedOptions
   if (user) {
     authenticatedOptions = (
       <div>
@@ -94,7 +98,7 @@ const Profile = ({
           </div>
         </div>
       </div>
-    );
+    )
   }
   const publicOptions = (
     <div>
@@ -105,9 +109,11 @@ const Profile = ({
         Login now
       </Link>
     </div>
-  );
 
-  return <div>{authenticated ? authenticatedOptions : publicOptions}</div>;
-};
+  )
 
-export default Profile;
+  return <div>{authenticated ? authenticatedOptions : publicOptions}</div>
+}
+
+export default Profile
+
