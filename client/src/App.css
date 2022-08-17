@@ -31,10 +31,10 @@ html{
   top:110px; 
   right: 25px;
   display: inline-block;
-  font-size: 20px;
+  font-size: 18px;
 }
 
-.nav-link1{
+.nav-link2{
   color:white;
   text-decoration: none;
   font-family: Arial, Helvetica, sans-serif;
@@ -44,6 +44,7 @@ html{
   color:rgb(39, 100, 68);
   text-decoration: none;
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
 }
 
 .footer{
@@ -59,12 +60,18 @@ html{
   font-family: Arial, Helvetica, sans-serif;
 } 
 
-.winner{
-  width:150px;
-  display:inline-block;
-  position:relative;
-
+.footer-links{
+  text-decoration: none;
+  color:white;
 }
+
+.footer-links:hover{
+  color:rgb(39, 100, 68);
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+}
+
 
 .main-image{
   position:relative;
@@ -333,7 +340,6 @@ input{
   border-width: 5px;
   box-shadow: 2px 0px 40px rgba(0, 0, 0, 0.3);
   font-family: Arial, Helvetica, sans-serif;
-  font-weight: 800;
   color:white;
   border-radius: 5%;
 }
@@ -344,18 +350,19 @@ input{
   grid-column-gap: 15px;
 }
 
-
-
 .quiz-question{
   margin: 2rem;
-  font-size: 1.5rem;
+  font-size: 16px;
   color: rgb(39, 100, 68);
   word-wrap: break-word;
+  font-weight: 400;
+  min-height: 150px;
 }
 
 .quiz-answer{
   margin: 2rem;
-  font-size: 1.5rem;
+  font-size: 18px;
+  font-weight: 400;
   word-wrap: break-word;
 }
 
@@ -418,9 +425,9 @@ input{
 .quiz-show-btn{
   display:inline-block;
   border-radius: 4px;
-  background-color: rgb(39, 100, 68);
+  background-color: white;
   border: solid rgb(181, 230, 203);
-  color: #FFFFFF;
+  color: rgb(39, 100, 68);
   text-align: center;
   font-size: 15px;
   padding: 15px;
