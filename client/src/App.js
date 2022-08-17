@@ -149,7 +149,7 @@ function App() {
               />
             }
           />
-          <Route path="/Quiz" element={<Quiz />} />
+          <Route path="/Quiz" element={<Quiz cardsObj={cardsObj}/>} />
           <Route path="/Register" element={<Register />} />
         </Routes>
       </div>
