@@ -39,7 +39,6 @@ useEffect (()=>{
 
     <h2>Quizards Quizly Quiz Game!</h2>
     <p>Do you know the answers to these questions?</p>
- 
     <div>
     {cardsObj.map((card)=>{
   <li key = {card.id}>

@@ -31,8 +31,6 @@ const Card = ({ cardsObj, getCardbyType, subject }) => {
     setIdOfCard(e.target.id)
   }
 
-  const [showCard, setShowCard] = useState(false);
-
   return (
     <div className="main-div">
       <button className="add-btn" onClick={() => navigate('/addCard')}>
