@@ -11,6 +11,7 @@ import Login from './pages/login'
 import Profile from './pages/profile'
 import Quiz from './pages/quiz'
 import Register from './pages/register'
+import Settings from './pages/settings'
 import axios from 'axios'
 import { CheckSession } from './services/Auth'
 
@@ -21,6 +22,7 @@ function App() {
   const [subject, setSubject] = useState('')
   const [loading, setLoading] = useState(true)
   const [types, setTypes] = useState([])
+  const [userName, setUserName] = useState('')
   let currentTypes = []
 
   const handleLogOut = () => {
@@ -40,6 +42,7 @@ function App() {
     const token = localStorage.getItem('token')
     console.log(token)
     if (token) {
+      console.log(token)
       checkToken()
     }
   }, [])
@@ -126,6 +129,8 @@ function App() {
                 getTypes={getTypes}
                 types={types}
                 loading={loading}
+                setUserName={setUserName}
+                userName={userName}
               />
             }
           />
@@ -134,6 +139,10 @@ function App() {
             element={<Quiz cardsObj={cardsObj} subject={subject} />}
           />
           <Route path="/Register" element={<Register />} />
+          <Route
+            path="/Settings"
+            element={<Settings user={user} userName={userName} />}
+          />
         </Routes>
       </div>
 
