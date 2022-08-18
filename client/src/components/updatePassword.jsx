@@ -38,7 +38,7 @@ const UpdatePassword = ({ user }) => {
   };
 
 
-    return <div className='h2-setting'>
+    return (<div className='h2-setting'>
         <h2 >Update Password</h2>
          <form onSubmit={handleSubmit}>
         
@@ -93,6 +93,7 @@ const UpdatePassword = ({ user }) => {
         </button>
       </form>
     </div>
-  );
-};
+
+)
+        }
 export default UpdatePassword;
