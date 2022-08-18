@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Quiz = ({ cardsObj, subject }) => {
   const [currentQuestion, setQuestion] = useState(0);
   const [currentScore, setScore] = useState(0);
   const [popup, setPopup] = useState(false);
   const [idOfCard, setIdOfCard] = useState("");
+
+  let navigate = useNavigate();
 
   const showAnswer = (e) => {
     setPopup(true);
@@ -31,12 +34,13 @@ const Quiz = ({ cardsObj, subject }) => {
 
   return (
     <div className="main-div">
-      <h2>Quizards Quizly Quiz Game!</h2>
-      <p>Do you know the answers?</p>
+      <h2>Quizards Quizly Quiz!</h2>
+
       <h2>{subject}</h2>
       <div>
         {cardsObj.map((card) => (
           <div className="questions-container" key={card.id}>
+            <h2>Test Your Knowledge!</h2>
             <h3>{card.question}</h3>
             <input type="text" placeholder="Answer" />
             <div>
@@ -49,7 +53,6 @@ const Quiz = ({ cardsObj, subject }) => {
               </button>
               {popup && idOfCard == card.id ? (
                 <div className="answer-container">
-
                   <div className="answer-content">
                     Answer:
                     <div className="answer-text">{card.answer}</div>
@@ -62,7 +65,6 @@ const Quiz = ({ cardsObj, subject }) => {
                       Yes
                     </button>
                   </div>
-
                 </div>
               ) : null}
             </div>
@@ -77,6 +79,9 @@ const Quiz = ({ cardsObj, subject }) => {
 
       <button className="enter-quiz-btn" onClick={scrollToTop}>
         Back to top
+      </button>
+      <button className="enter-quiz-btn" onClick={() => navigate("/Card")}>
+        Back
       </button>
     </div>
   );
