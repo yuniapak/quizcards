@@ -571,6 +571,101 @@ input{
 }
 
 
+@media only screen and (max-width: 1900px) {
+
+  .quiz-card{
+
+    background-color: rgb(139, 171, 147);
+    width: 40vh;
+    max-width: 90%;
+    height: 60vh;
+    margin:auto;
+    margin-top: 8%;
+    margin-bottom: 5%;
+    /* border-radius:10%; */
+    opacity: 70%;
+    border:solid rgb(39, 100, 68);
+    border-width: 5px;
+    box-shadow: 2px 0px 40px rgba(0, 0, 0, 0.3);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 800;
+    color:white;
+    border-radius: 5%;
+  }
+  
+  .card-grid{
+    display:grid;
+    grid-template-columns: auto auto auto auto;
+    grid-column-gap: 15px;
+  }
+  .quiz-type{
+    font-size: 1.8rem;
+  }
+  .quiz-question{
+    margin: 1rem;
+    font-size: 1rem;
+    color: rgb(39, 100, 68);
+  }
+  
+  .quiz-answer{
+    margin: 1rem;
+    font-size: 1rem;
+    word-wrap: break-word;
+  }
+  .quiz-edit-btn{
+    display:inline-block;
+    border-radius: 4px;
+    background-color: rgb(39, 100, 68);
+    border: solid rgb(181, 230, 203);
+    color: #ffffff;
+    text-align: center;
+    font-size: 15px;
+    padding: 15px;
+    width: 100px;
+    cursor: pointer;
+    margin: 5px;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    margin-top: 2rem;  
+  }
+  
+  .quiz-delete-btn{
+    display:inline-block;
+    border-radius: 4px;
+    background-color: rgb(39, 100, 68);
+    border: solid rgb(181, 230, 203);
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 15px;
+    padding: 15px;
+    width: 100px;
+    cursor: pointer;
+    margin: 5px;
+    /* margin-top: 30%; */
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+  }
+  
+  .quiz-show-btn{
+    display:inline-block;
+    border-radius: 4px;
+    background-color: rgb(39, 100, 68);
+    border: solid rgb(181, 230, 203);
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 15px;
+    padding: 15px;
+    width: 100px;
+    cursor: pointer;
+    margin: 5px 0 0 0;
+     margin-top: 3%; 
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+  }
+}
 
 
 
