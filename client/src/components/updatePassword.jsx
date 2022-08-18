@@ -94,6 +94,7 @@ const UpdatePassword = ({ user }) => {
         </button>
       </form>
     </div>
+
   )
 }
 export default UpdatePassword;
