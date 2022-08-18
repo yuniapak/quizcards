@@ -8,14 +8,14 @@ function Nav({ authenticated, user, handleLogOut }) {
           Quiz<span className="c">c</span>ards!
         </h1>
         <div className="nav-link">
-          <NavLink className="nav-link2" to="/Profile">
+          <NavLink className="nav-link1" to="/Profile">
             <span className="nav-link2">Profile </span> |
           </NavLink>
 
-          <NavLink className="nav-link2" to="/Settings">
+          <NavLink className="nav-link1" to="/Settings">
             <span className="nav-link2"> Settings </span> |
           </NavLink>
-          <NavLink className="nav-link2" to="/" onClick={handleLogOut}>
+          <NavLink className="nav-link1" to="/" onClick={handleLogOut}>
             {" "}
             <span className="nav-link2"> LogOut </span>
           </NavLink>
@@ -31,14 +31,14 @@ function Nav({ authenticated, user, handleLogOut }) {
         Quiz<span className="c">c</span>ards!
       </h1>
       <div className="nav-link">
-        <NavLink className="nav-link2" to="/">
+        <NavLink className="nav-link1" to="/">
           Home |
         </NavLink>
-        <NavLink className="nav-link2" to="/Register">
+        <NavLink className="nav-link1" to="/Register">
           {" "}
           Sign up |
         </NavLink>
-        <NavLink className="nav-link2" to="/Login">
+        <NavLink className="nav-link1" to="/Login">
           {" "}
           Login
         </NavLink>

@@ -66,7 +66,7 @@ const AddCard = ({ user, loading, types }) => {
           <br></br>
           <br></br>
           <br></br>
-          New Subject<br></br>
+          Subject<br></br>
           <input
             className="addCard-input"
             onChange={handleChange}
@@ -92,7 +92,7 @@ const AddCard = ({ user, loading, types }) => {
           <br></br>
           Answer
           <br></br>
-          <textarea
+          <input
             rows="6"
             cols="20"
             maxLength="50"
