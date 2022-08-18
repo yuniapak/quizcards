@@ -34,6 +34,12 @@ html{
   font-size: 18px;
 }
 
+.nav-link1{
+  color:white;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 .nav-link2{
   color:white;
   text-decoration: none;
@@ -195,8 +201,8 @@ input{
 
 .profile-card{
   background-color: rgb(139, 171, 147);
-  width: 55vh;
-  min-height: 80vh;
+  width: 50vh;
+  min-height: 60vh;
   margin:auto;
   margin-top: 8%;
   margin-bottom: 8%;
@@ -204,7 +210,6 @@ input{
   border:solid rgb(39, 100, 68);
   border-width: 5px;
   box-shadow: 2px 0px 40px rgba(0, 0, 0, 0.3);
-
 }
 
 .profile-card-header{
@@ -214,6 +219,7 @@ input{
   padding-bottom: 2rem; 
   font-family: 'Rubik Dirt';
   color: white;
+  word-wrap: break-word;
   /* color: rgb(39, 100, 68); */
 }
 
@@ -226,11 +232,11 @@ input{
 }
 
 #value{
-  font-size: 23px;
-  font-family: 'Rubik Dirt';
+  font-size: 18px;
+  font-family: 'anton';
   text-align: center;
   width: 60%;
-  min-height: 8vh;
+  min-height: 4.5vh;
   border: solid rgb(39, 100, 68);
   border-width: 3px;;
   color:rgb(39, 100, 68);
@@ -281,12 +287,11 @@ input{
 .Addcard{
   background-color: rgb(139, 171, 147);
   width: 55vh;
-  min-height: 70vh;
+  min-height: 55vh;
   margin:auto;
   margin-top: 8%;
   margin-bottom: 8%;
   /* border-radius:10%; */
-
   border:solid rgb(39, 100, 68);
   border-width: 5px;
   box-shadow: 2px 0px 40px rgba(0, 0, 0, 0.3);
@@ -295,7 +300,6 @@ input{
   color:white;
   border-radius: 2%;
 }
-
 
 
 .addCard-input{
@@ -315,15 +319,16 @@ input{
   border: none;
   color: #FFFFFF;
   text-align: center;
-  font-size: 20px;
+  font-size: 18px;
   padding: 30px;
   width: 200px;
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
+  margin-top: 2rem;
   text-decoration: none;
   font-family: Arial, Helvetica, sans-serif;
-  font-weight: 900;
+  font-weight: 400;
   margin-top: 5rem; 
 }
 
