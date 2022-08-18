@@ -602,6 +602,7 @@ input{
     font-size: 1.8rem;
   }
   .quiz-question{
+    min-height: 130px;
     margin: 1rem;
     font-size: 1rem;
     color: rgb(39, 100, 68);
@@ -609,6 +610,7 @@ input{
   
   .quiz-answer{
     margin: 1rem;
+    min-height: 60px;
     font-size: 1rem;
     word-wrap: break-word;
   }
