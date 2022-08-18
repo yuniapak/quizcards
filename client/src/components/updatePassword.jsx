@@ -27,8 +27,8 @@ const handleChange = (event) => {
     //console.log(newName)
   }
 
-    return <div>
-        <h2>Update Password</h2>
+    return <div className='h2-setting'>
+        <h2 >Update Password</h2>
          <form onSubmit={handleSubmit}>
         
         <label htmlFor="password">Password</label>{' '}

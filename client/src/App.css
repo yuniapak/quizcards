@@ -686,4 +686,8 @@ input{
 .setting-btn:disabled{
   background-color: rgba(39, 100, 68, 0.4);
 }
-
+.h2-setting h2{
+  font-family: 'Anton', sans-serif;
+font-size: 2rem;
+color:rgb(24, 73, 47);
+}
