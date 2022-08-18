@@ -28,19 +28,13 @@ html{
 
 .nav-link{
   position: absolute;
-  top:110px; 
-  right: 25px;
-  display: inline-block;
-  font-size: 18px;
+   top:110px; 
+   right: 25px;
+   display: inline-block;
+   font-size: 20px;
 }
 
 .nav-link1{
-  color:white;
-  text-decoration: none;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.nav-link2{
   color:white;
   text-decoration: none;
   font-family: Arial, Helvetica, sans-serif;
@@ -50,7 +44,6 @@ html{
   color:rgb(39, 100, 68);
   text-decoration: none;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
 }
 
 .footer{
@@ -65,20 +58,6 @@ html{
   font-size: 1rem;
   font-family: Arial, Helvetica, sans-serif;
 } 
-
-.footer-links{
-  text-decoration: none;
-  color:white;
-}
-
-.footer-links:hover{
-  color:rgb(39, 100, 68);
-  text-decoration: none;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
-}
-
-
 .main-image{
   position:relative;
   width: 25%;
@@ -201,15 +180,17 @@ input{
 
 .profile-card{
   background-color: rgb(139, 171, 147);
-  width: 50vh;
-  min-height: 60vh;
+  width: 55vh;
+  min-height: 80vh;
   margin:auto;
   margin-top: 8%;
   margin-bottom: 8%;
   border-radius: 2%;
+  opacity: 70%;
   border:solid rgb(39, 100, 68);
   border-width: 5px;
   box-shadow: 2px 0px 40px rgba(0, 0, 0, 0.3);
+
 }
 
 .profile-card-header{
@@ -219,7 +200,6 @@ input{
   padding-bottom: 2rem; 
   font-family: 'Rubik Dirt';
   color: white;
-  word-wrap: break-word;
   /* color: rgb(39, 100, 68); */
 }
 
@@ -232,11 +212,11 @@ input{
 }
 
 #value{
-  font-size: 18px;
-  font-family: 'anton';
+  font-size: 23px;
+  font-family: 'Rubik Dirt';
   text-align: center;
   width: 60%;
-  min-height: 4.5vh;
+  min-height: 8vh;
   border: solid rgb(39, 100, 68);
   border-width: 3px;;
   color:rgb(39, 100, 68);
@@ -287,11 +267,12 @@ input{
 .Addcard{
   background-color: rgb(139, 171, 147);
   width: 55vh;
-  min-height: 55vh;
+  min-height: 70vh;
   margin:auto;
   margin-top: 8%;
   margin-bottom: 8%;
   /* border-radius:10%; */
+  opacity: 70%;
   border:solid rgb(39, 100, 68);
   border-width: 5px;
   box-shadow: 2px 0px 40px rgba(0, 0, 0, 0.3);
@@ -300,6 +281,7 @@ input{
   color:white;
   border-radius: 2%;
 }
+
 
 
 .addCard-input{
@@ -319,16 +301,15 @@ input{
   border: none;
   color: #FFFFFF;
   text-align: center;
-  font-size: 18px;
+  font-size: 20px;
   padding: 30px;
   width: 200px;
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
-  margin-top: 2rem;
   text-decoration: none;
   font-family: Arial, Helvetica, sans-serif;
-  font-weight: 400;
+  font-weight: 900;
   margin-top: 5rem; 
 }
 
@@ -341,10 +322,13 @@ input{
   margin:auto;
   margin-top: 8%;
   margin-bottom: 5%;
+  /* border-radius:10%; */
+  opacity: 70%;
   border:solid rgb(39, 100, 68);
   border-width: 5px;
   box-shadow: 2px 0px 40px rgba(0, 0, 0, 0.3);
   font-family: Arial, Helvetica, sans-serif;
+  font-weight: 800;
   color:white;
   border-radius: 5%;
 }
@@ -355,19 +339,17 @@ input{
   grid-column-gap: 15px;
 }
 
+
+
 .quiz-question{
   margin: 2rem;
-  font-size: 16px;
+  font-size: 1.5rem;
   color: rgb(39, 100, 68);
-  word-wrap: break-word;
-  font-weight: 400;
-  min-height: 150px;
 }
 
 .quiz-answer{
   margin: 2rem;
-  font-size: 18px;
-  font-weight: 400;
+  font-size: 1.5rem;
   word-wrap: break-word;
 }
 
@@ -430,16 +412,16 @@ input{
 .quiz-show-btn{
   display:inline-block;
   border-radius: 4px;
-  background-color: white;
+  background-color: rgb(39, 100, 68);
   border: solid rgb(181, 230, 203);
-  color: rgb(39, 100, 68);
+  color: #FFFFFF;
   text-align: center;
   font-size: 15px;
   padding: 15px;
   width: 130px;
   cursor: pointer;
   margin: 5px;
-  margin-top: 5%;
+  margin-top: 2%;
   text-decoration: none;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 500;
@@ -512,40 +494,23 @@ input{
   position:absolute;
   left: 0;
   right: 0;
-  margin: auto;
+  margin:auto;
+  min-height: 30%;
   width: 60vh;
   background-color:rgb(139, 171, 147);
   border:solid rgb(39, 100, 68);
   border-width: .5rem;;
   transition: all 0.5s;
+  margin: auto;
+  margin-top: 2rem;
   border-radius:2%;
   font-size: 2.5rem;
   font-family: 'Anton';
   color:rgb(39, 100, 68);
-  z-index: 1;
 }
 
 .answer-content{
   padding:5%
-}
-
-.check-answer-btn{
-  display:inline-block;
-  border-radius: 4px;
-  background-color: rgb(39, 100, 68);
-  border: none;
-  color: #FFFFFF;
-  text-align: center;
-  font-size: 20px;
-  padding: 15px;
-  width: 200px;
-  transition: all 0.5s;
-  cursor: pointer;
-  text-decoration: none;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: 500;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
 }
 
 .currentScore{
@@ -604,20 +569,11 @@ input{
   font-weight: 500;
 }
 
-.questions-container{
-  font-family: 'anton';
-  font-size: 1.5rem;
-  background-color:rgb(139, 171, 147);
-  color: white;
-  border: solid rgb(39, 100, 68);
-  margin: 4% 10%;
-  padding: 10px;
-  word-wrap: break-word;
-}
 
 
 
-/* ------------MEDIA QUERY--------------- */
+
+
 @media only screen and (max-width: 850px) {
   .card-grid{
     display:grid;
