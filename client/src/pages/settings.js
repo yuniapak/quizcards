@@ -33,7 +33,7 @@ const Settings = ({ user, userName, authenticated }) => {
     authenticatedOptions = (
       <div className="main-div">
         <div className="Addcard">
-          <h2>Settings</h2>
+          <h2 className="h2-setting">Settings</h2>
           <form onSubmit={handleSubmit}>
             <label htmlFor="password">Update Name </label>
             <input
