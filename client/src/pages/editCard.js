@@ -1,66 +1,62 @@
-import axios from "axios";
-import { useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import axios from 'axios'
+import { useLocation } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const EditCard = (props) => {
-  let location = useLocation();
-  let navigate = useNavigate();
+  let location = useLocation()
+  let navigate = useNavigate()
 
   const initialState = {
     id: `${location.state.card.id}`,
     type: `${location.state.card.type}`,
     question: `${location.state.card.question}`,
-    answer: `${location.state.card.answer}`,
-  };
+    answer: `${location.state.card.answer}`
+  }
 
   const [cardEdit, setCardEdit] = useState({
     type: `${initialState.type}`,
     question: `${initialState.question}`,
-    answer: `${initialState.answer}`,
-  });
+    answer: `${initialState.answer}`
+  })
 
   const makeEdits = async (editInfo) => {
     try {
       const res = await axios.put(
         `http://localhost:3001/api/card/${initialState.id}`,
         editInfo
-      );
-      console.log(res.data);
+      )
+      console.log(res.data)
     } catch (err) {
-      return err;
+      return err
     }
-  };
+  }
 
   const handleChange = (event) => {
-    setCardEdit({ ...cardEdit, [event.target.name]: event.target.value });
-    console.log(cardEdit);
-  };
+    setCardEdit({ ...cardEdit, [event.target.name]: event.target.value })
+    console.log(cardEdit)
+  }
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    await makeEdits(cardEdit);
+    e.preventDefault()
+    await makeEdits(cardEdit)
     //setCardEdit(cardEdit);
-    console.log(cardEdit);
-    navigate(`/card`);
-  };
+    console.log(cardEdit)
+    navigate(`/card`)
+  }
 
   return (
     <div className="main-div">
-      <div>
-        <p> (Current) </p>
+      <div className="Addcard">
         <h2>{initialState.type}</h2>
-        <p>Question : {initialState.question}</p>
-        <p>Answer: {initialState.answer}</p>
-      </div>
-      <br></br>
-      <br></br>
-      <div>
-        <p> Make Changes Below</p>
+        <p> Change your card</p>
         <form onSubmit={handleSubmit}>
           <label id="form-select" htmlFor="SubjectType"></label>
-          Question :&nbsp;&nbsp;
+          <br></br>
+          Question :<br></br>
+          &nbsp;&nbsp;
           <input
+            className="addCard-input"
             name="question"
             type="text"
             placeholder={initialState.question}
@@ -69,9 +65,11 @@ const EditCard = (props) => {
             onChange={handleChange}
           ></input>
           <br></br>
+          Answer:
           <br></br>
-          Answer : &nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;
           <input
+            className="addCard-input"
             name="answer"
             type="text"
             placeholder={initialState.answer}
@@ -81,10 +79,12 @@ const EditCard = (props) => {
           ></input>
           <br></br>
           <br></br>
-          <button type="submit">Make Changes</button>
+          <button className="setting-btn" type="submit">
+            Make Changes
+          </button>
         </form>
       </div>
     </div>
-  );
-};
-export default EditCard;
+  )
+}
+export default EditCard
