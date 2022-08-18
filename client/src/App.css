@@ -616,7 +616,7 @@ input{
   word-wrap: break-word;
 }
 
-@media only screen and (max-width: 1900px) {
+/* @media only screen and (max-width: 1900px) {
 
   .quiz-card{
 
@@ -627,7 +627,7 @@ input{
     margin:auto;
     margin-top: 8%;
     margin-bottom: 5%;
-    /* border-radius:10%; */
+     border-radius:10%; 
     opacity: 70%;
     border:solid rgb(39, 100, 68);
     border-width: 5px;
@@ -689,7 +689,7 @@ input{
     width: 100px;
     cursor: pointer;
     margin: 5px;
-    /* margin-top: 30%; */
+    /* margin-top: 30%; 
     text-decoration: none;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 500;
@@ -712,7 +712,7 @@ input{
     font-family: Arial, Helvetica, sans-serif;
     font-weight: 500;
   }
-}
+} */
 
 
 /* ------------MEDIA QUERY--------------- */
