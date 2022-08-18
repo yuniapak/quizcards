@@ -1,34 +1,34 @@
-import axios from "axios";
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import LogImg from "../images/notlogin.png";
-import UpdatePassword from "../components/updatePassword";
+import axios from 'axios'
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
+import LogImg from '../images/notlogin.png'
+import UpdatePassword from '../components/updatePassword'
 
 const Settings = ({ user, userName, authenticated }) => {
-  const [newName, setNewName] = useState({ name: "" });
+  const [newName, setNewName] = useState({ name: '' })
 
   const updateName = async (name) => {
     try {
       const res = await axios.put(
         `http://localhost:3001/api/user/${user.id}`,
         name
-      );
-      console.log("here", res);
+      )
+      console.log('here', res)
     } catch (error) {
-      throw error;
+      throw error
     }
-  };
+  }
   const handleChange = (event) => {
-    setNewName({ ...newName, [event.target.name]: event.target.value });
-    console.log(newName);
-  };
+    setNewName({ ...newName, [event.target.name]: event.target.value })
+    console.log(newName)
+  }
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    updateName(newName);
-    console.log(newName);
-  };
-  let authenticatedOptions;
+    e.preventDefault()
+    updateName(newName)
+    console.log(newName)
+  }
+  let authenticatedOptions
   if (user) {
     authenticatedOptions = (
       <div className="main-div">
@@ -44,19 +44,19 @@ const Settings = ({ user, userName, authenticated }) => {
               value={newName.name}
               contentEditable="true"
               onChange={handleChange}
-            ></input>{" "}
+            ></input>{' '}
             <button
               className="setting-btn"
               type="submit"
               disabled={!newName.name}
             >
-              update
+              Update
             </button>
           </form>
           <UpdatePassword user={user} />
-        </div>{" "}
+        </div>{' '}
       </div>
-    );
+    )
   }
 
   const publicOptions = (
@@ -73,9 +73,9 @@ const Settings = ({ user, userName, authenticated }) => {
       </div>
       <img className="logoff-image" src={LogImg} alt="image1" />
     </div>
-  );
+  )
 
-  return <div>{authenticated ? authenticatedOptions : publicOptions}</div>;
-};
+  return <div>{authenticated ? authenticatedOptions : publicOptions}</div>
+}
 
-export default Settings;
+export default Settings

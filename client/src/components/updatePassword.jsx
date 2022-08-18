@@ -37,13 +37,14 @@ const UpdatePassword = ({ user }) => {
     //console.log(newName)
   };
 
-
-    return (<div className='h2-setting'>
-        <h2 >Update Password</h2>
-         <form onSubmit={handleSubmit}>
-        
-        <label htmlFor="password">Password</label>{' '}
-
+  return (
+    <div>
+      <h2>Update Password</h2>
+      <form onSubmit={handleSubmit}>
+        <label className="update-password" htmlFor="password">
+          Password
+        </label>{" "}
+        <br></br>
         <input
           className="addCard-input"
           name="password"
@@ -94,6 +95,6 @@ const UpdatePassword = ({ user }) => {
       </form>
     </div>
 
-)
-        }
+  )
+}
 export default UpdatePassword;

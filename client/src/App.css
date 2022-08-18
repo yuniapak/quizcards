@@ -28,13 +28,19 @@ html{
 
 .nav-link{
   position: absolute;
-   top:110px; 
-   right: 25px;
-   display: inline-block;
-   font-size: 20px;
+  top:110px; 
+  right: 25px;
+  display: inline-block;
+  font-size: 18px;
 }
 
 .nav-link1{
+  color:white;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.nav-link2{
   color:white;
   text-decoration: none;
   font-family: Arial, Helvetica, sans-serif;
@@ -44,6 +50,7 @@ html{
   color:rgb(39, 100, 68);
   text-decoration: none;
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
 }
 
 .footer{
@@ -58,6 +65,20 @@ html{
   font-size: 1rem;
   font-family: Arial, Helvetica, sans-serif;
 } 
+
+.footer-links{
+  text-decoration: none;
+  color:white;
+}
+
+.footer-links:hover{
+  color:rgb(39, 100, 68);
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+}
+
+
 .main-image{
   position:relative;
   width: 25%;
@@ -181,17 +202,15 @@ input{
 
 .profile-card{
   background-color: rgb(139, 171, 147);
-  width: 55vh;
-  min-height: 80vh;
+  width: 50vh;
+  min-height: 60vh;
   margin:auto;
   margin-top: 8%;
   margin-bottom: 8%;
   border-radius: 2%;
-  opacity: 70%;
   border:solid rgb(39, 100, 68);
   border-width: 5px;
   box-shadow: 2px 0px 40px rgba(0, 0, 0, 0.3);
-
 }
 
 .profile-card-header{
@@ -201,6 +220,7 @@ input{
   padding-bottom: 2rem; 
   font-family: 'Rubik Dirt';
   color: white;
+  word-wrap: break-word;
   /* color: rgb(39, 100, 68); */
 }
 
@@ -213,11 +233,11 @@ input{
 }
 
 #value{
-  font-size: 23px;
-  font-family: 'Rubik Dirt';
+  font-size: 18px;
+  font-family: 'anton';
   text-align: center;
   width: 60%;
-  min-height: 8vh;
+  min-height: 4.5vh;
   border: solid rgb(39, 100, 68);
   border-width: 3px;;
   color:rgb(39, 100, 68);
@@ -268,12 +288,11 @@ input{
 .Addcard{
   background-color: rgb(139, 171, 147);
   width: 55vh;
-  min-height: 70vh;
+  min-height: 55vh;
   margin:auto;
   margin-top: 8%;
   margin-bottom: 8%;
   /* border-radius:10%; */
-  opacity: 70%;
   border:solid rgb(39, 100, 68);
   border-width: 5px;
   box-shadow: 2px 0px 40px rgba(0, 0, 0, 0.3);
@@ -282,7 +301,6 @@ input{
   color:white;
   border-radius: 2%;
 }
-
 
 
 .addCard-input{
@@ -302,15 +320,16 @@ input{
   border: none;
   color: #FFFFFF;
   text-align: center;
-  font-size: 20px;
+  font-size: 18px;
   padding: 30px;
   width: 200px;
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
+  margin-top: 2rem;
   text-decoration: none;
   font-family: Arial, Helvetica, sans-serif;
-  font-weight: 900;
+  font-weight: 400;
   margin-top: 5rem; 
 }
 
@@ -323,13 +342,10 @@ input{
   margin:auto;
   margin-top: 8%;
   margin-bottom: 5%;
-  /* border-radius:10%; */
-  opacity: 70%;
   border:solid rgb(39, 100, 68);
   border-width: 5px;
   box-shadow: 2px 0px 40px rgba(0, 0, 0, 0.3);
   font-family: Arial, Helvetica, sans-serif;
-  font-weight: 800;
   color:white;
   border-radius: 5%;
 }
@@ -340,17 +356,19 @@ input{
   grid-column-gap: 15px;
 }
 
-
-
 .quiz-question{
   margin: 2rem;
-  font-size: 1.5rem;
+  font-size: 16px;
   color: rgb(39, 100, 68);
+  word-wrap: break-word;
+  font-weight: 400;
+  min-height: 150px;
 }
 
 .quiz-answer{
   margin: 2rem;
-  font-size: 1.5rem;
+  font-size: 18px;
+  font-weight: 400;
   word-wrap: break-word;
 }
 
@@ -413,16 +431,16 @@ input{
 .quiz-show-btn{
   display:inline-block;
   border-radius: 4px;
-  background-color: rgb(39, 100, 68);
+  background-color: white;
   border: solid rgb(181, 230, 203);
-  color: #FFFFFF;
+  color: rgb(39, 100, 68);
   text-align: center;
   font-size: 15px;
   padding: 15px;
   width: 130px;
   cursor: pointer;
   margin: 5px;
-  margin-top: 2%;
+  margin-top: 5%;
   text-decoration: none;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 500;
@@ -495,23 +513,40 @@ input{
   position:absolute;
   left: 0;
   right: 0;
-  margin:auto;
-  min-height: 30%;
+  margin: auto;
   width: 60vh;
   background-color:rgb(139, 171, 147);
   border:solid rgb(39, 100, 68);
   border-width: .5rem;;
   transition: all 0.5s;
-  margin: auto;
-  margin-top: 2rem;
   border-radius:2%;
   font-size: 2.5rem;
   font-family: 'Anton';
   color:rgb(39, 100, 68);
+  z-index: 1;
 }
 
 .answer-content{
   padding:5%
+}
+
+.check-answer-btn{
+  display:inline-block;
+  border-radius: 4px;
+  background-color: rgb(39, 100, 68);
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 20px;
+  padding: 15px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 }
 
 .currentScore{
@@ -570,11 +605,117 @@ input{
   font-weight: 500;
 }
 
+.questions-container{
+  font-family: 'anton';
+  font-size: 1.5rem;
+  background-color:rgb(139, 171, 147);
+  color: white;
+  border: solid rgb(39, 100, 68);
+  margin: 4% 10%;
+  padding: 10px;
+  word-wrap: break-word;
+}
+
+/* @media only screen and (max-width: 1900px) {
+
+  .quiz-card{
+
+    background-color: rgb(139, 171, 147);
+    width: 40vh;
+    max-width: 90%;
+    height: 60vh;
+    margin:auto;
+    margin-top: 8%;
+    margin-bottom: 5%;
+     border-radius:10%; 
+    opacity: 70%;
+    border:solid rgb(39, 100, 68);
+    border-width: 5px;
+    box-shadow: 2px 0px 40px rgba(0, 0, 0, 0.3);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 800;
+    color:white;
+    border-radius: 5%;
+  }
+  
+  .card-grid{
+    display:grid;
+    grid-template-columns: auto auto auto auto;
+    grid-column-gap: 15px;
+  }
+  .quiz-type{
+    font-size: 1.8rem;
+  }
+  .quiz-question{
+    min-height: 130px;
+    margin: 1rem;
+    font-size: 1rem;
+    color: rgb(39, 100, 68);
+  }
+  
+  .quiz-answer{
+    margin: 1rem;
+    min-height: 60px;
+    font-size: 1rem;
+    word-wrap: break-word;
+  }
+  .quiz-edit-btn{
+    display:inline-block;
+    border-radius: 4px;
+    background-color: rgb(39, 100, 68);
+    border: solid rgb(181, 230, 203);
+    color: #ffffff;
+    text-align: center;
+    font-size: 15px;
+    padding: 15px;
+    width: 100px;
+    cursor: pointer;
+    margin: 5px;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    margin-top: 2rem;  
+  }
+  
+  .quiz-delete-btn{
+    display:inline-block;
+    border-radius: 4px;
+    background-color: rgb(39, 100, 68);
+    border: solid rgb(181, 230, 203);
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 15px;
+    padding: 15px;
+    width: 100px;
+    cursor: pointer;
+    margin: 5px;
+    /* margin-top: 30%; 
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+  }
+  
+  .quiz-show-btn{
+    display:inline-block;
+    border-radius: 4px;
+    background-color: rgb(39, 100, 68);
+    border: solid rgb(181, 230, 203);
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 15px;
+    padding: 15px;
+    width: 100px;
+    cursor: pointer;
+    margin: 5px 0 0 0;
+     margin-top: 3%; 
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+  }
+} */
 
 
-
-
-
+/* ------------MEDIA QUERY--------------- */
 @media only screen and (max-width: 850px) {
   .card-grid{
     display:grid;
@@ -610,7 +751,7 @@ input{
     position: absolute;
     top: 3rem;
   }
-  
+
   .c{
       font-family: 'Rubik Dirt';
       font-size:3rem;
@@ -643,6 +784,14 @@ input{
 .setting-btn:disabled{
   background-color: rgba(39, 100, 68, 0.4);
 }
+
+
+
+.update-password{
+  min-width: 80px;;
+}
+
+
 
 .h2-setting h2{
   font-family: 'Anton', sans-serif;
