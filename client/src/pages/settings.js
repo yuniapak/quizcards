@@ -10,7 +10,7 @@ const Settings = ({ user, userName, authenticated }) => {
   const updateName = async (name) => {
     try {
       const res = await axios.put(
-        `http://localhost:3001/api/user/${user.id}`,
+        `https://quiz-cards-psql.herokuapp.com/api/user/${user.id}`,
         name
       )
       console.log('here', res)
@@ -35,7 +35,9 @@ const Settings = ({ user, userName, authenticated }) => {
         <div className="Addcard">
           <h2 className="h2-setting">Settings</h2>
           <form onSubmit={handleSubmit}>
-            <label htmlFor="password">Update Name </label>
+            <label htmlFor="password" className="update-name">
+              Update Name{' '}
+            </label>
             <input
               className="addCard-input"
               name="name"
@@ -61,17 +63,15 @@ const Settings = ({ user, userName, authenticated }) => {
 
   const publicOptions = (
     <div>
-      <div>
-        <h2>Do you want to create an accout?</h2>
-        <Link className="main-btn" to="/register">
-          Register
-        </Link>
-        <h2>Have an accout? Welcome back!</h2>
-        <Link className="main-btn" to="/login">
-          Login
-        </Link>
-      </div>
-      <img className="logoff-image" src={LogImg} alt="image1" />
+      <h2>Please log in to use Quizards...</h2>
+      <br></br>
+      <Link className="main-btn" to="/Login">
+        Login now
+      </Link>
+      <br></br>
+      <Link className="main-btn" to="/Register">
+        Sign up
+      </Link>
     </div>
   )
 

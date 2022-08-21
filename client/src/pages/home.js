@@ -1,19 +1,22 @@
-import studyImg from "../images/lighbulb.png";
-import { Link } from "react-router-dom";
+import studyImg from '../images/lighbulb.png'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
   return (
     <div className="main-div">
-      <main className="image-textContainer">
-        <h1 className="main-h1">Unlock Your Potential</h1>
-        <Link className="main-btn" to="/login">
-          Login
-        </Link>
-        <h2 className="main-h2">"Knowledge is Power!"</h2>
-        <img className="main-image" src={studyImg} alt="image1" />
-      </main>
+      <div className="home-card">
+        <main className="image-textContainer">
+          <h1 className="main-h1">Ready to study?</h1>
+          <h1 className="main-h1">Don't know where to start</h1>
+          <h1 className="question">?</h1>
+          <h2 className="main-h2">Take a Quiz</h2>
+          <Link className="main-btn" to="/login">
+            Login
+          </Link>
+        </main>
+      </div>
     </div>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

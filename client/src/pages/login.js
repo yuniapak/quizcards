@@ -49,7 +49,7 @@ const Login = ({ setUser, toggleAuthenticated }) => {
             />
           </div>
           <button
-            className="submit-btn"
+            className="submit-login-btn"
             disabled={!formValues.email || !formValues.password}
           >
             Log In

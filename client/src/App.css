@@ -1,25 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Smooch+Sans:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Michroma&display=swap');
+
 html body{
   margin: 0;
   padding: 0;
   text-align: center;
-  height: 100%;
+  min-height: 100%;
 }
 
 .main-container{
-  background-image: url(./images/bg.jpeg);
+  background-color: #292c32;
+  /* background-image: url(./images/bg.jpeg);
   background-repeat: no-repeat;
-  background-size:cover;
+  background-size:cover; */
   /* background-attachment: fixed; */
 }
 
 .main-div{
+  align-items: center;
+  text-align: center;
   min-height: 80vh;
+  width:100%;
 }
 html{
   margin-top: 0;
 }
 .nav-bar{
-  background: rgb(139, 171, 147);
+  background: #292c32;
   padding-top: 4rem;
   padding-bottom: 5rem;
   width:100%;
@@ -28,58 +36,80 @@ html{
 
 .nav-link{
   position: absolute;
-  top:110px; 
+  top:40px; 
   right: 25px;
   display: inline-block;
   font-size: 18px;
 }
 
 .nav-link1{
-  color:white;
+  background-color: #def9f5;
+  border-radius: 6px;
+  padding:15px;
+  margin:10px;
+  color:rgb(41, 41, 41);
   text-decoration: none;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
+}
+.nav-link1:hover{
+  padding:14px;
+  font-size: 0.9rem;
 }
 
 .nav-link2{
-  color:white;
+  background-color: #def9f5;
+  border-radius: 6px;
+  padding:15px;
+  margin:10px;
+  color:rgb(41, 41, 41);
   text-decoration: none;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem;
 }
 
 .nav-link2:hover{
-  color:rgb(39, 100, 68);
-  text-decoration: none;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
+  padding:14px;
+  font-size: 0.9rem;
 }
 
 .footer{
-  background-color:rgb(139, 171, 147);
+  background-color:#292c32;
   padding: 1.5rem;
   position: relative;
   bottom: 0;
   width: 97%;
   height: 2rem;  
   padding-bottom: 5rem;
-  color:white;
+  color:#def9f5;
   font-size: 1rem;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:'Montserrat', sans-serif;
 } 
 
 .footer-links{
   text-decoration: none;
-  color:white;
+  color:#def9f5;
 }
 
 .footer-links:hover{
-  color:rgb(39, 100, 68);
+
   text-decoration: none;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 20px;
+  font-size: 18px;
 }
 
+.home-card{
+  background-color: #def9f5;
+  width: 70vh;
+  min-height: 55vh;
+  margin:auto;
+  margin-bottom: 8%;
+  border-radius: 2%;
+  border:solid #def9f5;
+  border-width: 5px;
+  box-shadow: 2px 10px 40px rgba(213, 239, 239, 0.3);
 
-.main-image{
+}
+/* .main-image{
   position:relative;
   width: 25%;
   margin-bottom: 5%;
@@ -89,12 +119,16 @@ html{
 .logoff-image{
   width: 20%;
   margin: 3%;
-}
+} */
 
 .nav-title{
-  font-family: 'Rubik Dirt';
+  font-family:'Michroma', sans-serif;
+  transform: rotate(180deg);
   font-size:4rem;
-  color: white;
+  color: #3b3b3b;
+  background-color: #def9f5;
+  border-radius: 6px;
+  width: 85px;
   padding:0;
   margin: 2rem;
   position: absolute;
@@ -114,37 +148,57 @@ html{
 
 
 .main-h2{
-  position: relative;
+position: relative;
 font-size: 2rem;
 padding:3rem;
 }
 
 .main-h1{
-font-family: 'Anton', sans-serif;
-font-size:5rem;
-color: rgb(39, 100, 68);
+font-family: 'Michroma', sans-serif;
+font-size:2rem;
+padding: 10px;
+color: #3b4149;
 }
 
-
+.question{
+  padding:0px;
+  margin:0px;
+  font-size: 20rem;
+  font-family:'Michroma', sans-serif;
+}
 h2{
-font-family: 'Anton', sans-serif;
-font-size: 2rem;
-color:rgb(39, 100, 68);
+font-family: 'Michroma', sans-serif;
+font-weight: 600px;
+font-size: 4rem;
+color: #def9f5;
 }
 
+.home-card h2{
+  color:#3b3b3b;
+  font-family:'Michroma', sans-serif;
+  font-size: 2rem;
+  margin:0;
+}
 
 .card-overlay {
   /* border: 2px solid var(--primary-button-hover); */
   width: 60%;
   padding: 1em;
-  border-radius: 8px;
-  box-shadow: 2px 0px 10px rgba(0, 0, 0, 0.3);
-  background-color: rgb(139, 171, 147);
+  border-radius: 6px;
+  border: solid 5px #def9f5;
+  box-shadow: 2px 10px 40px rgba(213, 239, 239, 0.3);
+  color:#def9f5;
+  background-color:#3b4149;
   margin:auto;
   margin-top: 10%;
   margin-bottom: 10%;
 }
-
+.card-overlay label{
+  color: #def9f5;
+  padding:5px;
+  margin:15px;
+  font-size: 'Michroma', sans-serif;
+}
 
 .inputwrapper {
   margin: auto;
@@ -155,100 +209,138 @@ color:rgb(39, 100, 68);
 label{
   align-self: flex-start;
   font-size: 18px;
-  color:white;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:'Montserrat', sans-serif;
 }
 
 input{
-  
-  width: 40%;
-  margin:auto;
+  width: 50%;
+  margin:6px;
+  color:#292c32;
+  border:solid 2px #e0e3e7;
+  border-radius: 6px;
+  background-color: #e0e3e7;
   height:1.5rem;
+  text-align: center;
+  font-family:'Montserrat', sans-serif;
 }
 /* -----------Login/Register Buttons-----------------*/
 
 .submit-btn{
-  background-color: var(--primary-button-hover);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 17px;
   margin: 1em 0;
-  color: var(--link-color-secondary);
+  border: solid #def9f5;
+  border-radius: 6px;
   align-self: center;
-  width: 50%;
-  height: 2rem;
-  background-color:rgb(39, 100, 68);
-  color:white;
+  width: 120px;
+  height: 4rem;
+  background-color:#def9f5;
+  color: #3b4149;
 }
-
+.submit-login-btn{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 17px;
+  margin: 1em 0;
+  border: solid #def9f5;
+  border-radius: 6px;
+  align-self: center;
+  width: 100px;
+  height: 3rem;
+  background-color:#def9f5;
+  color: #3b4149;
+}
+.submit-login-btn:disabled{
+  width:90px;
+  border-color: #535e6e;
+  background-color: #535e6e;
+  font-size: 15px;
+}
+.submit-login-btn:hover{
+  width:90px;
+  font-size: 15px;
+}
+.submit-btn:hover{
+  width:100px;
+  font-size: 15px;
+}
 /* --------Landing page login button --------*/
 
 .main-btn {
   display:inline-block;
-  border-radius: 4px;
-  background-color: rgb(139, 171, 147);
-  border: none;
-  color: #FFFFFF;
+  background-color: #def9f5;
+  border: solid 2px #3b4149;
+  border-radius: 6px;
+  color: #3b3b3b;
   text-align: center;
   font-size: 20px;
   padding: 20px;
+  margin: 0 0 30px 0;
   width: 200px;
   transition: all 0.5s;
   cursor: pointer;
-  margin: 5px;
   text-decoration: none;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: 900;
+  font-family: 'Montserrat', sans-serif;
 }
-
+.main-btn:hover{
+  width:180px;
+  font-size: 18px;
+}
 /* -----------Profile Card-----------------*/
 
 .profile-card{
-  background-color: rgb(139, 171, 147);
-  width: 50vh;
-  min-height: 60vh;
+  background-color: #def9f5;
+  width: 60vh;
+  min-height: 55vh;
   margin:auto;
   margin-top: 8%;
   margin-bottom: 8%;
   border-radius: 2%;
-  border:solid rgb(39, 100, 68);
+  border:solid #def9f5;
   border-width: 5px;
-  box-shadow: 2px 0px 40px rgba(0, 0, 0, 0.3);
+  box-shadow: 2px 10px 40px rgba(213, 239, 239, 0.3);
 }
 
 .profile-card-header{
   position: relative;
-  font-size: 3rem;
-  padding: 5rem;
-  padding-bottom: 2rem; 
-  font-family: 'Rubik Dirt';
-  color: white;
+  font-size: 50px;
+  padding: 1.5rem;
+  padding-bottom: 1.5rem; 
+  font-family: 'Michroma', sans-serif;
+  color:#3b4149;
   word-wrap: break-word;
   /* color: rgb(39, 100, 68); */
 }
 
+.profile-card button:hover{
+  font-size:18px;
+  width: 185px;
+}
 
 #form-select{
   font-size: 40px;
-  font-family: 'Rubik Dirt';
-  color:white;
+  font-family:'Montserrat', sans-serif;
+  color:#3b4149;
   /* color: rgb(39, 100, 68); */
 }
 
 #value{
-  font-size: 18px;
-  font-family: 'anton';
+  font-size: 25px;
+  font-family: 'Smooch Sans', sans-serif;
   text-align: center;
   width: 60%;
-  min-height: 4.5vh;
-  border: solid rgb(39, 100, 68);
-  border-width: 3px;;
-  color:rgb(39, 100, 68);
+  min-height: 6vh;
+  border: solid #def9f5;
+  border-radius: 6px;
+  border-width: 3px;
+  color:#3b4149;
 }
 
 .profile-btn{
   display:inline-block;
-  border-radius: 4px;
-  background-color: rgb(39, 100, 68);
-  border: none;
-  color: #FFFFFF;
+  border-radius: 6px;
+  background-color: #def9f5;
+  border: solid  3px #3b4149;
+  color: #3b4149;
   text-align: center;
   font-size: 20px;
   padding: 30px;
@@ -257,7 +349,7 @@ input{
   cursor: pointer;
   margin: 5px;
   text-decoration: none;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 900;
   margin-top: 5rem;
   margin-bottom: 2rem;
@@ -265,10 +357,10 @@ input{
 
 .add-sub-btn{
   display:inline-block;
-  border-radius: 4px;
-  background-color: rgb(39, 100, 68);
-  border: none;
-  color: #FFFFFF;
+  border-radius: 6px;
+  background-color: #def9f5;
+  border: solid 3px #3b4149;
+  color: #3b4149;
   text-align: center;
   font-size: 20px;
   padding: 30px;
@@ -277,7 +369,7 @@ input{
   cursor: pointer;
   margin: 5px;
   text-decoration: none;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 900;
   margin-bottom: 3rem;
 }
@@ -286,98 +378,131 @@ input{
 /* -----------Add Card/Subject-----------------*/
 
 .Addcard{
-  background-color: rgb(139, 171, 147);
+  background-color: #3b4149;
   width: 55vh;
   min-height: 55vh;
   margin:auto;
   margin-top: 8%;
   margin-bottom: 8%;
   /* border-radius:10%; */
-  border:solid rgb(39, 100, 68);
+  border:solid #def9f5;
   border-width: 5px;
-  box-shadow: 2px 0px 40px rgba(0, 0, 0, 0.3);
-  font-family: Arial, Helvetica, sans-serif;
+  box-shadow: 2px 10px 40px rgba(213, 239, 239, 0.3);
+  font-family: 'Montserrat', sans-serif;
   font-weight: 800;
   color:white;
   border-radius: 2%;
 }
-
-
+.Addcard h2{
+  font-family: 'Montserrat', sans-serif;
+}
+.Addcard p{
+  font-size: 25px;
+  font-family: 'Montserrat', sans-serif;
+  color:#def9f5;
+}
+.Addcard select{
+  background-color: #e0e3e7;
+  border: none;
+}
+.type-card{
+  font-family: 'Smooch Sans', sans-serif ;
+}
 .addCard-input{
   width: 70%;
   margin:auto;
-  height:1.5rem;
+  height: 2rem;
   margin: 1rem;
-  height: 1.5rem;
   word-wrap: break-word;
+  background-color: #e0e3e7;
+  border: solid 2px #3b4149;
+  border-radius: 4px;
+  text-align: center;
+  font-family: 'Montserrat', sans-seri;
+  /* text-align: left; */
 }
+.addCard-input ::placeholder{
+  text-align: center;
 
+}
 
 .addCard-btn{
   display:inline-block;
-  border-radius: 4px;
-  background-color: rgb(39, 100, 68);
+  border-radius: 6px;
+  background-color: #def9f5;
   border: none;
-  color: #FFFFFF;
+  color:#3b4149;
   text-align: center;
   font-size: 18px;
-  padding: 30px;
-  width: 200px;
+  padding: 10px;
+  width: 160px;
   transition: all 0.5s;
   cursor: pointer;
-  margin: 5px;
-  margin-top: 2rem;
+  margin-top:6px;
+  margin-bottom: 2rem;
   text-decoration: none;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 400;
-  margin-top: 5rem; 
+}
+.addCard-btn:hover{
+  box-shadow: 2px 10px 40px rgba(213, 239, 239, 0.3);
 }
 
 /* -----------Quiz-/CardPage------------- */
 
 .quiz-card{
-  background-color: rgb(139, 171, 147);
-  width: 35vh;
+  background-color: #def9f5;
+  max-width: 40vh;
   min-height: 30vh;
-  margin:auto;
-  margin-top: 8%;
+  margin: 0 8px 0 8px;
   margin-bottom: 5%;
-  border:solid rgb(39, 100, 68);
+  border:solid #def9f5;
   border-width: 5px;
-  box-shadow: 2px 0px 40px rgba(0, 0, 0, 0.3);
-  font-family: Arial, Helvetica, sans-serif;
-  color:white;
-  border-radius: 5%;
+  box-shadow: none;
+  font-family: 'Montserrat', sans-serif;
+  color:#3b4149;
+  border-radius: 10px;
 }
-
+.quiz-card button:hover{
+  width: 120px;
+  font-size: 13px;
+}
+.card-top-buttons{
+  position: relative;
+  left: 30.5rem;
+  top:-100px;
+  margin-bottom:0;  
+}
 .card-grid{
   display:grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-column-gap: 15px;
+  max-width:100%;
 }
 
 .quiz-question{
-  margin: 2rem;
+  margin: 30px 2rem 15px 2rem;
   font-size: 16px;
-  color: rgb(39, 100, 68);
-  word-wrap: break-word;
+  color: #3b4149;
+  /* word-wrap: break-word; */
   font-weight: 400;
   min-height: 150px;
 }
 
 .quiz-answer{
-  margin: 2rem;
+  margin: 10px 2rem ;
   font-size: 18px;
   font-weight: 400;
   word-wrap: break-word;
+
 }
 
 .quiz-edit-btn{
   display:inline-block;
   border-radius: 4px;
-  background-color: rgb(39, 100, 68);
-  border: solid rgb(181, 230, 203);
-  color: #ffffff;
+  background-color: #3b4149;
+  border: solid #3b4149;
+  color: #def9f5;
   text-align: center;
   font-size: 15px;
   padding: 15px;
@@ -385,35 +510,34 @@ input{
   cursor: pointer;
   margin: 5px;
   text-decoration: none;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 500;
-  margin-top: 5rem; 
+  /* margin-top: 5rem;  */
 }
 
 .quiz-delete-btn{
   display:inline-block;
   border-radius: 4px;
-  background-color: rgb(39, 100, 68);
-  border: solid rgb(181, 230, 203);
-  color: #FFFFFF;
+  background-color: #3b4149;
+  border: solid #3b4149;
+  color: #def9f5;
   text-align: center;
   font-size: 15px;
   padding: 15px;
   width: 130px;
   cursor: pointer;
-  margin: 5px;
-  margin-top: 30%;
+  margin: 15px 5px 20px 5px;
   text-decoration: none;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 500;
 }
 
 .quiz-btn{
   display:inline-block;
   border-radius: 4px;
-  background-color: rgb(39, 100, 68);
+  background-color: #def9f5;
   border: none;
-  color: #FFFFFF;
+  color: #3b4149;
   text-align: center;
   font-size: 20px;
   padding: 20px;
@@ -422,7 +546,7 @@ input{
   cursor: pointer;
   margin: 5px;
   text-decoration: none;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 500;
   margin-top: 4rem;
   margin-bottom: 2rem;
@@ -430,61 +554,64 @@ input{
 
 .quiz-show-btn{
   display:inline-block;
-  border-radius: 4px;
-  background-color: white;
-  border: solid rgb(181, 230, 203);
-  color: rgb(39, 100, 68);
-  text-align: center;
+  border-radius: 5px;
+  background-color: #def9f5;
+  border: solid 2px #3b4149;
+  color: #3b4149;
   font-size: 15px;
   padding: 15px;
   width: 130px;
   cursor: pointer;
-  margin: 5px;
+  /* margin: 5px; */
   margin-top: 5%;
   text-decoration: none;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 500;
+}
+.quiz-show-btn:hover{
+  width: 120px;
+  font-size: 13px;
 }
 
 .add-btn{
   display:inline-block;
   border-radius: 4px;
-  background-color: rgb(39, 100, 68);
+  background-color: #def9f5;
   border: none;
-  color: #FFFFFF;
+  color: #3b4149;
   text-align: center;
-  font-size: 20px;
+  font-size: 25px;
   padding: 20px;
   width: 200px;
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
   text-decoration: none;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Smooch Sans', sans-serif;
   font-weight: 500;
   margin-top: 4rem;
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
 }
 
 .enter-quiz-btn{
   display:inline-block;
   border-radius: 4px;
-  background-color: rgb(39, 100, 68);
+  background-color: #def9f5;
   border: none;
-  color: #FFFFFF;
+  color: #3b4149;
   text-align: center;
-  font-size: 20px;
+  font-size: 25px;
   padding: 20px;
   width: 200px;
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
   text-decoration: none;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Smooch Sans', sans-serif;
   font-weight: 500;
   margin: 2rem;
   margin-top: 5rem;
-  margin-bottom: 2rem;
+  /* margin-bottom: 2rem; */
 }
 
 .back-totop-btn{
@@ -494,14 +621,14 @@ input{
   border: none;
   color: #FFFFFF;
   text-align: center;
-  font-size: 20px;
+  font-size: 25px;
   padding: 20px;
   width: 200px;
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
   text-decoration: none;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Smooch Sans', sans-serif;
   font-weight: 500;
   margin-top: 4rem;
   margin-bottom: 2rem;
@@ -510,32 +637,36 @@ input{
 /*-----------------QUIZ PAGE----------------------*/
 
 .answer-container{
-  position:absolute;
+  position:fixed;
+  top:35%;
   left: 0;
   right: 0;
   margin: auto;
   width: 60vh;
-  background-color:rgb(139, 171, 147);
-  border:solid rgb(39, 100, 68);
-  border-width: .5rem;;
+  background-color: #def9f5;
+  border:solid 2px #def9f5;
   transition: all 0.5s;
-  border-radius:2%;
-  font-size: 2.5rem;
-  font-family: 'Anton';
-  color:rgb(39, 100, 68);
+  border-radius: 8px;
+  font-size: 1.5rem;
+  font-family: 'Montserrat', sans-serif;
+  color: #3b4149;
   z-index: 1;
 }
 
 .answer-content{
   padding:5%
 }
-
+.answer-container button:hover{
+background-color: #535e6e;
+color:#def9f5;
+border:solid 2px #535e6e;
+}
 .check-answer-btn{
   display:inline-block;
   border-radius: 4px;
-  background-color: rgb(39, 100, 68);
+  background-color: #def9f5;
   border: none;
-  color: #FFFFFF;
+  color: #3b4149;
   text-align: center;
   font-size: 20px;
   padding: 15px;
@@ -543,7 +674,7 @@ input{
   transition: all 0.5s;
   cursor: pointer;
   text-decoration: none;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:'Montserrat', sans-serif;
   font-weight: 500;
   margin-top: 2rem;
   margin-bottom: 1rem;
@@ -552,19 +683,28 @@ input{
 .currentScore{
   font-size: 3rem;
   font-weight:900;
-  color: rgb(39, 100, 68);
+  color: #def9f5;
 }
 
 .score{
-  font-size: 1.5rem;
-  font-family: 'anton'
+  position: fixed;
+  top:12%;
+  left:75%;
+  z-index: 1;
+  width: 20rem;
+  background-color: #535e6e;
+  border-radius: 4px;
+  border: solid 2px #def9f5;
+  color:#def9f5;
+  font-size: 2rem;
+  font-family: 'Smooch Sans', sans-serif;
 }
 
 .answer-text{
   font-size: 20px;
   word-wrap: break-word;
   padding: 20px;
-  color:white;
+  color: #292c32;
   margin: 5px;
   margin-top: 10px
 }
@@ -572,48 +712,61 @@ input{
 .yes-btn{
   display:inline-block;
   border-radius: 4px;
-  background-color: rgb(39, 100, 68);
-  border: solid rgb(181, 230, 203);
-  color: #FFFFFF;
+  background-color: #def9f5;
+  border: solid 2px#3b4149;
+  color: #3b4149;
   text-align: center;
   font-size: 15px;
-  padding: 15px;
-  width: 130px;
+  padding: 10px;
+  width: 100px;
   cursor: pointer;
-  margin: 5px;
-  margin-top: 2%;
+  margin: 10px 10px 8px 15px;
+  /* margin-top: 2%; */
   text-decoration: none;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 500;
 }
 
 .no-btn{
   display:inline-block;
   border-radius: 4px;
-  background-color: rgb(39, 100, 68);
-  border: solid rgb(181, 230, 203);
-  color: #FFFFFF;
+  background-color: #def9f5;
+  border: solid 2px#3b4149;
+  color: #3b4149;
   text-align: center;
   font-size: 15px;
-  padding: 15px;
-  width: 130px;
+  padding: 10px;
+  width: 100px;
   cursor: pointer;
-  margin: 5px;
-  margin-top: 2%;
+  margin: 10px 15px 8px 10px;
+
   text-decoration: none;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 500;
 }
 
 .questions-container{
-  font-family: 'anton';
-  font-size: 1.5rem;
-  background-color:rgb(139, 171, 147);
-  color: white;
-  border: solid rgb(39, 100, 68);
+  font-family: 'Montserrat', sans-serif;
+  position: relative;
+  left:6%;
+  width: 60rem;
+  /* font-weight: 0; */
+  font-size: 1.2rem;
+  background-color: #535e6e;
+  color: #def9f5;
+  border: solid 5px #def9f5;
+  border-radius: 8px;
   margin: 4% 10%;
   padding: 10px;
   word-wrap: break-word;
+}
+.questions-container input{
+  height:2rem;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  border-radius: 6px;
+  border: solid #e0e3e7;
+  background-color: #e0e3e7;
 }
 
 /* @media only screen and (max-width: 1900px) {
@@ -767,9 +920,10 @@ input{
 .setting-btn{
   /* display:inline-block; */
   border-radius: 4px;
-  background-color: rgb(39, 100, 68);
+  background-color: #def9f5;
+  box-shadow: none;
   border:none;
-  color: #ffffff;
+  color: #3b4149;
   text-align: center;
   font-size: 15px;
   padding: 10px;
@@ -777,25 +931,29 @@ input{
   cursor: pointer;
   margin: 0px;
   text-decoration: none;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: 500;
   margin-bottom: 1rem; 
 }
-.setting-btn:disabled{
-  background-color: rgba(39, 100, 68, 0.4);
+.setting-btn:hover{
+  box-shadow: 2px 2px 40px rgba(213, 239, 239, 0.3);
 }
-
-
-
+.setting-btn:disabled{
+  background-color: #535e6e;
+  box-shadow: none;
+}
+.update-name{
+  font-size:22px;
+  font-family:'Montserrat', sans-serif;
+  color:#def9f5
+}
 .update-password{
   min-width: 80px;;
 }
 
-
-
-.h2-setting h2{
-  font-family: 'Anton', sans-serif;
+.h2-setting {
+font-family: 'Smooch Sans', sans-serif;
 font-size: 2rem;
-color:rgb(24, 73, 47);
+color: #def9f5;
 }
 

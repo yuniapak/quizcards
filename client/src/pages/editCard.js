@@ -23,7 +23,7 @@ const EditCard = (props) => {
   const makeEdits = async (editInfo) => {
     try {
       const res = await axios.put(
-        `http://localhost:3001/api/card/${initialState.id}`,
+        `https://quiz-cards-psql.herokuapp.com/api/card/${initialState.id}`,
         editInfo
       )
       console.log(res.data)
@@ -48,11 +48,10 @@ const EditCard = (props) => {
   return (
     <div className="main-div">
       <div className="Addcard">
-        <h2>{initialState.type}</h2>
+        <h2 className="type-card">{initialState.type}</h2>
         <p> Change your card</p>
         <form onSubmit={handleSubmit}>
           <label id="form-select" htmlFor="SubjectType"></label>
-          <br></br>
           Question :<br></br>
           &nbsp;&nbsp;
           <input
@@ -79,7 +78,7 @@ const EditCard = (props) => {
           ></input>
           <br></br>
           <br></br>
-          <button className="setting-btn" type="submit">
+          <button className="addCard-btn" type="submit">
             Make Changes
           </button>
         </form>

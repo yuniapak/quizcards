@@ -4,16 +4,13 @@ function Nav({ authenticated, user, handleLogOut }) {
   if (user) {
     authenticatedOption = (
       <nav className="nav-bar">
-        <h1 className="nav-title">
-          Quiz<span className="c">c</span>ards!
-        </h1>
+        <h1 className="nav-title">?</h1>
         <div className="nav-link">
           <NavLink className="nav-link1" to="/Profile">
-            <span className="nav-link2">Profile </span> |
+            <span className="nav-link2">Profile </span> 
           </NavLink>
-
           <NavLink className="nav-link1" to="/Settings">
-            <span className="nav-link2"> Settings </span> |
+            <span className="nav-link2"> Settings </span> 
           </NavLink>
           <NavLink className="nav-link1" to="/" onClick={handleLogOut}>
             {" "}
@@ -28,15 +25,15 @@ function Nav({ authenticated, user, handleLogOut }) {
   const publicOption = (
     <nav className="nav-bar">
       <h1 className="nav-title">
-        Quiz<span className="c">c</span>ards!
+        ?
       </h1>
       <div className="nav-link">
         <NavLink className="nav-link1" to="/">
-          Home |
+          Home 
         </NavLink>
         <NavLink className="nav-link1" to="/Register">
           {" "}
-          Sign up |
+          Sign up 
         </NavLink>
         <NavLink className="nav-link1" to="/Login">
           {" "}

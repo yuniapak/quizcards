@@ -10,7 +10,7 @@ const UpdatePassword = ({ user }) => {
   const updatePassword = async (form) => {
     try {
       const res = await axios.put(
-        `http://localhost:3001/api/auth/update/${user.id}`,
+        `https://quiz-cards-psql.herokuapp.com/api/auth/update/${user.id}`,
         form
       );
       console.log(res);
@@ -39,12 +39,8 @@ const UpdatePassword = ({ user }) => {
 
   return (
     <div>
-      <h2>Update Password</h2>
+      <h2 className="update-name">Update Password</h2>
       <form onSubmit={handleSubmit}>
-        <label className="update-password" htmlFor="password">
-          Password
-        </label>{" "}
-        <br></br>
         <input
           className="addCard-input"
           name="password"

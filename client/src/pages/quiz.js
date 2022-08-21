@@ -1,46 +1,43 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const Quiz = ({ cardsObj, subject }) => {
-  const [currentQuestion, setQuestion] = useState(0);
-  const [currentScore, setScore] = useState(0);
-  const [popup, setPopup] = useState(false);
-  const [idOfCard, setIdOfCard] = useState("");
+  const [currentQuestion, setQuestion] = useState(0)
+  const [currentScore, setScore] = useState(0)
+  const [popup, setPopup] = useState(false)
+  const [idOfCard, setIdOfCard] = useState('')
 
-  let navigate = useNavigate();
+  let navigate = useNavigate()
 
   const showAnswer = (e) => {
-    setPopup(true);
-    setIdOfCard(e.target.id);
-    console.log(idOfCard);
-  };
+    setPopup(true)
+    setIdOfCard(e.target.id)
+    console.log(idOfCard)
+  }
 
   const addScore = () => {
-    setScore(currentScore + 1);
-    setPopup(false);
-  };
+    setScore(currentScore + 1)
+    setPopup(false)
+  }
 
-  useEffect(() => {}, []);
+  useEffect(() => {}, [])
 
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth",
-    });
-  };
+      behavior: 'smooth'
+    })
+  }
 
-  useEffect(() => {}, []);
+  useEffect(() => {}, [])
 
   return (
     <div className="main-div">
-      <h2>Quizards Quizly Quiz!</h2>
-
-      <h2>{subject}</h2>
+      <h2>{subject} quiz</h2>
       <div>
         {cardsObj.map((card) => (
           <div className="questions-container" key={card.id}>
-            <h2>Test Your Knowledge!</h2>
             <h3>{card.question}</h3>
             <input type="text" placeholder="Answer" />
             <div>
@@ -73,17 +70,17 @@ const Quiz = ({ cardsObj, subject }) => {
       </div>
 
       <div className="score">
-        You Answered <span className="currentScore">{currentScore}</span>{" "}
+        You Answered <span className="currentScore">{currentScore}</span>{' '}
         Correct
       </div>
 
       <button className="enter-quiz-btn" onClick={scrollToTop}>
         Back to top
       </button>
-      <button className="enter-quiz-btn" onClick={() => navigate("/Card")}>
+      <button className="enter-quiz-btn" onClick={() => navigate('/Card')}>
         Back
       </button>
     </div>
-  );
-};
-export default Quiz;
+  )
+}
+export default Quiz

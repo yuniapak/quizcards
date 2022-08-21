@@ -50,7 +50,7 @@ function App() {
   const getTypes = async () => {
     try {
       let result = await axios.get(
-        `http://localhost:3001/api/card/card/${user.id}`
+        `https://quiz-cards-psql.herokuapp.com/api/card/card/${user.id}`
       )
       result.data.map(({ type }) => {
         currentTypes.push(type)
@@ -68,7 +68,7 @@ function App() {
   const getCardbyType = async (subject) => {
     try {
       let res = await axios.get(
-        `http://localhost:3001/api/card/find/${user.id}/${subject}`
+        `https://quiz-cards-psql.herokuapp.com/api/card/find/${user.id}/${subject}`
       )
       console.log(res.data)
       //setting result to useState to pass through

@@ -35,7 +35,9 @@ const Profile = ({
   }
   const getUserName = async () => {
     console.log(user)
-    const result = await axios.get(`http://localhost:3001/api/user/${user.id}`)
+    const result = await axios.get(
+      `https://quiz-cards-psql.herokuapp.com/api/user/${user.id}`
+    )
     // ---Capitalizing Name-----//
     const firstletter = result.data.name[0].toUpperCase()
     console.log(firstletter)
@@ -62,7 +64,7 @@ const Profile = ({
         <div className="profile-card">
           <div className="profile-card-header">
             Welcome <br></br>
-            <br></br> {userName} !
+            {userName} !
           </div>
           <div>
             <button className="add-sub-btn" onClick={navigateToAddType}>
@@ -102,10 +104,13 @@ const Profile = ({
   const publicOptions = (
     <div>
       <h2>Please log in to use Quizards...</h2>
-      <img className="logoff-image" src={LogImg} alt="image1" />
       <br></br>
-      <Link className="main-btn" to="/login">
+      <Link className="main-btn" to="/Login">
         Login now
+      </Link>
+      <br></br>
+      <Link className="main-btn" to="/Register">
+        Sign up
       </Link>
     </div>
   )
