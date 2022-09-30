@@ -19,7 +19,7 @@ const AddCard = ({ user, loading, types }) => {
     console.log(cardData)
 
     const res = await axios.post(
-      `http://localhost:3001/api/card/${user.id}`,
+      `https://quiz-cards-psql.herokuapp.com/api/card/${user.id}`,
       cardData
     )
     console.log(res)
