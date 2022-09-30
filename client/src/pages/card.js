@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 
-const Card = ({ cardsObj, getCardbyType, subject }) => {
+const Card = ({ cardsObj, getCardByType, subject }) => {
   const [showCard, setShowCard] = useState(false)
   const [idOfCard, setIdOfCard] = useState('')
   cardsObj.map((card) => console.log(card))
@@ -13,7 +13,7 @@ const Card = ({ cardsObj, getCardbyType, subject }) => {
     console.log(cardsObj)
   }
   useEffect(() => {
-    getCardbyType(subject)
+    getCardByType(subject)
   }, [])
 
   const deleteCard = async (id) => {
@@ -21,7 +21,7 @@ const Card = ({ cardsObj, getCardbyType, subject }) => {
       .delete(`https://quiz-cards-psql.herokuapp.com/api/card/${id}`)
       .catch((error) => console.log(error))
     console.log(res)
-    await getCardbyType(subject)
+    await getCardByType(subject)
   }
 
   const cardShow = (e) => {

@@ -4,10 +4,10 @@ import { useEffect } from 'react'
 import axios from 'axios'
 
 const Profile = ({
-  setCardsObj,
+  // setCardsObj,
   user,
   authenticated,
-  getCardbyType,
+  getCardByType,
   setSubject,
   subject,
   getTypes,
@@ -29,20 +29,18 @@ const Profile = ({
     e.preventDefault()
     //calling axios on submit
 
-    getCardbyType(subject)
+    getCardByType(subject)
     navigate(`/Card`)
   }
   const getUserName = async () => {
-    console.log(user)
     const result = await axios.get(
       `https://quiz-cards-psql.herokuapp.com/api/user/${user.id}`
     )
     // ---Capitalizing Name-----//
     const firstletter = result.data.name[0].toUpperCase()
-    console.log(firstletter)
+
     const restOfName = result.data.name.slice(1, result.data.name.length)
-    console.log(restOfName)
-    console.log(restOfName)
+
     //----------------------------
     // setUserName(result.data.name);
     setUserName(firstletter + restOfName)

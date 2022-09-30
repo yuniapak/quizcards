@@ -40,9 +40,8 @@ function App() {
 
   useEffect(() => {
     const token = localStorage.getItem('token')
-    console.log(token)
+
     if (token) {
-      console.log(token)
       checkToken()
     }
   }, [])
@@ -52,7 +51,7 @@ function App() {
       let result = await axios.get(
         `https://quiz-cards-psql.herokuapp.com/api/card/card/${user.id}`
       )
-      result.data.map((type) => {
+      result.data.map(({ type }) => {
         currentTypes.push(type)
       })
       console.log([...new Set(currentTypes)])
@@ -65,7 +64,7 @@ function App() {
     }
   }
 
-  const getCardbyType = async (subject) => {
+  const getCardByType = async (subject) => {
     try {
       let res = await axios.get(
         `https://quiz-cards-psql.herokuapp.com/api/card/find/${user.id}/${subject}`
@@ -100,7 +99,7 @@ function App() {
             element={
               <Card
                 cardsObj={cardsObj}
-                getCardbyType={getCardbyType}
+                getCardByType={getCardByType}
                 subject={subject}
               />
             }
@@ -124,7 +123,7 @@ function App() {
                 user={user}
                 authenticated={authenticated}
                 setSubject={setSubject}
-                getCardbyType={getCardbyType}
+                getCardByType={getCardByType}
                 subject={subject}
                 getTypes={getTypes}
                 types={types}
