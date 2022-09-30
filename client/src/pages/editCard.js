@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { useLocation } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const EditCard = (props) => {

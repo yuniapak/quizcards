@@ -52,7 +52,7 @@ function App() {
       let result = await axios.get(
         `https://quiz-cards-psql.herokuapp.com/api/card/card/${user.id}`
       )
-      result.data.map(({ type }) => {
+      result.data.map((type) => {
         currentTypes.push(type)
       })
       console.log([...new Set(currentTypes)])

@@ -1,7 +1,6 @@
 import axios from 'axios'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import LogImg from '../images/notlogin.png'
 import UpdatePassword from '../components/updatePassword'
 
 const Settings = ({ user, userName, authenticated }) => {

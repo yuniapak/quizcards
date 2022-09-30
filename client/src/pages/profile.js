@@ -1,8 +1,7 @@
 import { useNavigate, Link } from 'react-router-dom'
-import { useState, useEffect } from 'react'
-import LogImg from '../images/notlogin.png'
+import { useEffect } from 'react'
+
 import axios from 'axios'
-import Card from './card'
 
 const Profile = ({
   setCardsObj,
@@ -18,7 +17,7 @@ const Profile = ({
   userName
 }) => {
   let navigate = useNavigate()
-  const initialState = { value: '' }
+  // const initialState = { value: '' }
 
   const handleChange = (event) => {
     event.preventDefault()

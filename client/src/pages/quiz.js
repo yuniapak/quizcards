@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react'
-import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
 const Quiz = ({ cardsObj, subject }) => {
-  const [currentQuestion, setQuestion] = useState(0)
+  // const [currentQuestion, setQuestion] = useState(0)
   const [currentScore, setScore] = useState(0)
   const [popup, setPopup] = useState(false)
   const [idOfCard, setIdOfCard] = useState('')
@@ -48,7 +47,7 @@ const Quiz = ({ cardsObj, subject }) => {
               >
                 Check Answer
               </button>
-              {popup && idOfCard == card.id ? (
+              {popup && idOfCard === card.id ? (
                 <div className="answer-container">
                   <div className="answer-content">
                     Answer:

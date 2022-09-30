@@ -53,7 +53,7 @@ const Card = ({ cardsObj, getCardbyType, subject }) => {
             <h1 className="quiz-type">{card.type}</h1>
             <h1 className="quiz-question">{card.question.toUpperCase()}</h1>
 
-            {showCard && idOfCard == card.id ? (
+            {showCard && idOfCard === card.id ? (
               <h1 className="quiz-answer"> {card.answer}</h1>
             ) : null}
             <button className="quiz-show-btn" id={card.id} onClick={cardShow}>

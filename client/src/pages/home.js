@@ -1,4 +1,3 @@
-import studyImg from '../images/lighbulb.png'
 import { Link } from 'react-router-dom'
 
 const Home = () => {
