@@ -50,8 +50,10 @@ const Profile = ({
   }
 
   useEffect(() => {
-    getTypes()
-    getUserName()
+    if (user) {
+      getTypes()
+      getUserName()
+    }
   }, [])
 
   let authenticatedOptions

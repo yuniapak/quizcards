@@ -13,7 +13,9 @@ const Card = ({ cardsObj, getCardByType, subject }) => {
     console.log(cardsObj)
   }
   useEffect(() => {
-    getCardByType(subject)
+    if (subject) {
+      getCardByType(subject)
+    }
   }, [])
 
   const deleteCard = async (id) => {
